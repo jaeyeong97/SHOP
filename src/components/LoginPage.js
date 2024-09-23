@@ -16,7 +16,8 @@ const LoginPage = () => {
   };
 
   const handleKakaoSuccess = (kakaoAccount) => {
-    handleLoginSuccess(kakaoAccount.email, kakaoAccount.nickname, kakaoAccount.profileImg);
+    handleLoginSuccess(kakaoAccount.email, kakaoAccount.nickname, kakaoAccount.profile_image_url
+    );
   };
 
   const handleGoogleSuccess = (response) => {
