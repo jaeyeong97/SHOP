@@ -1,10 +1,9 @@
 import { GoogleLogin } from "@react-oauth/google";
 
-const GoogleLoginComponent = ({ onSuccess, onFailure }) => {
+const GoogleLoginComponent = ({ onSuccess }) => {
     return (
         <GoogleLogin
             onSuccess={onSuccess}
-            onError={onFailure}
             type="icon"
             shape="circle"
         />

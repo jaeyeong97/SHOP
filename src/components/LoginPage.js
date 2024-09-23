@@ -8,28 +8,25 @@ import NaverLogin from "./NaverLogin";
 const LoginPage = () => {
   const navigate = useNavigate();
 
-  const handleKakaoSuccess = (kakaoAccount) => {
-    localStorage.setItem("email", kakaoAccount.email);
-    localStorage.setItem("nickname", kakaoAccount.nickname);
-    localStorage.setItem("profileImg", kakaoAccount.profileImg);
+  const handleLoginSuccess = (email, nickname, profileImg) => {
+    localStorage.setItem("email", email);
+    localStorage.setItem("nickname", nickname);
+    localStorage.setItem("profileImg", profileImg);
     navigate("/my-page");
+  };
+
+  const handleKakaoSuccess = (kakaoAccount) => {
+    handleLoginSuccess(kakaoAccount.email, kakaoAccount.nickname, kakaoAccount.profileImg);
   };
 
   const handleGoogleSuccess = (response) => {
     const decoded = jwtDecode(response.credential);
-    localStorage.setItem("email", decoded.email);
-    localStorage.setItem("nickname", decoded.name);
-    localStorage.setItem("profileImg", decoded.picture);
-    navigate("/my-page");
+    handleLoginSuccess(decoded.email, decoded.name, decoded.picture);
   };
 
   const handleNaverSuccess = (naverAccount) => {
-    localStorage.setItem("email", naverAccount.email);
-    localStorage.setItem("nickname", naverAccount.nickname);
-    localStorage.setItem("profileImg", naverAccount.profileImg);
-    navigate("/my-page");
+    handleLoginSuccess(naverAccount.email, naverAccount.nickname, naverAccount.profileImg);
   };
-
 
   return (
     <section id="login-page">

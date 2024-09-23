@@ -1,18 +1,5 @@
-import { useEffect } from 'react';
 
 const KakaoLogin = ({ onSuccess }) => {
-    const Kakao = window.Kakao;
-
-    const initKakao = () => {
-        const jsKey = process.env.REACT_APP_KAKAO_APP_KEY;
-        if (Kakao && !Kakao.isInitialized()) {
-            Kakao.init(jsKey);
-        }
-    };
-
-    useEffect(() => {
-        initKakao();
-    }, []);
 
     const handleKakaoLogin = () => {
         const Kakao = window.Kakao;
@@ -22,7 +9,11 @@ const KakaoLogin = ({ onSuccess }) => {
                     url: "/v2/user/me",
                     success(res) {
                         const kakaoAccount = res.kakao_account;
-                        onSuccess(kakaoAccount);
+                        onSuccess({
+                            email: kakaoAccount.email,
+                            profileImg: kakaoAccount.profile.profile_image_url,
+                            nickname: kakaoAccount.profile.nickname,
+                        });
                     },
                     fail(error) {
                         console.log(error);
