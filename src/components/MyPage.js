@@ -3,19 +3,16 @@ import { useEffect, useState } from "react";
 import "../styles/mypage.scss";
 
 const MyPage = () => {
-    const [user, setUser] = useState({});
+    const [user, setUser] = useState({}); // 로컬스토리지 로그인 정보 저장
     const navigate = useNavigate();
-    const Kakao = window.Kakao;
-    const { naver } = window;
 
     useEffect(() => {
-        const email = localStorage.getItem("email");
         const profileImg = localStorage.getItem("profileImg");
         const nickname = localStorage.getItem("nickname");
 
-        if (email && profileImg && nickname) {
+        // 프로필이미지랑 이름 둘다 들어와야지 출력함..
+        if (profileImg && nickname) {
             setUser({
-                email,
                 profileImg,
                 nickname,
             });
@@ -23,27 +20,24 @@ const MyPage = () => {
     }, [navigate]);
 
     const handleLogout = () => {
-        const email = localStorage.getItem("email");
-
-        // 구글 로그아웃 처리
-        if (email && email.includes("@gmail.com")) {
+        if (window.google && window.google.accounts && window.google.accounts.id) {
             window.google.accounts.id.disableAutoSelect();
         }
-        // 카카오 로그아웃 처리
-        else if (email && Kakao && Kakao.Auth) {
-            Kakao.Auth.logout(() => {
+        if (window.Kakao && window.Kakao.Auth) {
+            window.Kakao.Auth.logout(() => {
+                console.log("Kakao 로그아웃 완료");
             });
         }
-        // 네이버 로그아웃 처리
-        else if (email && email.includes("@naver.com") && naver) {
-            naver.Logout();
+        if (window.naver && window.naver.Logout) {
+            window.naver.Logout();
+            console.log("Naver 로그아웃 완료");
         }
 
-        // 공통 처리
         localStorage.clear();
         setUser({});
         navigate("/");
     };
+
 
     return (
         <section id="my-page">
@@ -57,9 +51,6 @@ const MyPage = () => {
                 </div>
                 {user.nickname && user.nickname !== "undefined" && (
                     <div className="user-name">{user.nickname}</div>
-                )}
-                {user.email && user.email !== "undefined" && (
-                    <div className="user-email">{user.email}</div>
                 )}
             </div>
             <button onClick={handleLogout} className="log-off-btn">로그아웃</button>

@@ -5,7 +5,8 @@ const NaverLogin = ({ onSuccess }) => {
     const { naver } = window;
     const naverLogin = new naver.LoginWithNaverId({
       clientId: process.env.REACT_APP_NAVER_CLIENT_ID,
-      callbackUrl: "http://localhost:3000/login-page",
+      // 주소체크
+      callbackUrl: "https://shop-2da0a.web.app/",
       loginButton: {
         color: "green",
         type: 3,

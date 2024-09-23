@@ -21,22 +21,8 @@ import Socks from "./components/Socks"
 import Bag from "./components/Bag"
 import Cap from "./components/Cap"
 import Accessory from "./components/Accessory"
-import { useEffect } from "react";
-
-const initKakao = () => {
-  const Kakao = window.Kakao;
-  const jsKey = process.env.REACT_APP_KAKAO_APP_KEY;
-  if (Kakao && !Kakao.isInitialized()) {
-    Kakao.init(jsKey);
-  }
-};
 
 function App() {
-
-  useEffect(() => {
-    initKakao();
-  }, []);
-
   return (
     <GoogleOAuthProvider clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}>
       <RecoilRoot>

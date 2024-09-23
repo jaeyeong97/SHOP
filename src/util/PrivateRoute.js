@@ -1,9 +1,9 @@
 import { Navigate } from "react-router-dom";
 
 const PrivateRoute = ({ children }) => {
-    const email = localStorage.getItem("email");
+    const nickname = localStorage.getItem("nickname");
 
-    if (!email) {
+    if (!nickname) {
         return <Navigate to="/login-page" />;
     }
 
