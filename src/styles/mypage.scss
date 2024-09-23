@@ -1,0 +1,22 @@
+#my-page {
+  .my-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .user-icon {
+      width: 80px;
+      border-radius: 50%;
+      overflow: hidden;
+      .profile,
+      .profile-empty {
+        width: 100%;
+        height: auto;
+      }
+    }
+    .user-name {
+      margin-top: 10px;
+    }
+  }
+  .log-off-btn {
+  }
+}
