@@ -28,7 +28,6 @@ const LoginPage = () => {
     localStorage.setItem("profileImg", naverAccount.profileImg);
     navigate("/my-page");
     console.log('네이버 로컬넣기 성공')
-    console.log(naverAccount, '네이버어카운트');
   };
 
   return (

@@ -6,7 +6,7 @@ const NaverLogin = ({ onSuccess }) => {
     const naverLogin = new naver.LoginWithNaverId({
       clientId: process.env.REACT_APP_NAVER_CLIENT_ID,
       // 주소체크
-      callbackUrl: "https://shop-2da0a.web.app/",
+      callbackUrl: "https://shop-2da0a.web.app",
       loginButton: {
         color: "green",
         type: 3,
@@ -31,7 +31,6 @@ const NaverLogin = ({ onSuccess }) => {
     naverLogin.getLoginStatus(function (status) {
       if (status) {
         onSuccess({
-          email: naverLogin.user.email,
           nickname: naverLogin.user.name,
           profileImg: naverLogin.user.profile_image,
         });
