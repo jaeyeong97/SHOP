@@ -1,14 +1,15 @@
 import { useRecoilValue } from "recoil";
-import { accessoryState } from "../recoil/atom";
+import { eyewareState } from "../recoil/atom";
 import InnerCategoryComponent from "./InnerCategoryComponent";
-const Accessory = () => {
-    const accessoryItems = useRecoilValue(accessoryState);
+
+const Eyeware = () => {
+    const eyewareItems = useRecoilValue(eyewareState);
 
     return (
-        <section id="accessory-page">
+        <section id="eyeware-page">
             <InnerCategoryComponent />
             <div className="item-map-section">
-                {accessoryItems.map((item) => (
+                {eyewareItems.map((item) => (
                     <div key={item.id} className="item">
                         <img src={item.img} alt={item.name} />
                         <div className="name">{item.name}</div>
@@ -20,4 +21,4 @@ const Accessory = () => {
     );
 };
 
-export default Accessory;
+export default Eyeware;

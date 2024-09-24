@@ -1,0 +1,44 @@
+#top-page,
+#pants-page,
+#outer-page,
+#shoes-page,
+#skirt-page,
+#socks-page,
+#eyeware-page,
+#cap-page,
+#bag-page,
+#accesoory-page {
+  padding-bottom: 60px;
+}
+.item-map-section {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  .item {
+    width: 50%;
+    padding: 30px 30px 10px 30px;
+    border: 1px solid #e5e5e5;
+    border-right: none;
+    border-bottom: none;
+    &:nth-child(2n) {
+      border-right: 1px solid #e5e5e5;
+    }
+    &:nth-last-child(-n + 2) {
+      border-bottom: 1px solid #e5e5e5;
+    }
+    img {
+      width: 100%;
+      height: auto;
+    }
+    .name {
+      color: #333;
+      text-align: center;
+      font-size: 13px;
+    }
+    .price {
+      text-align: center;
+      font-size: 16px;
+      margin-top: 8px;
+    }
+  }
+}
