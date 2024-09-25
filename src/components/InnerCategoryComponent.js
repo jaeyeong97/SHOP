@@ -1,24 +1,23 @@
-import { useLocation, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useRecoilValue } from "recoil";
 import { iconsState } from "../recoil/atom";
 import "../styles/innerCategoryComponent.scss";
+
 const InnerCategoryComponent = () => {
-  const navigate = useNavigate();
-  const location = useLocation();
   const icons = useRecoilValue(iconsState);
 
   return (
     <section id="inner-category">
       <div className="inner-category-wrap">
         {icons.map((icon) => (
-          <div
+          <NavLink
             key={icon.path}
-            className={location.pathname === icon.path ? 'icon active' : 'icon'}
-            onClick={() => navigate(icon.path)}
+            to={icon.path}
+            className={({ isActive }) => (isActive ? 'icon active' : 'icon')}
           >
             <img src={icon.src} alt={icon.alt} />
             <span className="txt">{icon.label}</span>
-          </div>
+          </NavLink>
         ))}
       </div>
     </section>

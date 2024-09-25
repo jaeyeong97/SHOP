@@ -22,6 +22,7 @@ import Socks from "./components/Socks"
 import Bag from "./components/Bag"
 import Cap from "./components/Cap"
 import Accessory from "./components/Accessory"
+import ItemModal from "./components/ItemModal";
 import "./styles/commonCategoryInner.scss";
 
 function App() {
@@ -57,6 +58,7 @@ function App() {
                 <MyPage />
               </PrivateRoute>
             } />
+            <Route path="/item/:id" element={<ItemModal />} />
           </Routes>
         </Router>
       </RecoilRoot>

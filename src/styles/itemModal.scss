@@ -1,0 +1,131 @@
+.item-modal {
+  position: relative;
+  padding-bottom: 140px;
+  .item-img {
+    width: 100%;
+    height: auto;
+  }
+  .name {
+    font-size: 18px;
+    margin-top: 20px;
+  }
+  .price {
+    font-size: 22px;
+    font-weight: 600;
+    margin-top: 30px;
+  }
+  .btn-wrap {
+    position: fixed;
+    bottom: 45px;
+    width: 100%;
+    max-width: 600px;
+    padding: 10px 20px 20px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+    z-index: 1000;
+    .icon {
+      font-size: 30px;
+      cursor: pointer;
+    }
+    .icon.active {
+      color: #ff3700;
+      animation: favClick 0.3s;
+      font-variation-settings: "FILL" 1;
+    }
+    .buy-btn {
+      width: 90%;
+      height: 50px;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 600;
+      border-radius: 3px;
+      text-align: center;
+      line-height: 50px;
+      background-color: #222;
+      cursor: pointer;
+    }
+  }
+  .buy-modal-wrap {
+    position: fixed;
+    bottom: 60px;
+    width: 100%;
+    height: 500px;
+    max-width: 600px;
+    padding: 20px;
+    z-index: 2000;
+    background-color: #fff;
+    .buy-modal {
+      .size-wrap,
+      .color-wrap {
+        margin-bottom: 10px;
+        .size-title,
+        .color-title {
+          position: relative;
+          width: 100%;
+          max-width: 550px;
+          height: 50px;
+          font-size: 14px;
+          padding-left: 20px;
+          line-height: 50px;
+          border-radius: 5px;
+          border: 1px solid #c5c5c5;
+          cursor: pointer;
+          &:active {
+            background-color: #ececec;
+          }
+          span {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            font-size: 28px;
+            color: #c5c5c5;
+          }
+        }
+
+        .size-list,
+        .color-list {
+          width: 100%;
+          max-width: 550px;
+          overflow: hidden;
+          transition: 0.2s;
+          background-color: #fff;
+
+          .size,
+          .color {
+            font-size: 14px;
+            padding: 20px;
+            border: 1px solid #c5c5c5;
+            border-top: none;
+            cursor: pointer;
+            &:last-child {
+              margin-bottom: 1px;
+              border-radius: 0 0 5px 5px;
+            }
+            &:active {
+              background-color: #ececec;
+            }
+          }
+        }
+      }
+      .close-btn {
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        width: 100%;
+        max-width: 550px;
+        height: 50px;
+        font-size: 18px;
+        font-weight: 600;
+        border-radius: 5px;
+        transform: translateX(-50%);
+        border: 1px solid #c5c5c5;
+        background-color: #fff;
+        &:active {
+          background-color: #ececec;
+        }
+      }
+    }
+  }
+}

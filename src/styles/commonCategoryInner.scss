@@ -15,23 +15,17 @@
   flex-wrap: wrap;
   margin-top: 20px;
   .item {
+    position: relative;
     width: 50%;
     padding: 30px 30px 10px 30px;
-    border: 1px solid #e5e5e5;
-    border-right: none;
-    border-bottom: none;
-    &:nth-child(2n) {
-      border-right: 1px solid #e5e5e5;
-    }
-    &:nth-last-child(-n + 2) {
-      border-bottom: 1px solid #e5e5e5;
-    }
+    box-shadow: 1px 0 0 0 #e5e5e5, 0 1px 0 0 #e5e5e5, 1px 1px 0 0 #e5e5e5,
+      1px 0 0 0 #e5e5e5 inset, 0 1px 0 0 #e5e5e5 inset;
+    cursor: pointer;
     img {
       width: 100%;
       height: auto;
     }
     .name {
-      color: #333;
       text-align: center;
       font-size: 13px;
     }
@@ -40,5 +34,43 @@
       font-size: 16px;
       margin-top: 8px;
     }
+    .icon {
+      position: absolute;
+      bottom: 10px;
+      right: 15px;
+    }
+    .icon.active {
+      color: #ff3700;
+      animation: favClick 0.3s;
+      font-variation-settings: "FILL" 1;
+    }
+  }
+}
+.fav-alert {
+  position: fixed;
+  bottom: 80px;
+  left: 50%;
+  width: calc(100% - 60px);
+  height: 50px;
+  max-width: 500px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 3px;
+  text-align: center;
+  line-height: 50px;
+  transform: translateX(-50%);
+  background-color: #333;
+  z-index: 1000;
+}
+@keyframes favClick {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
   }
 }

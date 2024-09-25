@@ -6,7 +6,7 @@ const Gnb = () => {
     <nav className='gnb'>
       <ul>
         <li>
-          <NavLink to="/" activeclassname="active">
+          <NavLink to="/" className={({ isActive }) => (isActive ? 'active' : '')}>
             <div className='wrap'>
               <span className="material-symbols-outlined icon home">home</span>
               <span className='txt'>홈</span>
@@ -14,7 +14,7 @@ const Gnb = () => {
           </NavLink>
         </li>
         <li>
-          <NavLink to="/category" activeclassname="active">
+          <NavLink to="/category" className={({ isActive }) => (isActive ? 'active' : '')}>
             <div className='wrap'>
               <span className="material-symbols-outlined icon menu">menu</span>
               <span className='txt'>카테고리</span>
@@ -22,7 +22,7 @@ const Gnb = () => {
           </NavLink>
         </li>
         <li>
-          <NavLink to="/favorite" activeclassname="active">
+          <NavLink to="/favorite" className={({ isActive }) => (isActive ? 'active' : '')}>
             <div className='wrap'>
               <span className="material-symbols-outlined icon favorite">favorite</span>
               <span className='txt'>좋아요</span>
@@ -30,7 +30,7 @@ const Gnb = () => {
           </NavLink>
         </li>
         <li>
-          <NavLink to="/my-page" activeclassname="active">
+          <NavLink to="/my-page" className={({ isActive }) => (isActive ? 'active' : '')}>
             <div className='wrap'>
               <span className="material-symbols-outlined icon mypage">person</span>
               <span className='txt'>마이페이지</span>
