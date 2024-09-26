@@ -125,13 +125,20 @@ export const iconsState = atom({
     ],
 });
 
+// 좋아요 상태
 export const favoriteState = atom({
     key: "favoriteState",
+    default: [],
+});
+
+// 장바구니 상태
+export const cartState = atom({
+    key: "cartState",
     default: [],
 });
 
 // 선택된 상품 한개를 상세페이지로
 export const selectedItemState = atom({
     key: "selectedItemState",
-    default: { item: null, selectedSize: null, selectedColor: null },
+    default: { item: null, selectedSize: null, selectedColor: null, quantity: 1 },
 });

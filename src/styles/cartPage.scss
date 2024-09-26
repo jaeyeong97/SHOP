@@ -1,14 +1,14 @@
-#favorite-page {
+#cart-page {
   padding-bottom: 60px;
-  .no-fav-item-wrap {
+  .no-cart-wrap {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 70vh;
+    height: 75vh;
     .icon {
       font-size: 50px;
-      color: #fc65db;
+      color: #c5c5c5;
       font-variation-settings: "wght" 200;
       margin-bottom: 5px;
     }
@@ -18,6 +18,15 @@
     }
     .t2 {
       color: #999;
+    }
+    .go-shopping {
+      width: 240px;
+      height: 50px;
+      margin-top: 20px;
+      font-size: 16px;
+      color: #fff;
+      border-radius: 5px;
+      background-color: #fc65db;
     }
   }
 }

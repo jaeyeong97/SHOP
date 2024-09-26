@@ -1,16 +1,19 @@
 import { useRecoilState } from "recoil";
-import { selectedItemState } from "../recoil/atom";
+import { selectedItemState, cartState } from "../recoil/atom";
 import { useNavigate } from "react-router-dom";
 import FavoriteButton from "./FavoriteBtn";
 import "../styles/itemModal.scss";
 import { useEffect, useRef, useState } from "react";
 
 const ItemModal = () => {
-  const [selectedItem, setSelectedItem] = useRecoilState(selectedItemState); // 상태 가져오기
-  const [isBuyModalOpen, setIsBuyModalOpen] = useState(false);
+  const [selectedItem, setSelectedItem] = useRecoilState(selectedItemState); // 선택된 상품
+  const [cart, setCart] = useRecoilState(cartState); // 장바구니 상태
+  const [isBuyModalOpen, setIsBuyModalOpen] = useState(false); // 구매 모달
   const [clickSize, setClickSize] = useState(false);
   const [clickColor, setClickColor] = useState(false);
   const [warningMessage, setWarningMessage] = useState(""); // 경고 메시지 상태
+  const [cartAlert, setCartAlert] = useState(false); // 장바구니 알림
+  const [alertTimeout, setAlertTimeout] = useState(false);
   const sizeListRef = useRef(null);
   const colorListRef = useRef(null);
 
@@ -23,8 +26,19 @@ const ItemModal = () => {
     }
   }, [selectedItem, navigate]);
 
-  if (!selectedItem || !selectedItem.item) return null; // selectedItem.item이 null일 경우 에러 방지
+  // 모달 열릴시 스크롤 제어
+  useEffect(() => {
+    if (isBuyModalOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [isBuyModalOpen]);
 
+  if (!selectedItem || !selectedItem.item) return null; // selectedItem.item이 null일 경우 에러 방지
 
   const handleBuyClick = () => {
     setIsBuyModalOpen(true); // 구매 버튼 클릭 시 모달 오픈
@@ -52,37 +66,86 @@ const ItemModal = () => {
 
   // 사이즈 클릭 함수
   const handleSelecetedSize = (size) => {
-    const currentItem = selectedItem.item;
     setSelectedItem({
-      item: currentItem,
+      item: selectedItem.item,
       selectedSize: size,
-      selectedColor: null
+      selectedColor: null,
+      quantity: 1,
     });
     setClickSize(false);
     setClickColor(true);
   };
   // 색상 클릭 함수
   const handleSelecetedColor = (color) => {
-    const currentItem = selectedItem.item;
     setSelectedItem({
-      item: currentItem,
+      item: selectedItem.item,
       selectedSize: selectedItem.selectedSize,
-      selectedColor: color
+      selectedColor: color,
+      quantity: 1,
     });
     setClickColor(false);
   };
   // 담긴 상품 닫기 버튼
   const handleDeleteItem = () => {
-    const currentItem = selectedItem.item;
     setSelectedItem({
-      item: currentItem,
+      item: selectedItem.item,
       selectedSize: null,
-      selectedColor: null
+      selectedColor: null,
+      quantity: 1,
     });
   }
 
+  // 장바구니 버튼
+  const handleCartClick = () => {
+    const existingItemIndex = cart.findIndex(item =>
+      item.id === selectedItem.item.id &&
+      item.selectedSize === selectedItem.selectedSize &&
+      item.selectedColor === selectedItem.selectedColor
+    );
+
+    if (existingItemIndex !== -1) {
+      // 이미 장바구니에 존재하는 상품일 경우 수량 증가
+      setCart(prevCart => {
+        const updatedCart = [...prevCart];
+        updatedCart[existingItemIndex] = {
+          ...updatedCart[existingItemIndex],
+          quantity: updatedCart[existingItemIndex].quantity + 1 // 수량 증가
+        };
+        return updatedCart;
+      });
+    } else {
+      // 장바구니에 없는 상품일 경우 새로 추가
+      const newItem = {
+        ...selectedItem.item,
+        selectedSize: selectedItem.selectedSize,
+        selectedColor: selectedItem.selectedColor,
+        quantity: 1 // 기본 수량을 1로 설정
+      };
+      setCart(prevCart => [...prevCart, newItem]);
+    }
+
+    setIsBuyModalOpen(false);
+    setCartAlert(true);
+
+    // 장바구니 넣은 후 선택된 옵션 초기화
+    setSelectedItem({
+      item: selectedItem.item,
+      selectedSize: null,
+      selectedColor: null,
+      quantity: 1
+    });
+
+    if (alertTimeout) {
+      clearTimeout(alertTimeout);
+    }
+    const timeout = setTimeout(() => {
+      setCartAlert(false);
+    }, 2000);
+    setAlertTimeout(timeout);
+  };
+
   return (
-    <div className="item-modal" onClick={closeBuyModal}>
+    <div className="item-modal" onClick={closeBuyModal} >
       <div className={isBuyModalOpen ? "item-modal-bg active" : "item-modal-bg"}></div>
       <img src={selectedItem.item.img} alt={selectedItem.item.name} className="item-img" />
       <div className="name">{selectedItem.item.name}</div>
@@ -112,7 +175,7 @@ const ItemModal = () => {
               </div>
               <div className="total-price">총 <span>{selectedItem.item.price}원</span></div>
               <div className="inner-btn-wrap">
-                <button className="inner-cart-btn btn">장바구니</button>
+                <button className="inner-cart-btn btn" onClick={handleCartClick}>장바구니</button>
                 <button className="inner-buy-btn btn">구매하기</button>
               </div>
             </div>
@@ -152,7 +215,7 @@ const ItemModal = () => {
                     onClick={handleClickColor}
                     style={{ borderRadius: clickColor ? "5px 5px 0 0" : "5px" }}
                   >
-                    {selectedItem.selectedColor ? selectedItem.selectedColor : "사이즈 선택하기"}
+                    {selectedItem.selectedColor ? selectedItem.selectedColor : "색상 선택하기"}
                     {clickColor ? <span className="material-symbols-outlined">
                       keyboard_arrow_up
                     </span> : <span className="material-symbols-outlined">
@@ -178,6 +241,7 @@ const ItemModal = () => {
           )}
         </div>
       )}
+      {cartAlert && <div className="cart-alert">장바구니에 상품을 담았습니다.</div>}
     </div>
   );
 };
