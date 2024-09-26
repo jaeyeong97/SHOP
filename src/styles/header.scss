@@ -1,7 +1,7 @@
 .to-app-banner {
   position: sticky;
   top: 0;
-  z-index: 101;
+  z-index: 1000;
   .to-app-modal-bg {
     display: none;
     position: fixed;
@@ -10,7 +10,7 @@
     right: 0;
     bottom: 0;
     z-index: 101;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.4);
   }
   .to-app-modal-bg.active {
     display: block;

@@ -130,19 +130,8 @@ export const favoriteState = atom({
     default: [],
 });
 
-// item 모달출력
+// 선택된 상품 한개를 상세페이지로
 export const selectedItemState = atom({
     key: "selectedItemState",
-    default: null,
-});
-
-// 선택된 사이즈
-export const selectedSizeState = atom({
-    key: 'selectedSizeState',
-    default: null,
-});
-//   선택된 색상
-export const selectedColorState = atom({
-    key: 'selectedColorState',
-    default: null,
+    default: { item: null, selectedSize: null, selectedColor: null },
 });

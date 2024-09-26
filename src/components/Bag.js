@@ -10,7 +10,7 @@ const Bag = () => {
     const navigate = useNavigate();
 
     const handleClickItem = (item) => {
-        setSelectedItem(item);
+        setSelectedItem({ item, selectedSize: null, selectedColor: null });
         navigate(`/item/${item.id}`);
     };
 

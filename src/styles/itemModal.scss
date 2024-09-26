@@ -1,6 +1,19 @@
 .item-modal {
   position: relative;
   padding-bottom: 140px;
+  .item-modal-bg {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  .item-modal-bg.active {
+    display: block;
+  }
   .item-img {
     width: 100%;
     height: auto;
@@ -24,7 +37,7 @@
     align-items: center;
     justify-content: space-between;
     background-color: #fff;
-    z-index: 1000;
+    z-index: 100;
     .icon {
       font-size: 30px;
       cursor: pointer;
@@ -49,13 +62,80 @@
   }
   .buy-modal-wrap {
     position: fixed;
-    bottom: 60px;
+    bottom: 0;
     width: 100%;
-    height: 500px;
+    height: 450px;
     max-width: 600px;
     padding: 20px;
-    z-index: 2000;
+    border-radius: 10px 10px 0 0;
+    z-index: 1000;
     background-color: #fff;
+    // 상품 옵션 선택 후
+    .to-cart-or-to-buy {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      .box {
+        position: relative;
+        padding: 20px;
+        border-radius: 5px;
+        border: 1px solid #c5c5c5;
+        .delete {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          cursor: pointer;
+          .icon {
+            font-size: 18px;
+            color: #c5c5c5;
+          }
+        }
+        .price {
+          font-size: 14px;
+          text-align: end;
+        }
+      }
+      .total-price {
+        position: absolute;
+        bottom: 70px;
+        right: 10px;
+        font-size: 16px;
+        span {
+          font-size: 20px;
+          font-weight: 600;
+          color: #fc65db;
+        }
+      }
+      .inner-btn-wrap {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        .btn {
+          width: calc(50% - 10px);
+          padding: 15px 20px;
+          border-radius: 10px;
+          font-size: 16px;
+          font-weight: 600;
+        }
+        .inner-cart-btn {
+          border: 1px solid #c5c5c5;
+          background-color: #fff;
+          &:active {
+            background-color: #ececec;
+          }
+        }
+        .inner-buy-btn {
+          color: #fff;
+          background-color: #222;
+          &:active {
+            background-color: #444;
+          }
+        }
+      }
+    }
+    // 상품 옵션 선택 전
     .buy-modal {
       .size-wrap,
       .color-wrap {

@@ -3,6 +3,7 @@ import { useRecoilState, useRecoilValue } from "recoil";
 import { outerState, selectedItemState } from "../recoil/atom";
 import { iconsState } from "../recoil/atom";
 import "../styles/mainpage.scss";
+import FavoriteButton from "./FavoriteBtn";
 
 const MainPage = () => {
   const outerItems = useRecoilValue(outerState);
@@ -11,13 +12,13 @@ const MainPage = () => {
   const navigate = useNavigate();
 
   const handleClickItem = (item) => {
-    setSelectedItem(item);
+    setSelectedItem({ item, selectedSize: null, selectedColor: null });
     navigate(`/item/${item.id}`);
   };
 
   return (
     <section id="main-page">
-      <div className="main-slider">컴포넌트 따로해서 코드 관리</div>
+      <div className="main-slider">컴포넌트 따로해서 recoil 관리</div>
       <div className="main-category-wrap">
         {icons.map((icon) => (
           <NavLink
@@ -36,6 +37,7 @@ const MainPage = () => {
             <img src={item.img} alt={item.name} />
             <div className="name">{item.name}</div>
             <div className="price">{item.price}</div>
+            <FavoriteButton item={item} />
           </div>
         ))}
       </div>
