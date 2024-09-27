@@ -97,6 +97,8 @@ const ItemModal = () => {
 
   // 장바구니 버튼
   const handleCartClick = () => {
+    const price = parseInt(selectedItem.item.price.replace(/,/g, ''), 10); // 쉼표 제거 후 숫자로 변환
+
     const existingItemIndex = cart.findIndex(item =>
       item.id === selectedItem.item.id &&
       item.selectedSize === selectedItem.selectedSize &&
@@ -104,12 +106,13 @@ const ItemModal = () => {
     );
 
     if (existingItemIndex !== -1) {
-      // 이미 장바구니에 존재하는 상품일 경우 수량 증가
+      // 이미 장바구니에 존재하는 상품일 경우 수량 및 가격 증가
       setCart(prevCart => {
         const updatedCart = [...prevCart];
         updatedCart[existingItemIndex] = {
           ...updatedCart[existingItemIndex],
-          quantity: updatedCart[existingItemIndex].quantity + 1 // 수량 증가
+          quantity: updatedCart[existingItemIndex].quantity + selectedItem.quantity, // 수량 증가
+          price: price * (updatedCart[existingItemIndex].quantity + selectedItem.quantity) // 가격 계산
         };
         return updatedCart;
       });
@@ -119,7 +122,8 @@ const ItemModal = () => {
         ...selectedItem.item,
         selectedSize: selectedItem.selectedSize,
         selectedColor: selectedItem.selectedColor,
-        quantity: 1 // 기본 수량을 1로 설정
+        quantity: selectedItem.quantity, // 선택한 수량 반영
+        price: price * selectedItem.quantity // 선택한 수량에 따른 가격 계산
       };
       setCart(prevCart => [...prevCart, newItem]);
     }
@@ -127,12 +131,12 @@ const ItemModal = () => {
     setIsBuyModalOpen(false);
     setCartAlert(true);
 
-    // 장바구니 넣은 후 선택된 옵션 초기화
+    // 장바구니 넣은 후 선택된 옵션 초기화 (수량은 초기화)
     setSelectedItem({
       item: selectedItem.item,
       selectedSize: null,
       selectedColor: null,
-      quantity: 1
+      quantity: 1, // 초기화는 여전히 필요
     });
 
     if (alertTimeout) {
@@ -144,12 +148,33 @@ const ItemModal = () => {
     setAlertTimeout(timeout);
   };
 
+
+  // 수량 증가 함수
+  const handleQuantityIncrease = () => {
+    setSelectedItem(prevItem => ({
+      ...prevItem,
+      quantity: prevItem.quantity + 1,
+    }));
+  };
+
+  // 수량 감소 함수
+  const handleQuantityDecrease = () => {
+    if (selectedItem.quantity > 1) {
+      setSelectedItem(prevItem => ({
+        ...prevItem,
+        quantity: prevItem.quantity - 1,
+      }));
+    }
+  };
+
   return (
     <div className="item-modal" onClick={closeBuyModal} >
       <div className={isBuyModalOpen ? "item-modal-bg active" : "item-modal-bg"}></div>
-      <img src={selectedItem.item.img} alt={selectedItem.item.name} className="item-img" />
-      <div className="name">{selectedItem.item.name}</div>
-      <div className="price">{selectedItem.item.price}</div>
+      <div className="item-modal-info">
+        <img src={selectedItem.item.img} alt={selectedItem.item.name} className="item-img" />
+        <div className="name">{selectedItem.item.name}</div>
+        <div className="price">{selectedItem.item.price}</div>
+      </div>
       <div className="btn-wrap">
         <FavoriteButton item={selectedItem.item} />
         <div className="buy-btn" onClick={handleBuyClick}>구매하기</div>
@@ -169,11 +194,28 @@ const ItemModal = () => {
                     close
                   </span>
                 </div>
-                {selectedItem.selectedSize && <span>{selectedItem.selectedSize} Size </span>}
-                {selectedItem.selectedColor && <span>{selectedItem.selectedColor}</span>}
-                <div className="price">{selectedItem.item.price}원</div>
+                <div className="info">
+                  {selectedItem.selectedSize &&
+                    <span>{selectedItem.selectedSize} Size </span>
+                  }
+                  {selectedItem.selectedSize && selectedItem.selectedColor && <span>/ </span>
+                  }
+                  {selectedItem.selectedColor &&
+                    <span>{selectedItem.selectedColor}</span>
+                  }
+                </div>
+                <div className="flex">
+                  <div className="quantity-wrap">
+                    <div className="minus icon" onClick={handleQuantityDecrease}></div>
+                    <div className="quantity">{selectedItem.quantity}</div>
+                    <div className="plus icon" onClick={handleQuantityIncrease}></div>
+                  </div>
+                  <div className="price">{selectedItem.item.price}원</div>
+                </div>
               </div>
-              <div className="total-price">총 <span>{selectedItem.item.price}원</span></div>
+              <div className="total-price">
+                총 <span>{(parseInt(selectedItem.item.price.replace(/,/g, ''), 10) * selectedItem.quantity).toLocaleString()}원</span>
+              </div>
               <div className="inner-btn-wrap">
                 <button className="inner-cart-btn btn" onClick={handleCartClick}>장바구니</button>
                 <button className="inner-buy-btn btn">구매하기</button>

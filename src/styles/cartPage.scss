@@ -1,5 +1,6 @@
 #cart-page {
   padding-bottom: 60px;
+  // 장바구니 비었을때
   .no-cart-wrap {
     display: flex;
     flex-direction: column;
@@ -27,6 +28,132 @@
       color: #fff;
       border-radius: 5px;
       background-color: #fc65db;
+    }
+  }
+  // 장바구니에 상품 들어왔을때
+  .cart-page-wrap {
+    padding: 0 10px;
+    .flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 5px 0 10px 0;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #e5e5e5;
+      .w {
+        display: flex;
+        align-items: center;
+        .check-all {
+          width: 18px;
+          height: 18px;
+          border-radius: 2px;
+          margin-right: 10px;
+          border: 1px solid #c5c5c5;
+        }
+        span {
+          font-size: 14px;
+        }
+      }
+      .delete-selected {
+        font-size: 13px;
+        text-decoration: underline;
+        color: #999;
+      }
+    }
+    .buy-button-wrap {
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      height: 55px;
+      max-width: 600px;
+      padding: 10px 20px;
+      z-index: 100;
+      border-top: 1px solid #e5e5e5;
+      box-sizing: content-box;
+      background-color: #fff;
+      .buy-button {
+        width: 100%;
+        max-width: 580px;
+        height: 50px;
+        font-size: 18px;
+        font-weight: 600;
+        border-radius: 5px;
+        border: 1px solid #c5c5c5;
+        background-color: #fff;
+        &:active {
+          background-color: #ececec;
+        }
+      }
+    }
+  }
+  .item {
+    position: relative;
+    padding: 20px 0;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #e5e5e5;
+    .bt-img-txt-flex {
+      display: flex;
+      .check {
+        position: relative;
+        width: 18px;
+        height: 18px;
+        border-radius: 2px;
+        border: 1px solid #c5c5c5;
+        margin-right: 10px;
+        .icon {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          font-size: 18px;
+          color: #fff;
+        }
+      }
+      .check.selected {
+        border: none;
+        background-color: #fc65db;
+      }
+      .item-img {
+        width: 70px;
+        height: auto;
+        border-radius: 2px;
+        border: 1px solid #e5e5e5;
+        margin-right: 10px;
+      }
+      .text-wrap {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 5px 0;
+        .name {
+          color: #636363;
+          font-size: 13px;
+        }
+        .price {
+          font-size: 14px;
+        }
+      }
+    }
+    .options-wrap {
+      padding: 15px;
+      margin: 10px 0 0 28px;
+      background-color: #f1f1f1;
+      span {
+        color: #999;
+      }
+    }
+    .delete-btn {
+      position: absolute;
+      top: 15px;
+      right: 0;
+      .icon {
+        font-size: 20px;
+        color: #999;
+      }
     }
   }
 }

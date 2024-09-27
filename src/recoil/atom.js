@@ -131,14 +131,20 @@ export const favoriteState = atom({
     default: [],
 });
 
+// 선택된 상품 한개를 상세페이지로
+export const selectedItemState = atom({
+    key: "selectedItemState",
+    default: { item: null, selectedSize: null, selectedColor: null, quantity: 1 },
+});
+
 // 장바구니 상태
 export const cartState = atom({
     key: "cartState",
     default: [],
 });
 
-// 선택된 상품 한개를 상세페이지로
-export const selectedItemState = atom({
-    key: "selectedItemState",
-    default: { item: null, selectedSize: null, selectedColor: null, quantity: 1 },
-});
+// 장바구니에서 선택된 상품 상태
+export const selectedCartItemState = atom({
+    key: "selectedCartItemState",
+    default: [],
+})

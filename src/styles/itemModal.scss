@@ -14,18 +14,20 @@
   .item-modal-bg.active {
     display: block;
   }
-  .item-img {
-    width: 100%;
-    height: auto;
-  }
-  .name {
-    font-size: 18px;
-    margin-top: 20px;
-  }
-  .price {
-    font-size: 22px;
-    font-weight: 600;
-    margin-top: 30px;
+  .item-modal-info {
+    .item-img {
+      width: 100%;
+      height: auto;
+    }
+    .name {
+      font-size: 18px;
+      margin-top: 20px;
+    }
+    .price {
+      font-size: 22px;
+      font-weight: 600;
+      margin-top: 30px;
+    }
   }
   .btn-wrap {
     position: fixed;
@@ -83,16 +85,67 @@
         .delete {
           position: absolute;
           top: 10px;
-          right: 10px;
+          right: 15px;
           cursor: pointer;
           .icon {
             font-size: 18px;
             color: #c5c5c5;
           }
         }
-        .price {
-          font-size: 14px;
-          text-align: end;
+        .info {
+          font-size: 13px;
+        }
+        .flex {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-top: 30px;
+          .quantity-wrap {
+            display: flex;
+            align-items: center;
+            .icon {
+              position: relative;
+              width: 35px;
+              height: 35px;
+              border: 1px solid #e5e5e5;
+              border-radius: 50%;
+              background-color: #fff;
+              &::after,
+              &::before {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                content: "";
+                width: 13px;
+                height: 1.5px;
+                background-color: #868686;
+              }
+              &::after {
+                transform: translate(-50%, -50%) rotate(90deg);
+              }
+              &:active {
+                background-color: #ececec;
+              }
+            }
+            .minus {
+              background-color: #f0f0f0;
+              &::after {
+                display: none;
+              }
+              &::before {
+                background-color: #c5c5c5;
+              }
+            }
+            .quantity {
+              font-size: 14px;
+              margin: 0 8px;
+            }
+          }
+          .price {
+            align-self: flex-end;
+            font-size: 14px;
+          }
         }
       }
       .total-price {
