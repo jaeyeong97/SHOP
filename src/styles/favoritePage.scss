@@ -1,5 +1,19 @@
 #favorite-page {
   padding-bottom: 60px;
+  .fav-item-wrap {
+    .title {
+      font-size: 14px;
+      color: #999;
+      margin-top: 8px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #e5e5e5;
+    }
+    .fav-item-map-section {
+      .item {
+        width: 33.33%;
+      }
+    }
+  }
   .no-fav-item-wrap {
     display: flex;
     flex-direction: column;

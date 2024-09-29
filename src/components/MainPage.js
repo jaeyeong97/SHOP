@@ -2,8 +2,9 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { outerState, selectedItemState } from "../recoil/atom";
 import { iconsState } from "../recoil/atom";
-import "../styles/mainpage.scss";
+import Slider from "./Slider";
 import FavoriteButton from "./FavoriteBtn";
+import "../styles/mainpage.scss";
 
 const MainPage = () => {
   const outerItems = useRecoilValue(outerState);
@@ -18,7 +19,7 @@ const MainPage = () => {
 
   return (
     <section id="main-page">
-      <div className="main-slider">컴포넌트 따로해서 recoil 관리</div>
+      <Slider />
       <div className="main-category-wrap">
         {icons.map((icon) => (
           <NavLink
@@ -31,6 +32,7 @@ const MainPage = () => {
           </NavLink>
         ))}
       </div>
+      <div className="title">회원님을 위한 아우터 상품</div>
       <div className="item-map-section">
         {outerItems.map((item) => (
           <div key={item.id} className="item" onClick={() => handleClickItem(item)}>

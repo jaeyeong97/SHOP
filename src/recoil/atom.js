@@ -148,3 +148,25 @@ export const selectedCartItemState = atom({
     key: "selectedCartItemState",
     default: [],
 })
+
+// 슬라이더
+export const sliderState = atom({
+    key: "sliderState",
+    default: [
+        { id: "슬라이더1", img: "../assets/banner1.png" },
+        { id: "슬라이더2", img: "../assets/banner2.png" },
+        { id: "슬라이더3", img: "../assets/banner3.png" },
+        { id: "슬라이더4", img: "../assets/banner4.png" },
+        { id: "슬라이더5", img: "../assets/banner5.png" },
+        { id: "슬라이더6", img: "../assets/banner6.png" },
+        { id: "슬라이더7", img: "../assets/banner7.png" },
+        { id: "슬라이더8", img: "../assets/banner8.png" },
+        { id: "슬라이더9", img: "../assets/banner9.png" },
+    ]
+})
+
+// 슬라이더 인덱스
+export const sliderIndexState = atom({
+    key: 'sliderIndexState',
+    default: 0,
+});

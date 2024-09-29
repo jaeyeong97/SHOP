@@ -9,8 +9,18 @@ const CartPage = () => {
   console.log(cartArr, '장바구니에 들어온 배열');
   console.log(selectedCartItems, '장바구니에서 체크된 배열');
 
+  const handleCheckAllBox = () => {
+    // 모든 상품이 선택된 상태이면 전체 해제
+    if (selectedCartItems.length === cartArr.length) {
+      setSelectedCartItems([]);
+    } else {
+      // 전체 선택하기
+      setSelectedCartItems(cartArr);
+    }
+  };
+
   // 체크박스 클릭 시 선택된 상품 관리
-  const handleCheckboxChange = (item) => {
+  const handleCheckbox = (item) => {
     if (selectedCartItems.includes(item)) {
       setSelectedCartItems(selectedCartItems.filter(selected => selected !== item)); // 선택 해제
     } else {
@@ -19,11 +29,12 @@ const CartPage = () => {
   };
 
   // 선택된 상품 삭제
-  const handleDeleteSelectedItems = () => {
-    const updatedCart = cartArr.filter(item => !selectedCartItems.includes(item));
+  const handleDeleteSelectedItem = (item) => {
+    const updatedCart = cartArr.filter(cartItem => cartItem !== item); // 클릭한 특정 아이템 삭제
     setCartArr(updatedCart);
-    setSelectedCartItems([]); // 선택된 상품 초기화
+    setSelectedCartItems(prevSelected => prevSelected.filter(selectedItem => selectedItem !== item)); // 삭제된 아이템을 선택된 아이템에서 제거
   };
+
 
   // 가격 총합을 계산하는 함수
   const calculateTotalPrice = () => {
@@ -41,17 +52,23 @@ const CartPage = () => {
         <div className="cart-page-wrap">
           <div className="flex">
             <div className="w">
-              <button className="check-all"></button>
-              <span>전체 선택(1/1)</span>
+              <button className={`check-all ${selectedCartItems.length === cartArr.length ? "selected" : ""}`} onClick={handleCheckAllBox}>
+                {selectedCartItems.length === cartArr.length ?
+                  <span className="material-symbols-outlined icon">
+                    check
+                  </span> :
+                  ""}
+              </button>
+              <span className="txt">전체 선택 ({selectedCartItems.length}/{cartArr.length})</span>
             </div>
-            <div className="delete-selected">선택 삭제</div>
+            <div className="delete-all" onClick={() => setCartArr([])}>전체 삭제</div>
           </div>
           {cartArr.map((item) => (
             <div key={`${item.id}-${item.selectedSize}-${item.selectedColor}`} className="item">
               <div className="bt-img-txt-flex">
                 <button
                   className={`check ${selectedCartItems.includes(item) ? "selected" : ""}`}
-                  onClick={() => handleCheckboxChange(item)}
+                  onClick={() => handleCheckbox(item)}
                 >
                   {selectedCartItems.includes(item) ?
                     <span className="material-symbols-outlined icon">
@@ -82,7 +99,7 @@ const CartPage = () => {
                 <span> / </span>
                 <span>{item.quantity}개</span>
               </div>
-              <button className="delete-btn" onClick={handleDeleteSelectedItems}>
+              <button className="delete-btn" onClick={() => handleDeleteSelectedItem(item)}>
                 <span className="material-symbols-outlined icon">
                   close
                 </span>
@@ -90,11 +107,16 @@ const CartPage = () => {
             </div>
           ))}
           <div className="buy-button-wrap">
-            <button className="buy-button">
-              {selectedCartItems.length > 0
-                ? `${calculateTotalPrice().toLocaleString()}원 구매하기`
-                : "구매하기"}
-            </button>
+            {selectedCartItems.length > 0 ?
+              <button className="buy-button">
+                {calculateTotalPrice().toLocaleString()}원 구매하기
+              </button>
+              :
+              <button className="no-button">
+                상품을 선택해주세요
+              </button>
+            }
+
           </div>
         </div>
       ) : (

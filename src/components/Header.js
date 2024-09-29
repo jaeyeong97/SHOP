@@ -1,9 +1,12 @@
 import { useState } from 'react';
 import "../styles/header.scss";
 import { useNavigate } from 'react-router-dom';
+import { useRecoilValue } from 'recoil';
+import { cartState } from '../recoil/atom';
 
 const Header = () => {
   const navigate = useNavigate();
+  const cartArr = useRecoilValue(cartState);
   const [isToApp, setIsToApp] = useState(false);
 
   const handleModalClose = (e) => {
@@ -44,6 +47,7 @@ const Header = () => {
           <span className="material-symbols-outlined cart-icon">
             shopping_cart
           </span>
+          {cartArr.length > 0 ? <div className='dot'><span>{cartArr.length}</span></div> : ""}
         </div>
       </div>
     </div>

@@ -16,16 +16,23 @@ const FavoritePage = () => {
 
   return (
     <section id="favorite-page">
-      {favoriteArr.length > 0 ? <div className="item-map-section">
-        {favoriteArr.map((item) => (
-          <div key={item.id} className="item" onClick={() => handleClickItem(item)}>
-            <img src={item.img} alt={item.name} />
-            <div className="name">{item.name}</div>
-            <div className="price">{item.price}</div>
-            <FavoriteButton item={item} />
+      {/* 좋아요한 상품 있을때 */}
+      {favoriteArr.length > 0 ?
+        <div className="fav-item-wrap">
+          <div className="title">{favoriteArr.length}개의 찜한 상품이 있습니다. </div>
+          <div className="item-map-section fav-item-map-section">
+            {favoriteArr.map((item) => (
+              <div key={item.id} className="item" onClick={() => handleClickItem(item)}>
+                <img src={item.img} alt={item.name} />
+                <div className="name">{item.name}</div>
+                <div className="price">{item.price}</div>
+                <FavoriteButton item={item} />
+              </div>
+            ))}
           </div>
-        ))}
-      </div> :
+        </div>
+        :
+        // 좋아요한 상품 없을때
         <div className="no-fav-item-wrap">
           <span className="material-symbols-outlined icon">
             favorite
