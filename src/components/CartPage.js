@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { cartState, selectedCartItemState } from "../recoil/atom";
 import "../styles/cartPage.scss";
 import { useRecoilState } from "recoil";
@@ -6,8 +6,7 @@ import { useRecoilState } from "recoil";
 const CartPage = () => {
   const [cartArr, setCartArr] = useRecoilState(cartState); // 장바구니 상태
   const [selectedCartItems, setSelectedCartItems] = useRecoilState(selectedCartItemState); // 장바구니에서 체크된 상품
-  console.log(cartArr, '장바구니에 들어온 배열');
-  console.log(selectedCartItems, '장바구니에서 체크된 배열');
+  const navigate = useNavigate();
 
   const handleCheckAllBox = () => {
     // 모든 상품이 선택된 상태이면 전체 해제
@@ -50,6 +49,22 @@ const CartPage = () => {
       {/* 장바구니 1개 이상 들어와있을때 */}
       {cartArr.length > 0 ? (
         <div className="cart-page-wrap">
+          <div className="common-header">
+            <div className="back" onClick={() => navigate(-1)}>
+              <span className="material-symbols-outlined icon">
+                arrow_back_ios
+              </span>
+            </div>
+            <h3 className="title">장바구니</h3>
+            <div className="wrap">
+              <span className="material-symbols-outlined icon" onClick={() => navigate("/search")}>
+                search
+              </span>
+              <span className="material-symbols-outlined icon" onClick={() => navigate("/")}>
+                home
+              </span>
+            </div>
+          </div>
           <div className="flex">
             <div className="w">
               <button className={`check-all ${selectedCartItems.length === cartArr.length ? "selected" : ""}`} onClick={handleCheckAllBox}>
@@ -108,7 +123,7 @@ const CartPage = () => {
           ))}
           <div className="buy-button-wrap">
             {selectedCartItems.length > 0 ?
-              <button className="buy-button">
+              <button className="buy-button" onClick={() => navigate("/purchase")}>
                 {calculateTotalPrice().toLocaleString()}원 구매하기
               </button>
               :

@@ -1,10 +1,10 @@
 import { useRef } from "react";
 import "../styles/categoryPage.scss";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const CategoryPage = () => {
   const categoryRefs = useRef([]);
-
+  const navigate = useNavigate();
   const handleCategoryClick = (index) => {
     // 해당 카테고리 섹션으로 스크롤 이동
     if (categoryRefs.current[index]) {
@@ -17,6 +17,22 @@ const CategoryPage = () => {
 
   return (
     <section id="category-page">
+      <div className="common-header">
+        <div className="back" onClick={() => navigate(-1)}>
+          <span className="material-symbols-outlined icon">
+            arrow_back_ios
+          </span>
+        </div>
+        <h3 className="title">카테고리</h3>
+        <div className="wrap">
+          <span className="material-symbols-outlined icon" onClick={() => navigate("/search")}>
+            search
+          </span>
+          <span className="material-symbols-outlined icon" onClick={() => navigate("/")}>
+            home
+          </span>
+        </div>
+      </div>
       <div className="category-wrap">
         <div className="category1">
           <ul>

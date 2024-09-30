@@ -23,6 +23,7 @@ import Bag from "./components/Bag"
 import Cap from "./components/Cap"
 import Accessory from "./components/Accessory"
 import ItemModal from "./components/ItemModal";
+import PurchasePage from "./components/PurchasePage";
 import "./styles/commonCategoryInner.scss";
 
 function App() {
@@ -59,6 +60,7 @@ function App() {
               </PrivateRoute>
             } />
             <Route path="/item/:id" element={<ItemModal />} />
+            <Route path="/purchase" element={<PurchasePage />} />
           </Routes>
         </Router>
       </RecoilRoot>

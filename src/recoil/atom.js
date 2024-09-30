@@ -1,4 +1,4 @@
-import { atom } from 'recoil';
+import { atom, selector } from 'recoil';
 
 export const topState = atom({
     key: 'topState',
@@ -106,7 +106,12 @@ export const bagState = atom({
 
 export const socksState = atom({
     key: 'socksState',
-    default: [],
+    default: [
+        { id: '양말1', name: '양말 1', price: '7,400', img: '../assets/socks1.jpg', color: ['블랙', '브라운', '화이트'], size: ['1', '2', '3'] },
+        { id: '양말2', name: '양말 2', price: '7,400', img: '../assets/socks2.webp', color: ['블랙', '브라운', '화이트'], size: ['1', '2', '3'] },
+        { id: '양말3', name: '양말 3', price: '6,200', img: '../assets/socks3.jpg', color: ['블랙', '브라운', '화이트'], size: ['1', '2', '3'] },
+        { id: '양말4', name: '양말 4', price: '6,200', img: '../assets/socks4.jpg', color: ['블랙', '브라운', '화이트'], size: ['1', '2', '3'] },
+    ],
 });
 
 export const iconsState = atom({
@@ -169,4 +174,47 @@ export const sliderState = atom({
 export const sliderIndexState = atom({
     key: 'sliderIndexState',
     default: 0,
+});
+
+// 검색어 관리 상태
+export const searchTermState = atom({
+    key: 'searchTermState',
+    default: '',
+});
+
+// 모든 카테고리 아이템을 합치는 selector
+export const allItemsState = selector({
+    key: 'allItemsState',
+    get: ({ get }) => {
+        const socks = get(socksState);
+        const caps = get(capState);
+        const bags = get(bagState);
+        const tops = get(topState);
+        const pants = get(pantsState);
+        const skirt = get(skirtState);
+        const outer = get(outerState);
+        const shoes = get(shoesState);
+        const accessory = get(accessoryState);
+        const eyeware = get(eyewareState);
+
+        // 모든 카테고리 아이템을 하나의 배열로 합침
+        return [...socks, ...caps, ...bags, ...tops, ...pants, ...skirt, ...outer, ...shoes, ...accessory, ...eyeware];
+    },
+});
+
+// 검색어에 따라 필터링된 아이템을 반환하는 selector
+export const filteredItemsSelector = selector({
+    key: 'filteredItemsSelector',
+    get: ({ get }) => {
+        const allItems = get(allItemsState);  // 모든 아이템 가져오기
+        const searchTerm = get(searchTermState);  // 현재 검색어 가져오기
+
+        // 검색어가 없을때 빈값
+        if (!searchTerm) return [];
+
+        // 검색어가 있으면 필터링된 아이템 반환
+        return allItems.filter(item =>
+            item.name.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+    },
 });

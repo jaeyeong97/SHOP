@@ -32,6 +32,7 @@
   }
   // 장바구니에 상품 들어왔을때
   .cart-page-wrap {
+    position: relative;
     padding: 0 20px;
     .flex {
       display: flex;

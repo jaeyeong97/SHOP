@@ -1,7 +1,7 @@
 .to-app-banner {
   position: sticky;
   top: 0;
-  z-index: 1000;
+  z-index: 104;
   .to-app-modal-bg {
     display: none;
     position: fixed;
@@ -9,7 +9,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    z-index: 101;
+    z-index: 9998;
     background-color: rgba(0, 0, 0, 0.4);
   }
   .to-app-modal-bg.active {
@@ -27,7 +27,7 @@
     padding: 20px;
     border-radius: 10px;
     transition: 0.2s;
-    z-index: 101;
+    z-index: 9999;
     transform: translate(-50%, 100vh);
     background-color: #fff;
     .txt1 {
@@ -100,54 +100,55 @@
       background-color: #fff;
     }
   }
-  .search-cart-wrap {
-    width: 100%;
+}
+.search-cart-wrap {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  max-width: 600px;
+  padding: 10px;
+  background-color: #fff;
+  .search {
     display: flex;
     align-items: center;
-    padding: 10px;
-    background-color: #fff;
-    .search {
-      display: flex;
-      align-items: center;
-      width: 550px;
-      height: 36px;
-      border-radius: 5px;
-      background-color: #efefef;
-      cursor: pointer;
-      .search-icon {
-        font-size: 22px;
-        margin: 0 5px 0 10px;
-        color: #8e8e8e;
-      }
-      .txt {
-        font-size: 13px;
-        color: #8e8e8e;
-      }
+    width: 550px;
+    height: 36px;
+    border-radius: 5px;
+    background-color: #efefef;
+    cursor: pointer;
+    .search-icon {
+      font-size: 22px;
+      margin: 0 5px 0 10px;
+      color: #8e8e8e;
     }
-    .cart {
-      position: relative;
-      margin-left: 5px;
-      cursor: pointer;
-      .cart-icon {
-        font-size: 26px;
-        color: #767676;
-      }
-      .dot {
+    .txt {
+      font-size: 13px;
+      color: #8e8e8e;
+    }
+  }
+  .cart {
+    position: relative;
+    margin-left: 5px;
+    cursor: pointer;
+    .cart-icon {
+      font-size: 26px;
+      color: #767676;
+    }
+    .dot {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background-color: #fc65db;
+      span {
         position: absolute;
-        top: -5px;
-        right: -5px;
-        width: 15px;
-        height: 15px;
-        border-radius: 50%;
-        background-color: #fc65db;
-        span {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          font-size: 10px;
-          color: #fff;
-        }
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 10px;
+        color: #fff;
       }
     }
   }
