@@ -1,5 +1,5 @@
 import { useRecoilState, useRecoilValue } from "recoil";
-import { searchTermState, selectedItemState, filteredItemsSelector, cartState } from "../recoil/atom";
+import { searchTermState, selectedItemState, filteredItemsSelector, cartState, appModalState } from "../recoil/atom";
 import FavoriteButton from "./FavoriteBtn";
 import { useNavigate } from "react-router-dom";
 import "../styles/searchPage.scss";
@@ -7,6 +7,7 @@ import "../styles/searchPage.scss";
 const SearchPage = () => {
   const [searchTerm, setSearchTerm] = useRecoilState(searchTermState); // 검색어 상태
   const [selectedItem, setSelectedItem] = useRecoilState(selectedItemState);
+  const [isAppModal, setIsAppModal] = useRecoilState(appModalState); // toApp 모달 on/off 상태
   const filteredItems = useRecoilValue(filteredItemsSelector); // 필터링된 아이템 목록
   const cartArr = useRecoilValue(cartState);
   const navigate = useNavigate();
@@ -18,7 +19,7 @@ const SearchPage = () => {
 
   return (
     <section id="search-page">
-      <div className="search-cart-wrap">
+      <div className={`search-cart-wrap ${isAppModal ? 'active' : ''}`}>
         <div className="search">
           <span className="material-symbols-outlined search-icon">search</span>
           <input

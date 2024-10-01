@@ -174,6 +174,20 @@ const ItemModal = () => {
         <img src={selectedItem.item.img} alt={selectedItem.item.name} className="item-img" />
         <div className="name">{selectedItem.item.name}</div>
         <div className="price">{selectedItem.item.price}</div>
+        <img className="item-img" src={selectedItem.item.sImgs[0]} alt={selectedItem.item.name} />
+        <img className="item-img" src={selectedItem.item.sImgs[1]} alt={selectedItem.item.name} />
+        <img className="item-img" src={selectedItem.item.sImgs[2]} alt={selectedItem.item.name} />
+        <div className="s-title">COLOR</div>
+        <span className="txt">아이보리, 민트, 블랙</span>
+        <div className="s-title">FABRIC</div>
+        <span className="txt">코튼100%</span>
+        <div className="s-title">SIZE</div>
+        <div className="txt-wrap">
+          <span className="txt">S- 어깨32 / 가슴44.5 / 암홀20.5 / 소매길이25 / 소매밑단12 / 밑단64.5 / 총장52</span>
+          <span className="txt">M- 어깨33.5 / 가슴46 / 암홀21.5 / 소매길이25 / 소매밑단12 / 밑단64.5 / 총장52</span>
+          <span className="txt">L- 어깨32 / 가슴44.5 / 암홀20.5 / 소매길이25 / 소매밑단12 / 밑단64.5 / 총장52</span>
+          <span className="txt">XL- 어깨32 / 가슴44.5 / 암홀20.5 / 소매길이25 / 소매밑단12 / 밑단64.5 / 총장52</span>
+        </div>
       </div>
       <div className="btn-wrap">
         <FavoriteButton item={selectedItem.item} />
