@@ -27,7 +27,9 @@ const LoginPage = () => {
     localStorage.setItem("nickname", naverAccount.nickname);
     localStorage.setItem("profileImg", naverAccount.profileImg);
     navigate("/");
-    console.log('네이버 로컬넣기 성공')
+    console.log('네이버 로컬넣기 성공인데 login-page로 왜가지')
+    console.log(localStorage.getItem("nickname"));
+    console.log(localStorage.getItem("profileImg"));
   };
 
   return (

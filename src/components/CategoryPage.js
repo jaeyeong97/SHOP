@@ -1,8 +1,11 @@
 import { useRef } from "react";
 import "../styles/categoryPage.scss";
 import { Link, useNavigate } from "react-router-dom";
+import { useRecoilValue } from "recoil";
+import { appModalState } from "../recoil/atom";
 
 const CategoryPage = () => {
+  const isAppModal = useRecoilValue(appModalState); // toApp 모달 on/off 상태
   const categoryRefs = useRef([]);
   const navigate = useNavigate();
   const handleCategoryClick = (index) => {
@@ -17,7 +20,7 @@ const CategoryPage = () => {
 
   return (
     <section id="category-page">
-      <div className="common-header">
+      <div className={`common-header ${isAppModal ? 'active' : ''}`}>
         <div className="back" onClick={() => navigate(-1)}>
           <span className="material-symbols-outlined icon">
             arrow_back_ios

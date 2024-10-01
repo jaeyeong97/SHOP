@@ -1,9 +1,10 @@
 import { Link, useNavigate } from "react-router-dom";
-import { cartState, selectedCartItemState } from "../recoil/atom";
+import { cartState, selectedCartItemState, appModalState } from "../recoil/atom";
 import "../styles/cartPage.scss";
-import { useRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 
 const CartPage = () => {
+  const isAppModal = useRecoilValue(appModalState); // toApp 모달 on/off 상태
   const [cartArr, setCartArr] = useRecoilState(cartState); // 장바구니 상태
   const [selectedCartItems, setSelectedCartItems] = useRecoilState(selectedCartItemState); // 장바구니에서 체크된 상품
   const navigate = useNavigate();
@@ -49,7 +50,7 @@ const CartPage = () => {
       {/* 장바구니 1개 이상 들어와있을때 */}
       {cartArr.length > 0 ? (
         <div className="cart-page-wrap">
-          <div className="common-header">
+          <div className={`common-header ${isAppModal ? 'active' : ''}`}>
             <div className="back" onClick={() => navigate(-1)}>
               <span className="material-symbols-outlined icon">
                 arrow_back_ios

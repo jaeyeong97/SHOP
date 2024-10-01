@@ -1,12 +1,12 @@
-import { useRecoilValue } from "recoil";
-import { selectedCartItemState } from "../recoil/atom";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { appModalState, selectedCartItemState } from "../recoil/atom";
 import { useNavigate } from "react-router-dom";
 import "../styles/purchasePage.scss";
 
 const PurchasePage = () => {
+  const [isAppModal, setIsAppModal] = useRecoilState(appModalState); // toApp 모달 on/off 상태
   const purchaseItems = useRecoilValue(selectedCartItemState);
   const navigate = useNavigate();
-  console.log(purchaseItems)
 
   // 가격 총합을 계산하는 함수
   const calculateTotalPrice = () => {
@@ -19,7 +19,7 @@ const PurchasePage = () => {
 
   return (
     <div className="purchase-page">
-      <div className="common-header">
+      <div className={`common-header ${isAppModal ? 'active' : ''}`}>
         <div className="back" onClick={() => navigate(-1)}>
           <span className="material-symbols-outlined icon">
             arrow_back_ios
@@ -51,22 +51,21 @@ const PurchasePage = () => {
               <div className="item-name">{item.name}</div>
               <div className="flex">
                 {item.selectedColor &&
-                  <span className="item-color">{item.selectedColor}</span>
+                  <span className="item-color">{item.selectedColor} 색상</span>
                 }
                 {item.selectedSize && item.selectedColor &&
                   <span> / </span>
                 }
                 {item.selectedSize &&
-                  <span className="item-size">{item.selectedSize}</span>
+                  <span className="item-size">{item.selectedSize} 사이즈</span>
                 }
                 <span> / </span>
-                <div className="item-quantity">{item.quantity}개</div>
+                <span className="item-quantity">{item.quantity}개</span>
               </div>
               <div className="item-price">{item.price.toLocaleString()}원</div>
             </div>
           </div>
         ))}
-
       </div>
       <div className="section3">
         <div className="title">결제 금액</div>
@@ -82,6 +81,11 @@ const PurchasePage = () => {
           <div className="s-title">총 결제 금액</div>
           <div className="price">{calculateTotalPrice().toLocaleString()}원</div>
         </div>
+      </div>
+      <div className="buy-button-wrap">
+        <button className="buy-button" onClick={() => setIsAppModal(true)}>
+          {calculateTotalPrice().toLocaleString()}원 구매하기
+        </button>
       </div>
     </div>
   );

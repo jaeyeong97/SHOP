@@ -1,13 +1,12 @@
-import { useState } from 'react';
 import "../styles/header.scss";
 import { useNavigate } from 'react-router-dom';
-import { useRecoilValue } from 'recoil';
-import { cartState } from '../recoil/atom';
+import { useRecoilState, useRecoilValue } from 'recoil';
+import { cartState, appModalState } from '../recoil/atom';
 
 const Header = () => {
   const navigate = useNavigate();
   const cartArr = useRecoilValue(cartState);
-  const [isToApp, setIsToApp] = useState(false);
+  const [isToApp, setIsToApp] = useRecoilState(appModalState);
 
   const handleModalClose = (e) => {
     if (e.target.classList.contains("to-app-modal-bg")) {

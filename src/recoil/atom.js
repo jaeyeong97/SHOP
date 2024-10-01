@@ -218,3 +218,9 @@ export const filteredItemsSelector = selector({
         );
     },
 });
+
+// 앱 모달 on/off
+export const appModalState = atom({
+    key: "appModalState",
+    default: false,
+})
