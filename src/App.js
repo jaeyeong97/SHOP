@@ -2,6 +2,7 @@ import { RecoilRoot } from "recoil";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import "../src/styles/common.scss";
+import ScrollToTop from "./util/ScrollToTop";
 import Gnb from "./components/Gnb";
 import Header from "./components/Header";
 import MainPage from './components/MainPage';
@@ -31,6 +32,7 @@ function App() {
     <GoogleOAuthProvider clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}>
       <RecoilRoot>
         <Router>
+          <ScrollToTop />
           <Header />
           <Gnb />
           <Routes>

@@ -43,7 +43,7 @@ export const outerState = atom({
         { id: '아우터2', name: '아우터 2', price: '185,500', img: '../assets/outer2.webp', size: ['S', 'M', 'L', 'XL'], sImgs: ['../assets/outer2-1.png', '../assets/outer2-2.png', '../assets/outer2-3.png'] },
         { id: '아우터3', name: '아우터 3', price: '240,000', img: '../assets/outer3.webp', size: ['S', 'M', 'L', 'XL'], sImgs: ['../assets/outer3-1.png', '../assets/outer3-2.png', '../assets/outer3-3.png'] },
         { id: '아우터4', name: '아우터 4', price: '275,500', img: '../assets/outer4.webp', size: ['S', 'M', 'L', 'XL'], sImgs: ['../assets/outer4-1.png', '../assets/outer4-2.png', '../assets/outer4-3.png'] },
-        { id: '아우터5', name: '아우터 5', price: '189,000', img: '../assets/outer5.png', size: ['S', 'M', 'L', 'XL'], sImgs: ['../assets/outer5-1.png', '../assets/outer5-2.png', '../assets/outer5-3.png'] },
+        { id: '아우터5', name: '아우터 5', price: '189,000', img: '../assets/outer5.png', size: ['S', 'M', 'L', 'XL'], sImgs: ['../assets/outer5-1.png', '../assets/outer5-2.png',] },
         { id: '아우터6', name: '아우터 6', price: '225,300', img: '../assets/outer6.webp', size: ['S', 'M', 'L', 'XL'], sImgs: ['../assets/outer6-1.png', '../assets/outer6-2.png', '../assets/outer6-3.png'] },
         { id: '아우터7', name: '아우터 7', price: '315,700', img: '../assets/outer7.webp', size: ['S', 'M', 'L', 'XL'], sImgs: ['../assets/outer7-1.png', '../assets/outer7-2.png', '../assets/outer7-3.png'] },
         { id: '아우터8', name: '아우터 8', price: '386,000', img: '../assets/outer8.webp', size: ['S', 'M', 'L', 'XL'], sImgs: ['../assets/outer8-1.png', '../assets/outer8-2.png', '../assets/outer8-3.png'] },
@@ -68,21 +68,21 @@ export const accessoryState = atom({
     key: 'accessoryState',
     default: [
         { id: '주얼리1', name: '주얼리 1', price: '23,500', img: '../assets/accessory1.webp', color: ['실버', '골드'], sImgs: ['../assets/accessory1-1.png', '../assets/accessory1-2.png', '../assets/accessory1-3.png'] },
-        { id: '주얼리2', name: '주얼리 2', price: '34,500', img: '../assets/accessory2.webp', color: ['실버', '골드'], sImgs: ['../assets/accessory2-1.png', '../assets/accessory2-2.png', '../assets/accessory2-3.png'] },
-        { id: '주얼리3', name: '주얼리 3', price: '28,300', img: '../assets/accessory3.png', color: ['실버', '골드'], sImgs: ['../assets/accessory3-1.png', '../assets/accessory3-2.png', '../assets/accessory3-3.png'] },
-        { id: '주얼리4', name: '주얼리 4', price: '22,000', img: '../assets/accessory4.webp', color: ['실버', '골드'], sImgs: ['../assets/accessory4-1.png', '../assets/accessory4-2.png', '../assets/accessory4-3.png'] },
-        { id: '주얼리5', name: '주얼리 5', price: '37,500', img: '../assets/accessory5.webp', color: ['실버', '골드'], sImgs: ['../assets/accessory5-1.png', '../assets/accessory5-2.png', '../assets/accessory5-3.png'] },
-        { id: '주얼리6', name: '주얼리 6', price: '31,400', img: '../assets/accessory6.png', color: ['실버', '골드'], sImgs: ['../assets/accessory6-1.png', '../assets/accessory6-2.png', '../assets/accessory6-3.png'] },
+        { id: '주얼리2', name: '주얼리 2', price: '34,500', img: '../assets/accessory2.webp', color: ['실버', '골드'], sImgs: ['../assets/accessory2-1.png',] },
+        { id: '주얼리3', name: '주얼리 3', price: '28,300', img: '../assets/accessory3.png', color: ['실버', '골드'], sImgs: ['../assets/accessory3-1.png', '../assets/accessory3-2.png',] },
+        { id: '주얼리4', name: '주얼리 4', price: '22,000', img: '../assets/accessory4.webp', color: ['실버', '골드'], sImgs: ['../assets/accessory4-1.png', '../assets/accessory4-2.png',] },
+        { id: '주얼리5', name: '주얼리 5', price: '37,500', img: '../assets/accessory5.webp', color: ['실버', '골드'], sImgs: ['../assets/accessory5-1.png', '../assets/accessory5-2.png',] },
+        { id: '주얼리6', name: '주얼리 6', price: '31,400', img: '../assets/accessory6.png', color: ['실버', '골드'], sImgs: ['../assets/accessory6-1.png', '../assets/accessory6-2.png',] },
     ],
 });
 
 export const eyewareState = atom({
     key: 'eyewareState',
     default: [
-        { id: '아이웨어1', name: '아이웨어 1', price: '125,000', img: '../assets/eyeware1.webp', color: ['블랙', '브라운', '그레이', '화이트'], sImgs: ['../assets/eyeware1-1.png', '../assets/eyeware1-2.png', '../assets/eyeware1-3.png'] },
-        { id: '아이웨어2', name: '아이웨어 2', price: '125,000', img: '../assets/eyeware2.webp', color: ['블랙', '브라운', '그레이', '화이트'], sImgs: ['../assets/eyeware2-1.png', '../assets/eyeware2-2.png', '../assets/eyeware2-3.png'] },
-        { id: '아이웨어3', name: '아이웨어 3', price: '124,500', img: '../assets/eyeware3.webp', color: ['블랙', '브라운', '그레이', '화이트'], sImgs: ['../assets/eyeware3-1.png', '../assets/eyeware3-2.png', '../assets/eyeware3-3.png'] },
-        { id: '아이웨어4', name: '아이웨어 4', price: '167,500', img: '../assets/eyeware4.png', color: ['블랙', '브라운', '그레이', '화이트'], sImgs: ['../assets/eyeware4-1.png', '../assets/eyeware4-2.png', '../assets/eyeware4-3.png'] },
+        { id: '아이웨어1', name: '아이웨어 1', price: '125,000', img: '../assets/eyeware1.webp', color: ['블랙', '브라운', '그레이', '화이트'], sImgs: ['../assets/eyeware1-1.png', '../assets/eyeware1-2.png',] },
+        { id: '아이웨어2', name: '아이웨어 2', price: '125,000', img: '../assets/eyeware2.webp', color: ['블랙', '브라운', '그레이', '화이트'], sImgs: ['../assets/eyeware2-1.png', '../assets/eyeware2-2.png',] },
+        { id: '아이웨어3', name: '아이웨어 3', price: '124,500', img: '../assets/eyeware3.webp', color: ['블랙', '브라운', '그레이', '화이트'], sImgs: ['../assets/eyeware3-1.png', '../assets/eyeware3-2.png',] },
+        { id: '아이웨어4', name: '아이웨어 4', price: '167,500', img: '../assets/eyeware4.png', color: ['블랙', '브라운', '그레이', '화이트'], sImgs: ['../assets/eyeware4-1.png', '../assets/eyeware4-2.png',] },
     ],
 });
 
@@ -107,10 +107,10 @@ export const bagState = atom({
 export const socksState = atom({
     key: 'socksState',
     default: [
-        { id: '양말1', name: '양말 1', price: '7,400', img: '../assets/socks1.jpg', color: ['블랙', '브라운', '화이트'], size: ['1', '2', '3'], sImgs: ['../assets/socks1-1.png', '../assets/socks1-2.png', '../assets/socks1-3.png'] },
-        { id: '양말2', name: '양말 2', price: '7,400', img: '../assets/socks2.webp', color: ['블랙', '브라운', '화이트'], size: ['1', '2', '3'], sImgs: ['../assets/socks2-1.png', '../assets/socks2-2.png', '../assets/socks2-3.png'] },
-        { id: '양말3', name: '양말 3', price: '6,200', img: '../assets/socks3.jpg', color: ['블랙', '브라운', '화이트'], size: ['1', '2', '3'], sImgs: ['../assets/socks3-1.png', '../assets/socks3-2.png', '../assets/socks3-3.png'] },
-        { id: '양말4', name: '양말 4', price: '6,200', img: '../assets/socks4.jpg', color: ['블랙', '브라운', '화이트'], size: ['1', '2', '3'], sImgs: ['../assets/socks4-1.png', '../assets/socks4-2.png', '../assets/socks4-3.png'] },
+        { id: '양말1', name: '양말 1', price: '7,400', img: '../assets/socks1.jpg', color: ['블랙', '브라운', '화이트'], size: ['1', '2', '3'], sImgs: ['../assets/socks1-1.png', '../assets/socks1-2.png',] },
+        { id: '양말2', name: '양말 2', price: '7,400', img: '../assets/socks2.webp', color: ['블랙', '브라운', '화이트'], size: ['1', '2', '3'], sImgs: ['../assets/socks2-1.png', '../assets/socks2-2.png',] },
+        { id: '양말3', name: '양말 3', price: '6,200', img: '../assets/socks3.jpg', color: ['블랙', '브라운', '화이트'], size: ['1', '2', '3'], sImgs: ['../assets/socks3-1.png', '../assets/socks3-2.png',] },
+        { id: '양말4', name: '양말 4', price: '6,200', img: '../assets/socks4.jpg', color: ['블랙', '브라운', '화이트'], size: ['1', '2', '3'], sImgs: ['../assets/socks4-1.png', '../assets/socks4-2.png',] },
     ],
 });
 

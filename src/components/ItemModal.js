@@ -1,5 +1,5 @@
 import { useRecoilState } from "recoil";
-import { selectedItemState, cartState } from "../recoil/atom";
+import { selectedItemState, cartState, appModalState } from "../recoil/atom";
 import { useNavigate } from "react-router-dom";
 import FavoriteButton from "./FavoriteBtn";
 import "../styles/itemModal.scss";
@@ -8,6 +8,8 @@ import { useEffect, useRef, useState } from "react";
 const ItemModal = () => {
   const [selectedItem, setSelectedItem] = useRecoilState(selectedItemState); // 선택된 상품
   const [cart, setCart] = useRecoilState(cartState); // 장바구니 상태
+  const [isToApp, setIsToApp] = useRecoilState(appModalState); // 앱모달 on/off
+  const [open, setOpen] = useState(false); // 상품정보 더보기 버튼상태
   const [isBuyModalOpen, setIsBuyModalOpen] = useState(false); // 구매 모달
   const [clickSize, setClickSize] = useState(false);
   const [clickColor, setClickColor] = useState(false);
@@ -171,22 +173,55 @@ const ItemModal = () => {
     <div className="item-modal" onClick={closeBuyModal} >
       <div className={isBuyModalOpen ? "item-modal-bg active" : "item-modal-bg"}></div>
       <div className="item-modal-info">
-        <img src={selectedItem.item.img} alt={selectedItem.item.name} className="item-img" />
-        <div className="name">{selectedItem.item.name}</div>
-        <div className="price">{selectedItem.item.price}</div>
-        <img className="item-img" src={selectedItem.item.sImgs[0]} alt={selectedItem.item.name} />
-        <img className="item-img" src={selectedItem.item.sImgs[1]} alt={selectedItem.item.name} />
-        <img className="item-img" src={selectedItem.item.sImgs[2]} alt={selectedItem.item.name} />
-        <div className="s-title">COLOR</div>
-        <span className="txt">아이보리, 민트, 블랙</span>
-        <div className="s-title">FABRIC</div>
-        <span className="txt">코튼100%</span>
-        <div className="s-title">SIZE</div>
-        <div className="txt-wrap">
-          <span className="txt">S- 어깨32 / 가슴44.5 / 암홀20.5 / 소매길이25 / 소매밑단12 / 밑단64.5 / 총장52</span>
-          <span className="txt">M- 어깨33.5 / 가슴46 / 암홀21.5 / 소매길이25 / 소매밑단12 / 밑단64.5 / 총장52</span>
-          <span className="txt">L- 어깨32 / 가슴44.5 / 암홀20.5 / 소매길이25 / 소매밑단12 / 밑단64.5 / 총장52</span>
-          <span className="txt">XL- 어깨32 / 가슴44.5 / 암홀20.5 / 소매길이25 / 소매밑단12 / 밑단64.5 / 총장52</span>
+        <div className="item-main">
+          <img src={selectedItem.item.img} alt={selectedItem.item.name} className="item-img" />
+          <div className="name">{selectedItem.item.name}</div>
+          <div className="price">{selectedItem.item.price}원</div>
+          <div className="login-box" onClick={() => setIsToApp(true)}>
+            <div className="txt" >회원가입 시 최대 65,000원 혜택</div>
+            <span className="material-symbols-outlined arrow">
+              chevron_right
+            </span>
+          </div>
+        </div>
+        <div className="item-more">
+          {selectedItem.item.sImgs[0] && <img className="item-img" src={selectedItem.item.sImgs[0]} alt={selectedItem.item.name} />}
+          {!open &&
+            <div className="open-btn-wrap">
+              <div className="open-btn" onClick={() => setOpen(true)}>상품정보 더 보기</div>
+              <div className="bg"></div>
+            </div>
+          }
+          {open && <div className="open">
+            {selectedItem.item.sImgs[1] && <img className="item-img" src={selectedItem.item.sImgs[1]} alt={selectedItem.item.name} />}
+            <div className="txt-section">
+              {selectedItem.item.color && <div className="s-title">COLOR</div>}
+              {selectedItem.item.color &&
+                <div className="flex">
+                  {selectedItem.item.color.map((color, index) => (
+                    <div key={index} className="txt">&nbsp;{color}&nbsp;</div>
+                  ))}</div>
+              }
+              {selectedItem.item.size && <div className="s-title">SIZE</div>}
+              {selectedItem.item.size &&
+                <div className="flex">
+                  {selectedItem.item.size.map((size, index) => (
+                    <div key={index} className="txt">&nbsp;{size}&nbsp;</div>
+                  ))}</div>
+              }
+              <div className="s-title">FABRIC</div>
+              <div className="txt">코튼100%</div>
+            </div>
+            {selectedItem.item.sImgs[2] && <img className="item-img" src={selectedItem.item.sImgs[2]} alt={selectedItem.item.name} />}
+            <div className="txt-section">
+              <div className="s-title">COMMENT</div>
+              <div className="txt-wrap">
+                <span className="txt">- 사이즈를 재는 방법에 따라 1~2cm 오차가 있을 수 있습니다.</span>
+                <span className="txt">- 빛의 각도에 따라 색깔이 달라 보일 수 있습니다.</span>
+                <span className="txt">- 화면의 해상도에 따라 색깔이 달라 보일 수 있습니다.</span>
+              </div>
+            </div>
+          </div>}
         </div>
       </div>
       <div className="btn-wrap">
