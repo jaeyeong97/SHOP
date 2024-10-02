@@ -4,7 +4,6 @@ import { outerState, selectedItemState } from "../recoil/atom";
 import { iconsState } from "../recoil/atom";
 import Slider from "./Slider";
 import FavoriteButton from "./FavoriteBtn";
-import "../styles/mainpage.scss";
 
 const MainPage = () => {
   const outerItems = useRecoilValue(outerState);

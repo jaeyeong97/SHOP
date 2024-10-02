@@ -17,15 +17,15 @@
       }
       .txt {
         margin-top: 5px;
-        color: #999;
+        color: $text-third-color;
       }
     }
     .icon.active {
       img {
-        border: 1px solid #222;
+        border: 1px solid $text-default-color;
       }
       .txt {
-        color: #222;
+        color: $text-default-color;
       }
     }
   }

@@ -1,5 +1,4 @@
 import { useRef } from "react";
-import "../styles/categoryPage.scss";
 import { Link, useNavigate } from "react-router-dom";
 import { useRecoilValue } from "recoil";
 import { appModalState } from "../recoil/atom";

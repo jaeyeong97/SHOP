@@ -14,7 +14,7 @@
     .logo {
       width: 180px;
       height: 180px;
-      background-color: #fc65db;
+      background-color: $main-color;
       border-radius: 50%;
       margin-bottom: 30px;
       display: flex;
@@ -39,7 +39,7 @@
     }
     .or {
       margin: 40px 0 20px 0;
-      color: #999;
+      color: $text-third-color;
     }
     .circle-logo-wrap {
       display: flex;

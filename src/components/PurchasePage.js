@@ -1,7 +1,6 @@
 import { useRecoilState, useRecoilValue } from "recoil";
 import { appModalState, selectedCartItemState } from "../recoil/atom";
 import { useNavigate } from "react-router-dom";
-import "../styles/purchasePage.scss";
 
 const PurchasePage = () => {
   const [isAppModal, setIsAppModal] = useRecoilState(appModalState); // toApp 모달 on/off 상태

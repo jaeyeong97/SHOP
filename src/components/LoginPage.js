@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
-import "../styles/loginPage.scss";
 import KakaoLogin from "./KakaoLogin";
 import GoogleLoginComponent from "./GoogleLoginComponent";
 import NaverLogin from "./NaverLogin";

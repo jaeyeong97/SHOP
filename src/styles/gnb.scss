@@ -6,8 +6,8 @@
   max-width: 600px;
   z-index: 100;
   border-radius: 10px 10px 0 0;
-  border: 1px solid #e5e5e5;
-  background-color: #fff;
+  border: 1px solid $second-gray-color;
+  background-color: $white;
   ul {
     display: flex;
     justify-content: space-around;
@@ -20,22 +20,22 @@
         height: 55px;
         .icon {
           font-size: 26px;
-          color: #999;
+          color: $text-third-color;
         }
         .icon.favorite {
           font-size: 23px;
         }
         .txt {
-          color: #999;
+          color: $text-third-color;
         }
       }
       .active {
         .icon {
           font-variation-settings: "FILL" 1;
-          color: #222;
+          color: $text-default-color;
         }
         .txt {
-          color: #222;
+          color: $text-default-color;
         }
       }
     }

@@ -3,10 +3,10 @@
   .fav-item-wrap {
     .title {
       font-size: 14px;
-      color: #999;
+      color: $text-third-color;
       margin-top: 8px;
       padding-bottom: 8px;
-      border-bottom: 1px solid #e5e5e5;
+      border-bottom: 1px solid $second-gray-color;
     }
     .fav-item-map-section {
       .item {
@@ -22,7 +22,7 @@
     height: 70vh;
     .icon {
       font-size: 50px;
-      color: #fc65db;
+      color: $main-color;
       font-variation-settings: "wght" 200;
       margin-bottom: 5px;
     }
@@ -31,7 +31,17 @@
       margin-bottom: 8px;
     }
     .t2 {
-      color: #999;
+      color: $text-third-color;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #favorite-page {
+    .fav-item-wrap {
+      .title {
+        padding-left: 10px;
+      }
     }
   }
 }

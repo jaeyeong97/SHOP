@@ -1,6 +1,5 @@
 import { useRecoilValue, useRecoilState } from "recoil";
 import { sliderState, sliderIndexState } from "../recoil/atom";
-import "../styles/slider.scss";
 import { useEffect } from "react";
 
 const Slider = () => {

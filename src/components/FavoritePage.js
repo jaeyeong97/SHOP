@@ -1,7 +1,6 @@
 import { useRecoilState, useRecoilValue } from "recoil";
 import { favoriteState, selectedItemState } from "../recoil/atom";
 import FavoriteButton from "./FavoriteBtn";
-import "../styles/favoritePage.scss";
 import { useNavigate } from "react-router-dom";
 
 const FavoritePage = () => {

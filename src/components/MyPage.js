@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import "../styles/mypage.scss";
 
 const MyPage = () => {
   const [user, setUser] = useState({}); // 로컬스토리지 로그인 정보 저장

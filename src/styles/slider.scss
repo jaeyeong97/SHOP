@@ -15,8 +15,8 @@
     transform: translateY(-50%);
     padding: 5px;
     border-radius: 2px;
-    color: #fff;
-    background-color: rgba(0, 0, 0, 0.4);
+    color: $white;
+    background-color: $first-dark-back;
     z-index: 10;
     cursor: pointer;
     &.left {
@@ -34,16 +34,16 @@
     padding: 5px;
     border-radius: 2px;
     font-size: 14px;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: $first-dark-back;
     .current-index {
-      color: #fff;
+      color: $white;
     }
     .s {
       margin: 0 2px;
-      color: rgba(255, 255, 255, 0.7);
+      color: $first-gray-color;
     }
     .end-index {
-      color: rgba(255, 255, 255, 0.7);
+      color: $first-gray-color;
     }
   }
 }

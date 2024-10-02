@@ -1,4 +1,3 @@
-import "../styles/header.scss";
 import { useNavigate } from 'react-router-dom';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { cartState, appModalState } from '../recoil/atom';

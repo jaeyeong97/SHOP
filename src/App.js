@@ -1,7 +1,6 @@
 import { RecoilRoot } from "recoil";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import "../src/styles/common.scss";
 import ScrollToTop from "./util/ScrollToTop";
 import Gnb from "./components/Gnb";
 import Header from "./components/Header";
@@ -25,7 +24,6 @@ import Cap from "./components/Cap"
 import Accessory from "./components/Accessory"
 import ItemModal from "./components/ItemModal";
 import PurchasePage from "./components/PurchasePage";
-import "./styles/commonCategoryInner.scss";
 
 function App() {
   return (

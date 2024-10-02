@@ -6,19 +6,13 @@
     .category1 {
       width: 20%;
       overflow-y: scroll;
-      background-color: #f3f3f3;
+      background-color: $back-gray-color;
       ul {
         li {
           font-size: 14px;
           padding: 18px 10px;
-          color: #333;
+          color: $text-first-color;
           cursor: pointer;
-          &:active {
-            background-color: #fafafa;
-          }
-          &:hover {
-            background-color: #fafafa;
-          }
         }
       }
     }
@@ -52,7 +46,7 @@
           }
           span {
             margin-top: 5px;
-            color: #333;
+            color: $text-first-color;
           }
         }
       }

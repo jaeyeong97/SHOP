@@ -1,8 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { useRecoilValue } from "recoil";
 import { iconsState } from "../recoil/atom";
-import "../styles/innerCategoryComponent.scss";
-
 const InnerCategoryComponent = () => {
   const icons = useRecoilValue(iconsState);
 

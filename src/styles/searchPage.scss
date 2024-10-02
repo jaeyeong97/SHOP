@@ -8,10 +8,10 @@
     input {
       width: 100%;
       height: 100%;
-      background-color: #efefef;
+      background-color: $back-gray-color;
       &::placeholder {
         font-size: 13px;
-        color: #8e8e8e;
+        color: $text-second-color;
       }
     }
     &.active::after {
@@ -21,7 +21,7 @@
       width: 100%;
       height: 100%;
       content: "";
-      background: rgba(0, 0, 0, 0.4);
+      background: $first-dark-back;
     }
   }
   .search-item-map-section {

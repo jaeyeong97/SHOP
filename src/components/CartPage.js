@@ -1,6 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
 import { cartState, selectedCartItemState, appModalState } from "../recoil/atom";
-import "../styles/cartPage.scss";
 import { useRecoilState, useRecoilValue } from "recoil";
 
 const CartPage = () => {
@@ -45,6 +44,11 @@ const CartPage = () => {
     return totalPrice;
   };
 
+  const handleDeleteAll = () => {
+    setSelectedCartItems([]);
+    setCartArr([]);
+  };
+
   return (
     <section id="cart-page">
       {/* 장바구니 1개 이상 들어와있을때 */}
@@ -77,7 +81,7 @@ const CartPage = () => {
               </button>
               <span className="txt">전체 선택 ({selectedCartItems.length}/{cartArr.length})</span>
             </div>
-            <div className="delete-all" onClick={() => setCartArr([])}>전체 삭제</div>
+            <div className="delete-all" onClick={handleDeleteAll}>전체 삭제</div>
           </div>
           {cartArr.map((item) => (
             <div key={`${item.id}-${item.selectedSize}-${item.selectedColor}`} className="item">

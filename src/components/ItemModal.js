@@ -2,7 +2,6 @@ import { useRecoilState } from "recoil";
 import { selectedItemState, cartState, appModalState } from "../recoil/atom";
 import { useNavigate } from "react-router-dom";
 import FavoriteButton from "./FavoriteBtn";
-import "../styles/itemModal.scss";
 import { useEffect, useRef, useState } from "react";
 
 const ItemModal = () => {
@@ -169,6 +168,11 @@ const ItemModal = () => {
     }
   };
 
+  const handleDirectBuyClick = () => {
+    handleCartClick();
+    navigate("/cart");
+  };
+
   return (
     <div className="item-modal" onClick={closeBuyModal} >
       <div className={isBuyModalOpen ? "item-modal-bg active" : "item-modal-bg"}></div>
@@ -267,7 +271,7 @@ const ItemModal = () => {
               </div>
               <div className="inner-btn-wrap">
                 <button className="inner-cart-btn btn" onClick={handleCartClick}>장바구니</button>
-                <button className="inner-buy-btn btn">구매하기</button>
+                <button className="inner-buy-btn btn" onClick={handleDirectBuyClick}>구매하기</button>
               </div>
             </div>
           ) : (
@@ -332,7 +336,11 @@ const ItemModal = () => {
           )}
         </div>
       )}
-      {cartAlert && <div className="cart-alert">장바구니에 상품을 담았습니다.</div>}
+      {cartAlert && <div className="cart-alert">
+        <div className="txt">장바구니에 상품을 담았습니다.</div>
+        <div className="go" onClick={() => navigate("/cart")}>바로가기</div>
+      </div>
+      }
     </div>
   );
 };

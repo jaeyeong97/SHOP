@@ -2,7 +2,6 @@ import { useRecoilState, useRecoilValue } from "recoil";
 import { searchTermState, selectedItemState, filteredItemsSelector, cartState, appModalState } from "../recoil/atom";
 import FavoriteButton from "./FavoriteBtn";
 import { useNavigate } from "react-router-dom";
-import "../styles/searchPage.scss";
 
 const SearchPage = () => {
   const [searchTerm, setSearchTerm] = useRecoilState(searchTermState); // 검색어 상태
