@@ -1,12 +1,12 @@
 import { NavLink } from "react-router-dom";
 import { useRecoilValue } from "recoil";
 import { iconsState } from "../recoil/atom";
-const InnerCategoryComponent = () => {
+const IconsNavigation = ({ className }) => {
   const icons = useRecoilValue(iconsState);
 
   return (
     <section id="inner-category">
-      <div className="inner-category-wrap">
+      <div className={className}>
         {icons.map((icon) => (
           <NavLink
             key={icon.path}
@@ -22,4 +22,4 @@ const InnerCategoryComponent = () => {
   );
 };
 
-export default InnerCategoryComponent;
+export default IconsNavigation;

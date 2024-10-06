@@ -7,6 +7,12 @@ const CategoryPage = () => {
   const isAppModal = useRecoilValue(appModalState); // toApp 모달 on/off 상태
   const categoryRefs = useRef([]);
   const navigate = useNavigate();
+
+  const categories = [
+    "상의", "하의", "아우터", "신발", "스커트", "양말",
+    "가방", "모자", "아이웨어", "주얼리"
+  ];
+
   const handleCategoryClick = (index) => {
     // 해당 카테고리 섹션으로 스크롤 이동
     if (categoryRefs.current[index]) {
@@ -38,16 +44,11 @@ const CategoryPage = () => {
       <div className="category-wrap">
         <div className="category1">
           <ul>
-            <li onClick={() => handleCategoryClick(0)}>상의</li>
-            <li onClick={() => handleCategoryClick(1)}>하의</li>
-            <li onClick={() => handleCategoryClick(2)}>아우터</li>
-            <li onClick={() => handleCategoryClick(3)}>신발</li>
-            <li onClick={() => handleCategoryClick(4)}>스커트</li>
-            <li onClick={() => handleCategoryClick(5)}>양말</li>
-            <li onClick={() => handleCategoryClick(6)}>가방</li>
-            <li onClick={() => handleCategoryClick(7)}>모자</li>
-            <li onClick={() => handleCategoryClick(8)}>아이웨어</li>
-            <li onClick={() => handleCategoryClick(9)}>주얼리</li>
+            {categories.map((category, index) => (
+              <li key={index} onClick={() => handleCategoryClick(index)}>
+                {category}
+              </li>
+            ))}
           </ul>
         </div>
         <div className="category2">

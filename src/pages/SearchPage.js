@@ -1,20 +1,15 @@
 import { useRecoilState, useRecoilValue } from "recoil";
-import { searchTermState, selectedItemState, filteredItemsSelector, cartState, appModalState } from "../recoil/atom";
-import FavoriteButton from "./FavoriteBtn";
+import { searchTermState, filteredItemsSelector, cartState, appModalState } from "../recoil/atom";
 import { useNavigate } from "react-router-dom";
+import ItemMapping from "../components/ItemMapping";
 
 const SearchPage = () => {
   const [searchTerm, setSearchTerm] = useRecoilState(searchTermState); // 검색어 상태
-  const [selectedItem, setSelectedItem] = useRecoilState(selectedItemState);
   const [isAppModal, setIsAppModal] = useRecoilState(appModalState); // toApp 모달 on/off 상태
   const filteredItems = useRecoilValue(filteredItemsSelector); // 필터링된 아이템 목록
   const cartArr = useRecoilValue(cartState);
   const navigate = useNavigate();
 
-  const handleClickItem = (item) => {
-    setSelectedItem({ item, selectedSize: null, selectedColor: null });
-    navigate(`/item/${item.id}`);
-  };
 
   return (
     <section id="search-page">
@@ -35,16 +30,7 @@ const SearchPage = () => {
           {cartArr.length > 0 ? <div className='dot'><span>{cartArr.length}</span></div> : ""}
         </div>
       </div>
-      <div className="item-map-section search-item-map-section">
-        {filteredItems.map((item) => (
-          <div key={item.id} className="item" onClick={() => handleClickItem(item)}>
-            <img src={item.img} alt={item.name} />
-            <div className="name">{item.name}</div>
-            <div className="price">{item.price}</div>
-            <FavoriteButton item={item} />
-          </div>
-        ))}
-      </div>
+      <ItemMapping items={filteredItems} className="search-item-map-section" />
     </section>
   );
 };

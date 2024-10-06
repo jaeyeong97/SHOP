@@ -114,6 +114,7 @@ export const socksState = atom({
     ],
 });
 
+// 카테고리 아이콘
 export const iconsState = atom({
     key: 'iconsState',
     default: [

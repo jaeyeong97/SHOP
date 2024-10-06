@@ -2,28 +2,28 @@ import { RecoilRoot } from "recoil";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import ScrollToTop from "./util/ScrollToTop";
+import PrivateRoute from "./util/PrivateRoute";
 import Gnb from "./components/Gnb";
 import Header from "./components/Header";
-import MainPage from './components/MainPage';
-import CategoryPage from './components/CategoryPage';
-import SearchPage from './components/SearchPage';
-import FavoritePage from './components/FavoritePage';
-import MyPage from "./components/MyPage";
-import LoginPage from "./components/LoginPage";
-import PrivateRoute from "./util/PrivateRoute";
-import CartPage from "./components/CartPage";
-import Top from "./components/Top";
-import Pants from "./components/Pants";
-import Outer from "./components/Outer"
-import Shoes from "./components/Shoes"
-import Skirt from "./components/Skirt"
-import Eyeware from "./components/Eyeware"
-import Socks from "./components/Socks"
-import Bag from "./components/Bag"
-import Cap from "./components/Cap"
-import Accessory from "./components/Accessory"
 import ItemModal from "./components/ItemModal";
-import PurchasePage from "./components/PurchasePage";
+import MainPage from './pages/MainPage';
+import CategoryPage from './pages/CategoryPage';
+import SearchPage from './pages/SearchPage';
+import FavoritePage from './pages/FavoritePage';
+import MyPage from "./pages/MyPage";
+import LoginPage from "./pages/LoginPage";
+import CartPage from "./pages/CartPage";
+import Top from "./pages/Top";
+import Pants from "./pages/Pants";
+import Outer from "./pages/Outer"
+import Shoes from "./pages/Shoes"
+import Skirt from "./pages/Skirt"
+import Eyeware from "./pages/Eyeware"
+import Socks from "./pages/Socks"
+import Bag from "./pages/Bag"
+import Cap from "./pages/Cap"
+import Accessory from "./pages/Accessory"
+import PurchasePage from "./pages/PurchasePage";
 
 function App() {
   return (
