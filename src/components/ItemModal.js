@@ -115,6 +115,8 @@ const ItemModal = () => {
           quantity: updatedCart[existingItemIndex].quantity + selectedItem.quantity, // 수량 증가
           price: price * (updatedCart[existingItemIndex].quantity + selectedItem.quantity) // 가격 계산
         };
+        // 로컬 스토리지 저장
+        localStorage.setItem('cart', JSON.stringify(updatedCart));
         return updatedCart;
       });
     } else {
@@ -126,7 +128,14 @@ const ItemModal = () => {
         quantity: selectedItem.quantity, // 선택한 수량 반영
         price: price * selectedItem.quantity // 선택한 수량에 따른 가격 계산
       };
-      setCart(prevCart => [...prevCart, newItem]);
+      setCart(prevCart => {
+        const updatedCart = [...prevCart, newItem];
+
+        // 로컬 스토리지에 저장
+        localStorage.setItem('cart', JSON.stringify(updatedCart));
+
+        return updatedCart;
+      });
     }
 
     setIsBuyModalOpen(false);

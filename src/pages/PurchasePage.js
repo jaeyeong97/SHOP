@@ -1,11 +1,20 @@
-import { useRecoilState, useRecoilValue } from "recoil";
+import { useRecoilState } from "recoil";
 import { appModalState, selectedCartItemState } from "../recoil/atom";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 const PurchasePage = () => {
   const [isAppModal, setIsAppModal] = useRecoilState(appModalState); // toApp 모달 on/off 상태
-  const purchaseItems = useRecoilValue(selectedCartItemState);
+  const [purchaseItems, setPurchaseItems] = useRecoilState(selectedCartItemState);
   const navigate = useNavigate();
+
+  // 로컬 스토리지에서 선택된 장바구니 상품 불러오기
+  useEffect(() => {
+    const savedSelectedItems = JSON.parse(localStorage.getItem("selectedItem"));
+    if (savedSelectedItems) {
+      setPurchaseItems(savedSelectedItems); // 로컬 스토리지에서 가져온 데이터를 Recoil 상태로 설정
+    }
+  }, [setPurchaseItems]);
 
   // 가격 총합을 계산하는 함수
   const calculateTotalPrice = () => {

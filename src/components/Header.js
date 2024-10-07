@@ -1,11 +1,20 @@
 import { useNavigate } from 'react-router-dom';
-import { useRecoilState, useRecoilValue } from 'recoil';
+import { useRecoilState } from 'recoil';
 import { cartState, appModalState } from '../recoil/atom';
+import { useEffect } from 'react';
 
 const Header = () => {
   const navigate = useNavigate();
-  const cartArr = useRecoilValue(cartState);
+  const [cartArr, setCartArr] = useRecoilState(cartState);
   const [isToApp, setIsToApp] = useRecoilState(appModalState);
+
+  // 로컬 스토리지에서 장바구니 상태 불러오기
+  useEffect(() => {
+    const savedCart = JSON.parse(localStorage.getItem("cart"));
+    if (savedCart) {
+      setCartArr(savedCart);
+    }
+  }, [setCartArr]);
 
   const handleModalClose = (e) => {
     if (e.target.classList.contains("to-app-modal-bg")) {

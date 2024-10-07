@@ -1,16 +1,25 @@
-import { useRecoilValue } from "recoil";
+import { useEffect } from "react";
+import { useRecoilState } from "recoil";
 import { favoriteState } from "../recoil/atom";
 import ItemMapping from "../components/ItemMapping";
 
 const FavoritePage = () => {
-  const favoriteArr = useRecoilValue(favoriteState);
+  const [favoriteArr, setFavoriteArr] = useRecoilState(favoriteState);
+
+  // 로컬 스토리지에서 좋아요 로드함
+  useEffect(() => {
+    const savedFavorites = JSON.parse(localStorage.getItem("favorites"));
+    if (savedFavorites) {
+      setFavoriteArr(savedFavorites);
+    }
+  }, [setFavoriteArr]);
 
   return (
     <section id="favorite-page">
       {/* 좋아요한 상품 있을때 */}
       {favoriteArr.length > 0 ?
         <div className="fav-item-wrap">
-          <div className="title">{favoriteArr.length}개의 찜한 상품이 있습니다. </div>
+          <div className="title">{favoriteArr.length}개의 찜한 상품이 있습니다.</div>
           <ItemMapping items={favoriteArr} className="fav-item-map-section" />
         </div>
         :

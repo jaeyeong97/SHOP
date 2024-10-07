@@ -8,21 +8,21 @@ const LoginPage = () => {
   const navigate = useNavigate();
 
   const handleKakaoSuccess = (kakaoAccount) => {
-    localStorage.setItem("nickname", kakaoAccount.nickname);
-    localStorage.setItem("profileImg", kakaoAccount.thumbnail_image_url);
+    sessionStorage.setItem("nickname", kakaoAccount.nickname);
+    sessionStorage.setItem("profileImg", kakaoAccount.thumbnail_image_url);
     navigate("/");
   };
 
   const handleGoogleSuccess = (response) => {
     const decoded = jwtDecode(response.credential);
-    localStorage.setItem("nickname", decoded.name);
-    localStorage.setItem("profileImg", decoded.picture);
+    sessionStorage.setItem("nickname", decoded.name);
+    sessionStorage.setItem("profileImg", decoded.picture);
     navigate("/");
   };
 
   const handleNaverSuccess = (naverAccount) => {
-    localStorage.setItem("nickname", naverAccount.nickname);
-    localStorage.setItem("profileImg", naverAccount.profileImg);
+    sessionStorage.setItem("nickname", naverAccount.nickname);
+    sessionStorage.setItem("profileImg", naverAccount.profileImg);
     navigate("/");
   };
 

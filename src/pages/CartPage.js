@@ -1,12 +1,38 @@
 import { Link, useNavigate } from "react-router-dom";
 import { cartState, selectedCartItemState, appModalState } from "../recoil/atom";
 import { useRecoilState, useRecoilValue } from "recoil";
+import { useEffect } from "react";
 
 const CartPage = () => {
   const isAppModal = useRecoilValue(appModalState); // toApp 모달 on/off 상태
   const [cartArr, setCartArr] = useRecoilState(cartState); // 장바구니 상태
   const [selectedCartItems, setSelectedCartItems] = useRecoilState(selectedCartItemState); // 장바구니에서 체크된 상품
   const navigate = useNavigate();
+
+  useEffect(() => {
+    // 로컬 스토리지에서 장바구니 및 선택된 상품 상태 불러오기
+    const savedCart = JSON.parse(localStorage.getItem("cart"));
+    const savedSelectedItems = JSON.parse(localStorage.getItem("selectedItem"));
+
+    // 로컬 스토리지에 저장되어있으면 장바구니 상태에 넣기
+    if (savedCart) {
+      setCartArr(savedCart);
+    }
+
+    // 체크된 상품 로컬 스토리지에 있으면 체크 상태에 넣기
+    if (savedSelectedItems) {
+      setSelectedCartItems(savedSelectedItems);
+    } else {
+      setSelectedCartItems([]);
+    }
+  }, [setCartArr, setSelectedCartItems]);
+
+  // 장바구니 및 체크된 상품 로컬 스토리지에 저장
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cartArr));
+    localStorage.setItem("selectedItem", JSON.stringify(selectedCartItems));
+  }, [cartArr, selectedCartItems]);
+
 
   const handleCheckAllBox = () => {
     // 모든 상품이 선택된 상태이면 전체 해제
@@ -20,12 +46,13 @@ const CartPage = () => {
 
   // 체크박스 클릭 시 선택된 상품 관리
   const handleCheckbox = (item) => {
-    if (selectedCartItems.includes(item)) {
-      setSelectedCartItems(selectedCartItems.filter(selected => selected !== item)); // 선택 해제
+    if (selectedCartItems.some(selected => selected.id === item.id)) {
+      setSelectedCartItems(selectedCartItems.filter(selected => selected.id !== item.id)); // 선택 해제
     } else {
       setSelectedCartItems([...selectedCartItems, item]); // 선택
     }
   };
+
 
   // 선택된 상품 삭제
   const handleDeleteSelectedItem = (item) => {
@@ -87,10 +114,10 @@ const CartPage = () => {
             <div key={`${item.id}-${item.selectedSize}-${item.selectedColor}`} className="item">
               <div className="bt-img-txt-flex">
                 <button
-                  className={`check ${selectedCartItems.includes(item) ? "selected" : ""}`}
+                  className={`check ${selectedCartItems.some(selected => selected.id === item.id) ? "selected" : ""}`}
                   onClick={() => handleCheckbox(item)}
                 >
-                  {selectedCartItems.includes(item) ?
+                  {selectedCartItems.some(selected => selected.id === item.id) ?
                     <span className="material-symbols-outlined icon">
                       check
                     </span> :

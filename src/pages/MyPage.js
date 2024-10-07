@@ -6,8 +6,8 @@ const MyPage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const profileImg = localStorage.getItem("profileImg");
-    const nickname = localStorage.getItem("nickname");
+    const profileImg = sessionStorage.getItem("profileImg");
+    const nickname = sessionStorage.getItem("nickname");
 
     // 프로필이미지랑 이름 둘다 들어와야지 출력함..
     if (profileImg && nickname) {
@@ -24,15 +24,13 @@ const MyPage = () => {
     }
     if (window.Kakao && window.Kakao.Auth) {
       window.Kakao.Auth.logout(() => {
-        console.log("Kakao 로그아웃 완료");
       });
     }
     if (window.naver && window.naver.Logout) {
       window.naver.Logout();
-      console.log("Naver 로그아웃 완료");
     }
 
-    localStorage.clear();
+    sessionStorage.clear();
     setUser({});
     navigate("/");
   };
