@@ -20,14 +20,13 @@ const ItemMapping = ({ items, className }) => {
   });
 
   useEffect(() => {
-    if (inView && hasNextPage() && !loading) {
+    if (inView && hasNextPage() && !loading && window.scrollY > 0) {
       loadMoreItems();
     }
   }, [inView]);
 
   // 무한 스크롤
   const loadMoreItems = () => {
-    if (loading) return; // 로딩 중이면 리턴
     setLoading(true); // 로딩 시작
     const nextPage = currentPage + 1;
     const newItems = items.slice(0, nextPage * ITEMS_PER_PAGE);
