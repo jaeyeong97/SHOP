@@ -11,7 +11,7 @@
     "kakao-js-sdk": "^1.2.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-facebook-login": "^4.1.1",
+    "react-intersection-observer": "^9.13.1",
     "react-router-dom": "^6.26.2",
     "react-scripts": "5.0.1",
     "recoil": "^0.7.7",

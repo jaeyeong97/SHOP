@@ -23,7 +23,6 @@ const ItemModal = () => {
   useEffect(() => {
     if (!selectedItem || !selectedItem.item) {
       navigate("/");
-    } else {
     }
   }, [selectedItem, navigate]);
 
