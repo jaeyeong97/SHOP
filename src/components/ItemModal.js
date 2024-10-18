@@ -15,6 +15,7 @@ const ItemModal = () => {
   const [warningMessage, setWarningMessage] = useState(""); // 경고 메시지 상태
   const [cartAlert, setCartAlert] = useState(false); // 장바구니 알림
   const [alertTimeout, setAlertTimeout] = useState(false);
+  const [imgLoading, setImgLoading] = useState(true); // 이미지 로딩 상태
   const sizeListRef = useRef(null);
   const colorListRef = useRef(null);
 
@@ -181,12 +182,20 @@ const ItemModal = () => {
     navigate("/cart");
   };
 
+  const handleLoad = () => {
+    setImgLoading(false);
+  };
+
   return (
     <div className="item-modal" onClick={closeBuyModal} >
       <div className={isBuyModalOpen ? "item-modal-bg active" : "item-modal-bg"}></div>
       <div className="item-modal-info">
         <div className="item-main">
-          <img src={selectedItem.item.img} alt={selectedItem.item.name} className="item-img" />
+          <img
+            src={selectedItem.item.img}
+            alt={selectedItem.item.name}
+            className="item-img"
+          />
           <div className="name">{selectedItem.item.name}</div>
           <div className="price">{selectedItem.item.price}원</div>
           <div className="login-box" onClick={() => setIsToApp(true)}>
@@ -205,7 +214,22 @@ const ItemModal = () => {
             </div>
           }
           {open && <div className="open">
-            {selectedItem.item.sImgs[1] && <img className="item-img" src={selectedItem.item.sImgs[1]} alt={selectedItem.item.name} />}
+            {selectedItem.item.sImgs[1] && (
+              <>
+                {imgLoading && (
+                  <div className="loading">
+                    <img src="../assets/spinner.gif" alt="spinner" className="spinner" />
+                  </div>
+                )}
+                <img
+                  className="item-img"
+                  src={selectedItem.item.sImgs[1]}
+                  alt={selectedItem.item.name}
+                  onLoad={handleLoad}
+                  style={{ display: imgLoading ? 'none' : 'block' }}
+                />
+              </>
+            )}
             <div className="txt-section">
               {selectedItem.item.color && <div className="s-title">COLOR</div>}
               {selectedItem.item.color &&

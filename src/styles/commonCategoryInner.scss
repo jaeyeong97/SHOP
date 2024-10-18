@@ -22,7 +22,7 @@
       1px 1px 0 0 $second-gray-color, 1px 0 0 0 $second-gray-color inset,
       0 1px 0 0 $second-gray-color inset;
     cursor: pointer;
-    img {
+    .item-img {
       width: 100%;
       height: auto;
     }
@@ -46,12 +46,6 @@
       color: $fav-active;
       animation: favClick 0.3s;
     }
-  }
-  .loading {
-    width: 100%;
-    margin: 10px 0;
-    display: flex;
-    justify-content: center;
   }
 }
 .fav-alert {
