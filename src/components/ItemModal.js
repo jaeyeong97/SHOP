@@ -15,7 +15,7 @@ const ItemModal = () => {
   const [warningMessage, setWarningMessage] = useState(""); // 경고 메시지 상태
   const [cartAlert, setCartAlert] = useState(false); // 장바구니 알림
   const [alertTimeout, setAlertTimeout] = useState(false);
-  const [imgLoading, setImgLoading] = useState(true); // 이미지 로딩 상태
+  const [imgLoading, setImgLoading] = useState(true); // index[0] 이미지 로딩 상태
   const sizeListRef = useRef(null);
   const colorListRef = useRef(null);
 
@@ -206,7 +206,19 @@ const ItemModal = () => {
           </div>
         </div>
         <div className="item-more">
-          {selectedItem.item.sImgs[0] && <img className="item-img" src={selectedItem.item.sImgs[0]} alt={selectedItem.item.name} />}
+          {imgLoading && (
+            <div className="loading">
+              <img src="../assets/spinner.gif" alt="spinner" className="spinner" />
+            </div>
+          )}
+          {selectedItem.item.sImgs[0] &&
+            <img className="item-img"
+              src={selectedItem.item.sImgs[0]}
+              alt={selectedItem.item.name}
+              onLoad={handleLoad}
+              style={{ display: imgLoading ? 'none' : 'block' }}
+            />
+          }
           {!open &&
             <div className="open-btn-wrap">
               <div className="open-btn" onClick={() => setOpen(true)}>상품정보 더 보기</div>
@@ -215,20 +227,11 @@ const ItemModal = () => {
           }
           {open && <div className="open">
             {selectedItem.item.sImgs[1] && (
-              <>
-                {imgLoading && (
-                  <div className="loading">
-                    <img src="../assets/spinner.gif" alt="spinner" className="spinner" />
-                  </div>
-                )}
-                <img
-                  className="item-img"
-                  src={selectedItem.item.sImgs[1]}
-                  alt={selectedItem.item.name}
-                  onLoad={handleLoad}
-                  style={{ display: imgLoading ? 'none' : 'block' }}
-                />
-              </>
+              <img
+                className="item-img"
+                src={selectedItem.item.sImgs[1]}
+                alt={selectedItem.item.name}
+              />
             )}
             <div className="txt-section">
               {selectedItem.item.color && <div className="s-title">COLOR</div>}
