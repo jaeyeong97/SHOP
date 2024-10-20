@@ -145,6 +145,7 @@
     }
     .buy-btn {
       width: 90%;
+      margin-left: 20px;
       height: 50px;
       color: $white;
       font-size: 14px;
@@ -340,7 +341,7 @@
         position: absolute;
         bottom: 10px;
         left: 50%;
-        width: 100%;
+        width: calc(100% - 40px);
         max-width: 550px;
         height: 50px;
         font-size: 18px;

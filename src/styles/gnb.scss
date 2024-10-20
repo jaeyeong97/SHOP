@@ -8,6 +8,7 @@
   border-radius: 10px 10px 0 0;
   border: 1px solid $second-gray-color;
   background-color: $white;
+  z-index: 101;
   ul {
     display: flex;
     justify-content: space-around;
