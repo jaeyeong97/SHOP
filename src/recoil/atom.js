@@ -159,23 +159,28 @@ export const selectedCartItemState = atom({
 export const sliderState = atom({
     key: "sliderState",
     default: [
-        { id: "슬라이더1", img: "../assets/banner1.png" },
+        { id: "슬라이더1-1", img: "../assets/banner1.png" },
         { id: "슬라이더2", img: "../assets/banner2.png" },
         { id: "슬라이더3", img: "../assets/banner3.png" },
+        { id: "슬라이더1-2", img: "../assets/banner1.png" },
         { id: "슬라이더4", img: "../assets/banner4.png" },
         { id: "슬라이더5", img: "../assets/banner5.png" },
+        { id: "슬라이더1-3", img: "../assets/banner1.png" },
         { id: "슬라이더6", img: "../assets/banner6.png" },
         { id: "슬라이더7", img: "../assets/banner7.png" },
+        { id: "슬라이더1-4", img: "../assets/banner1.png" },
         { id: "슬라이더8", img: "../assets/banner8.png" },
         { id: "슬라이더9", img: "../assets/banner9.png" },
+        { id: "슬라이더1-5", img: "../assets/banner1.png" },
+        { id: "슬라이더10", img: "../assets/banner10.png" },
     ]
 })
 
-// 슬라이더 인덱스
-export const sliderIndexState = atom({
-    key: 'sliderIndexState',
-    default: 0,
-});
+// 룰렛 모달 온오프 상태
+export const rouletteState = atom({
+    key: "rouletteState",
+    default: false,
+})
 
 // 검색어 관리 상태
 export const searchTermState = atom({
@@ -225,3 +230,4 @@ export const appModalState = atom({
     key: "appModalState",
     default: false,
 })
+

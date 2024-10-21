@@ -1,10 +1,13 @@
-import { useRecoilValue, useRecoilState } from "recoil";
-import { sliderState, sliderIndexState } from "../recoil/atom";
-import { useEffect } from "react";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { sliderState } from "../recoil/atom";
+import { useEffect, useState } from "react";
+import { rouletteState } from "../recoil/atom";
+import Roulette from "./Roulette";
 
 const Slider = () => {
   const slider = useRecoilValue(sliderState); // 슬라이더 이미지
-  const [currentIndex, setCurrentIndex] = useRecoilState(sliderIndexState); // 슬라이더 인덱스
+  const [currentIndex, setCurrentIndex] = useState(0); // 슬라이더 인덱스
+  const [rouletteModal, setRouletteModal] = useRecoilState(rouletteState); // 룰렛 모달
 
   const prevSlide = () => {
     setCurrentIndex((prevIndex) =>
@@ -18,11 +21,23 @@ const Slider = () => {
     );
   };
 
-  // 3초 인터벌 슬라이드
+  // 5초 인터벌 슬라이드
   useEffect(() => {
     const intervalSlider = setInterval(nextSlide, 5000);
     return () => clearInterval(intervalSlider);
   }, [currentIndex]);
+
+  const handleClickSlide = (slider) => {
+    if (
+      slider.id === '슬라이더1-1' ||
+      slider.id === '슬라이더1-2' ||
+      slider.id === '슬라이더1-3' ||
+      slider.id === '슬라이더1-4' ||
+      slider.id === '슬라이더1-5'
+    ) {
+      setRouletteModal(true);
+    }
+  };
 
   return (
     <div className="slider-wrap">
@@ -34,7 +49,9 @@ const Slider = () => {
           <img
             key={slider.id}
             className="slide"
-            src={slider.img} alt={slider.id}
+            src={slider.img}
+            alt={slider.id}
+            onClick={() => handleClickSlide(slider)}
           >
           </img>
         ))}
@@ -47,6 +64,7 @@ const Slider = () => {
         <span className="s">/</span>
         <span className="end-index">{slider.length}</span>
       </div>
+      {rouletteModal && <Roulette />}
     </div>
   );
 };
