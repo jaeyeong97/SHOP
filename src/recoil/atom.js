@@ -9,6 +9,10 @@ export const topState = atom({
         { id: '상의4', name: '상의 4', price: '89,000', img: '../assets/top4.webp', size: ['S', 'M', 'L', 'XL'], sImgs: ['../assets/top4-1.png', '../assets/top4-2.png', '../assets/top4-3.png'] },
         { id: '상의5', name: '상의 5', price: '62,000', img: '../assets/top5.webp', size: ['S', 'M', 'L', 'XL'], sImgs: ['../assets/top5-1.png', '../assets/top5-2.png', '../assets/top5-3.png'] },
         { id: '상의6', name: '상의 6', price: '29,000', img: '../assets/top6.webp', size: ['S', 'M', 'L', 'XL'], sImgs: ['../assets/top6-1.png', '../assets/top6-2.png', '../assets/top6-3.png'] },
+        { id: '상의7', name: '상의 7', price: '35,000', img: '../assets/top7.png', size: ['S', 'M', 'L', 'XL'], sImgs: ['../assets/top7-1.png', '../assets/top7-2.png', '../assets/top7-3.png'] },
+        { id: '상의8', name: '상의 8', price: '30,500', img: '../assets/top8.png', size: ['S', 'M', 'L', 'XL'], sImgs: ['../assets/top8-1.png', '../assets/top8-2.png', '../assets/top8-3.png'] },
+        { id: '상의9', name: '상의 9', price: '49,000', img: '../assets/top9.png', size: ['S', 'M', 'L', 'XL'], sImgs: ['../assets/top9-1.png', '../assets/top9-2.png', '../assets/top9-3.png'] },
+        { id: '상의10', name: '상의 10', price: '34,000', img: '../assets/top10.png', size: ['S', 'M', 'L', 'XL'], sImgs: ['../assets/top10-1.png', '../assets/top10-2.png', '../assets/top10-3.png'] },
     ],
 });
 
@@ -21,6 +25,10 @@ export const pantsState = atom({
         { id: '하의4', name: '하의 4', price: '47,000', img: '../assets/pants4.webp', size: ['S', 'M', 'L', 'XL'], sImgs: ['../assets/pants4-1.png', '../assets/pants4-2.png', '../assets/pants4-3.png'] },
         { id: '하의5', name: '하의 5', price: '51,000', img: '../assets/pants5.png', size: ['S', 'M', 'L', 'XL'], sImgs: ['../assets/pants5-1.png', '../assets/pants5-2.png', '../assets/pants5-3.png'] },
         { id: '하의6', name: '하의 6', price: '58,600', img: '../assets/pants6.png', size: ['S', 'M', 'L', 'XL'], sImgs: ['../assets/pants6-1.png', '../assets/pants6-2.png', '../assets/pants6-3.png'] },
+        { id: '하의7', name: '하의 7', price: '78,600', img: '../assets/pants7.png', size: ['S', 'M', 'L', 'XL'], sImgs: ['../assets/pants7-1.png', '../assets/pants7-2.png', '../assets/pants7-3.png'] },
+        { id: '하의8', name: '하의 8', price: '85,600', img: '../assets/pants8.png', size: ['S', 'M', 'L', 'XL'], sImgs: ['../assets/pants8-1.png', '../assets/pants8-2.png', '../assets/pants8-3.png'] },
+        { id: '하의9', name: '하의 9', price: '69,500', img: '../assets/pants9.png', size: ['S', 'M', 'L', 'XL'], sImgs: ['../assets/pants9-1.png', '../assets/pants9-2.png', '../assets/pants9-3.png'] },
+        { id: '하의10', name: '하의 10', price: '88,400', img: '../assets/pants10.png', size: ['S', 'M', 'L', 'XL'], sImgs: ['../assets/pants10-1.png', '../assets/pants10-2.png', '../assets/pants10-3.png'] },
     ],
 });
 
@@ -49,6 +57,8 @@ export const outerState = atom({
         { id: '아우터8', name: '아우터 8', price: '386,000', img: '../assets/outer8.webp', size: ['S', 'M', 'L', 'XL'], sImgs: ['../assets/outer8-1.png', '../assets/outer8-2.png', '../assets/outer8-3.png'] },
         { id: '아우터9', name: '아우터 9', price: '299,000', img: '../assets/outer9.webp', size: ['S', 'M', 'L', 'XL'], sImgs: ['../assets/outer9-1.png', '../assets/outer9-2.png', '../assets/outer9-3.png'] },
         { id: '아우터10', name: '아우터 10', price: '312,800', img: '../assets/outer10.webp', size: ['S', 'M', 'L', 'XL'], sImgs: ['../assets/outer10-1.png', '../assets/outer10-2.png', '../assets/outer10-3.png'] },
+        { id: '아우터11', name: '아우터 11', price: '282,200', img: '../assets/outer11.png', size: ['S', 'M', 'L', 'XL'], sImgs: ['../assets/outer11-1.png', '../assets/outer11-2.png', '../assets/outer11-3.png'] },
+        { id: '아우터12', name: '아우터 12', price: '382,800', img: '../assets/outer12.png', size: ['S', 'M', 'L', 'XL'], sImgs: ['../assets/outer12-1.png', '../assets/outer12-2.png', '../assets/outer12-3.png'] },
     ],
 });
 
@@ -101,6 +111,10 @@ export const bagState = atom({
         { id: '가방2', name: '가방 2', price: '255,100', img: '../assets/bag2.webp', color: ['블랙', '브라운', '화이트'], sImgs: ['../assets/bag2-1.png', '../assets/bag2-2.png', '../assets/bag2-3.png'] },
         { id: '가방3', name: '가방 3', price: '199,000', img: '../assets/bag3.png', color: ['블랙', '브라운', '화이트'], sImgs: ['../assets/bag3-1.png', '../assets/bag3-2.png', '../assets/bag3-3.png'] },
         { id: '가방4', name: '가방 4', price: '198,000', img: '../assets/bag4.png', color: ['블랙', '브라운', '화이트'], sImgs: ['../assets/bag4-1.png', '../assets/bag4-2.png', '../assets/bag4-3.png'] },
+        { id: '가방5', name: '가방 5', price: '218,000', img: '../assets/bag5.png', color: ['블랙', '브라운', '화이트'], sImgs: ['../assets/bag5-1.png', '../assets/bag5-2.png', '../assets/bag5-3.png'] },
+        { id: '가방6', name: '가방 6', price: '236,000', img: '../assets/bag6.png', color: ['블랙', '브라운', '화이트'], sImgs: ['../assets/bag6-1.png', '../assets/bag6-2.png', '../assets/bag6-3.png'] },
+        { id: '가방7', name: '가방 7', price: '248,000', img: '../assets/bag7.png', color: ['블랙', '브라운', '화이트'], sImgs: ['../assets/bag7-1.png', '../assets/bag7-2.png', '../assets/bag7-3.jpg'] },
+        { id: '가방8', name: '가방 8', price: '328,000', img: '../assets/bag8.png', color: ['블랙', '브라운', '화이트'], sImgs: ['../assets/bag8-1.png', '../assets/bag8-2.png', '../assets/bag8-3.png'] },
     ],
 });
 

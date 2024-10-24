@@ -11,7 +11,7 @@ const MainPage = () => {
     <section id="main-page">
       <Slider />
       <IconsNavigation className="main-category-wrap" />
-      <div className="title">회원님을 위한 아우터 상품</div>
+      <div className="title">회원님을 위한 추천 상품</div>
       <ItemMapping items={allItems} />
     </section>
   );
