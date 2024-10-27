@@ -27,6 +27,17 @@
   .search-item-map-section {
     .item {
       width: 33.33%;
+      .name {
+        font-size: 12px;
+      }
+      .price {
+        font-size: 14px;
+      }
+      .small-fav {
+        font-size: 20px;
+        right: 8px;
+        bottom: 10px;
+      }
     }
   }
 }

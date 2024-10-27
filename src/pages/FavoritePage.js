@@ -20,7 +20,11 @@ const FavoritePage = () => {
       {favoriteArr.length > 0 ?
         <div className="fav-item-wrap">
           <div className="title">{favoriteArr.length}개의 찜한 상품이 있습니다.</div>
-          <ItemMapping items={favoriteArr} className="fav-item-map-section" />
+          <ItemMapping
+            items={favoriteArr}
+            className="fav-item-map-section"
+            favClassName="small-fav"
+          />
         </div>
         :
         // 좋아요한 상품 없을때

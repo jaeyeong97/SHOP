@@ -30,7 +30,11 @@ const SearchPage = () => {
           {cartArr.length > 0 ? <div className='dot'><span>{cartArr.length}</span></div> : ""}
         </div>
       </div>
-      <ItemMapping items={filteredItems} className="search-item-map-section" />
+      <ItemMapping
+        items={filteredItems}
+        className="search-item-map-section"
+        favClassName="small-fav"
+      />
     </section>
   );
 };

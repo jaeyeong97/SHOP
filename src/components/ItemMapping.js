@@ -7,7 +7,7 @@ import FavoriteButton from "./FavoriteBtn";
 
 const ITEMS_PER_PAGE = 8; // 한 번에 로드할 아이템 수
 
-const ItemMapping = ({ items, className }) => {
+const ItemMapping = ({ items, className, favClassName }) => {
   const [selectedItem, setSelectedItem] = useRecoilState(selectedItemState);
   const [displayedItems, setDisplayedItems] = useState([]); // 스크롤시 로드 아이템
   const [currentPage, setCurrentPage] = useState(1);
@@ -16,9 +16,7 @@ const ItemMapping = ({ items, className }) => {
   const navigate = useNavigate();
 
   // 스크롤 감지
-  const { ref, inView } = useInView({
-    delay: 500, // 로딩 스피너 안보여서 임시 딜레이
-  });
+  const { ref, inView } = useInView();
 
   useEffect(() => {
     if (inView && hasNextPage() && !loading && window.scrollY > 0) {
@@ -73,7 +71,7 @@ const ItemMapping = ({ items, className }) => {
           />
           <div className="name">{item.name}</div>
           <div className="price">{item.price}</div>
-          <FavoriteButton item={item} />
+          <FavoriteButton item={item} favClassName={favClassName} />
         </div>
       ))}
       <div ref={ref} className="loading">
