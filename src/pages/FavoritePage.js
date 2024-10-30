@@ -22,8 +22,6 @@ const FavoritePage = () => {
           <div className="title">{favoriteArr.length}개의 찜한 상품이 있습니다.</div>
           <ItemMapping
             items={favoriteArr}
-            className="fav-item-map-section"
-            favClassName="small-fav"
           />
         </div>
         :

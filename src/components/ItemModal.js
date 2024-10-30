@@ -191,13 +191,15 @@ const ItemModal = () => {
       <div className={isBuyModalOpen ? "item-modal-bg active" : "item-modal-bg"}></div>
       <div className="item-modal-info">
         <div className="item-main">
-          <img
-            src={selectedItem.item.img}
-            alt={selectedItem.item.name}
-            className="item-img"
-          />
+          <div className="item-img-wrap">
+            <img
+              src={selectedItem.item.img}
+              alt={selectedItem.item.name}
+              className="item-img"
+            />
+          </div>
           <div className="name">{selectedItem.item.name}</div>
-          <div className="price">{selectedItem.item.price}원</div>
+          <div className="price"><span className="sale">{selectedItem.item.sale}</span>{selectedItem.item.price}원</div>
           <div className="login-box" onClick={() => setIsToApp(true)}>
             <div className="txt" >회원가입 시 최대 65,000원 혜택</div>
             <span className="material-symbols-outlined arrow">

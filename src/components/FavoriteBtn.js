@@ -2,7 +2,7 @@ import { useRecoilState } from "recoil";
 import { favoriteState } from "../recoil/atom";
 import { useEffect, useState } from "react";
 
-const FavoriteButton = ({ item, favClassName }) => {
+const FavoriteButton = ({ item }) => {
   const [favorites, setFavorites] = useRecoilState(favoriteState);
   const [favAlert, setFavAlert] = useState("");
   const [alertTimeout, setAlertTimeout] = useState(null);
@@ -47,7 +47,7 @@ const FavoriteButton = ({ item, favClassName }) => {
   return (
     <div>
       <span
-        className={`material-symbols-outlined icon favorite ${favorites.some(favoriteItem => favoriteItem.id === item.id) ? 'active' : ''} ${favClassName}`}
+        className={`material-symbols-outlined icon favorite ${favorites.some(favoriteItem => favoriteItem.id === item.id) ? 'active' : ''} `}
         onClick={toggleFavorite}
       >
         favorite

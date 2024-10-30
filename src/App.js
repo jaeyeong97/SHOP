@@ -24,6 +24,8 @@ import Bag from "./pages/Bag"
 import Cap from "./pages/Cap"
 import Accessory from "./pages/Accessory"
 import PurchasePage from "./pages/PurchasePage";
+import AddressPage from "./pages/AddressPage";
+import AddressSearch from "./util/AddressSearch";
 
 function App() {
   return (
@@ -61,6 +63,8 @@ function App() {
             } />
             <Route path="/item/:id" element={<ItemModal />} />
             <Route path="/purchase" element={<PurchasePage />} />
+            <Route path="/address" element={<AddressPage />} />
+            <Route path="/address-search" element={<AddressSearch />} />
           </Routes>
         </Router>
       </RecoilRoot>

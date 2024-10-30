@@ -7,7 +7,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 30px;
+      margin-bottom: 10px;
       .title {
         font-size: 18px;
         font-weight: 600;
@@ -19,9 +19,45 @@
         cursor: pointer;
       }
     }
-    .address {
+    // 배송지 추가 후
+    .address-wrap {
+      font-size: 15px;
+      letter-spacing: 0.8px;
+      .t1 {
+        display: flex;
+        align-items: center;
+        padding: 10px 0;
+        .address-name {
+          font-size: 16px;
+          font-weight: 600;
+          margin-right: 10px;
+        }
+        .default {
+          font-size: 10px;
+          color: $main-color;
+          border: 1px solid $main-color;
+          padding: 3px;
+          border-radius: 3px;
+        }
+      }
+      .t2 {
+        padding: 5px 0;
+        span {
+          color: $text-first-color;
+        }
+      }
+      .t3 {
+        padding: 5px 0;
+        span {
+          color: $text-third-color;
+        }
+      }
+    }
+    // 배송지 추가 전
+    .before-address {
       width: 100%;
       height: 40px;
+      margin-top: 30px;
       text-align: center;
       font-size: 14px;
       line-height: 40px;
@@ -120,4 +156,12 @@
       }
     }
   }
+}
+.address-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 450px;
 }

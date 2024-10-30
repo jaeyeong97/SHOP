@@ -24,19 +24,32 @@
       background: $first-dark-back;
     }
   }
-  .search-item-map-section {
-    .item {
-      width: 33.33%;
-      .name {
-        font-size: 12px;
+  .before-search-wrap {
+    .recent-searched {
+      .flex {
+        display: flex;
+        justify-content: space-between;
+        margin: 10px 0;
+        .t1 {
+          font-size: 14px;
+          color: $text-third-color;
+        }
+        .t2 {
+          text-decoration: underline;
+          cursor: pointer;
+        }
       }
-      .price {
-        font-size: 14px;
-      }
-      .small-fav {
-        font-size: 20px;
-        right: 8px;
-        bottom: 10px;
+      .searched {
+        display: flex;
+        .searched-item {
+          margin-right: 5px;
+          font-size: 13px;
+          padding: 10px;
+          color: $text-first-color;
+          border-radius: 20px;
+          border: 1px solid $second-gray-color;
+          cursor: pointer;
+        }
       }
     }
   }

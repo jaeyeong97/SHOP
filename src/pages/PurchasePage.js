@@ -1,11 +1,14 @@
-import { useRecoilState } from "recoil";
-import { appModalState, selectedCartItemState } from "../recoil/atom";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { addressFormState, appModalState, selectedCartItemState } from "../recoil/atom";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
+import SectionHeader from "../components/SectionHeader";
 
 const PurchasePage = () => {
   const [isAppModal, setIsAppModal] = useRecoilState(appModalState); // toApp 모달 on/off 상태
   const [purchaseItems, setPurchaseItems] = useRecoilState(selectedCartItemState);
+  const addressData = useRecoilValue(addressFormState);
+
   const navigate = useNavigate();
 
   // 로컬 스토리지에서 선택된 장바구니 상품 불러오기
@@ -27,29 +30,36 @@ const PurchasePage = () => {
 
   return (
     <div className="purchase-page">
-      <div className={`common-header ${isAppModal ? 'active' : ''}`}>
-        <div className="back" onClick={() => navigate(-1)}>
-          <span className="material-symbols-outlined icon">
-            arrow_back_ios
-          </span>
+      <SectionHeader title={'결제'} />
+      {addressData.address !== "" ?
+        <div className="section1">
+          <div className="flex">
+            <div className="title">배송지</div>
+            <div className="add" onClick={() => navigate("/address")}>배송지 변경</div>
+          </div>
+          <div className="address-wrap">
+            <div className="t1">
+              <span className="address-name">{addressData.addressName}</span>
+              <span className="default">기본 배송지</span>
+            </div>
+            <div className="t2">
+              <span>{addressData.personName} / </span>
+              <span>{addressData.phone}</span>
+            </div>
+            <div className="t3">
+              <span>{addressData.address}, {addressData.detailAddress} [{addressData.zonecode}]</span>
+            </div>
+          </div>
+        </div> :
+        <div className="section1">
+          <div className="flex">
+            <div className="title">배송지를 추가해주세요.</div>
+            <div className="add" onClick={() => navigate("/address")}>배송지 추가</div>
+          </div>
+          <div className="before-address">배송지를 등록하면 편하게 주문할 수 있어요.</div>
         </div>
-        <h3 className="title">결제</h3>
-        <div className="wrap">
-          <span className="material-symbols-outlined icon" onClick={() => navigate("/search")}>
-            search
-          </span>
-          <span className="material-symbols-outlined icon" onClick={() => navigate("/")}>
-            home
-          </span>
-        </div>
-      </div>
-      <div className="section1">
-        <div className="flex">
-          <div className="title">배송지를 추가해주세요.</div>
-          <div className="add">배송지 추가</div>
-        </div>
-        <div className="address">배송지를 등록하면 편하게 주문할 수 있어요.</div>
-      </div>
+      }
+
       <div className="section2">
         <div className="title">주문 상품</div>
         {purchaseItems.map((item) => (

@@ -8,22 +8,6 @@
       padding-bottom: 8px;
       border-bottom: 1px solid $second-gray-color;
     }
-    .fav-item-map-section {
-      .item {
-        width: 33.33%;
-        .name {
-          font-size: 12px;
-        }
-        .price {
-          font-size: 14px;
-        }
-        .small-fav {
-          font-size: 20px;
-          right: 8px;
-          bottom: 10px;
-        }
-      }
-    }
   }
   .no-fav-item-wrap {
     display: flex;

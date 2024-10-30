@@ -1,0 +1,27 @@
+.address-modal {
+  padding-top: 20px;
+  height: 100%;
+  width: 100%;
+  max-width: 600px;
+  z-index: 9999;
+  background-color: #fff;
+  border: 1px solid $second-gray-color;
+  .address-header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin: 0 10px 10px 10px;
+    .back {
+      z-index: 1;
+      cursor: pointer;
+    }
+    .title {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      font-size: 18px;
+      font-weight: 600;
+    }
+  }
+}

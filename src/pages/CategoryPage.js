@@ -1,12 +1,9 @@
 import { useRef } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { useRecoilValue } from "recoil";
-import { appModalState } from "../recoil/atom";
+import { Link } from "react-router-dom";
+import SectionHeader from "../components/SectionHeader";
 
 const CategoryPage = () => {
-  const isAppModal = useRecoilValue(appModalState); // toApp 모달 on/off 상태
   const categoryRefs = useRef([]);
-  const navigate = useNavigate();
 
   const categories = [
     "상의", "하의", "아우터", "신발", "스커트", "양말",
@@ -25,22 +22,7 @@ const CategoryPage = () => {
 
   return (
     <section id="category-page">
-      <div className={`common-header ${isAppModal ? 'active' : ''}`}>
-        <div className="back" onClick={() => navigate(-1)}>
-          <span className="material-symbols-outlined icon">
-            arrow_back_ios
-          </span>
-        </div>
-        <h3 className="title">카테고리</h3>
-        <div className="wrap">
-          <span className="material-symbols-outlined icon" onClick={() => navigate("/search")}>
-            search
-          </span>
-          <span className="material-symbols-outlined icon" onClick={() => navigate("/")}>
-            home
-          </span>
-        </div>
-      </div>
+      <SectionHeader title={'카테고리'} />
       <div className="category-wrap">
         <div className="category1">
           <ul>
