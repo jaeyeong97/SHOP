@@ -28,6 +28,12 @@ const PurchasePage = () => {
     return totalPrice;
   };
 
+  const handleBuyBtn = () => {
+    if (!addressData.address) return;
+
+    setIsAppModal(true);
+  };
+
   return (
     <div className="purchase-page">
       <SectionHeader title={'결제'} />
@@ -101,8 +107,10 @@ const PurchasePage = () => {
         </div>
       </div>
       <div className="buy-button-wrap">
-        <button className="buy-button" onClick={() => setIsAppModal(true)}>
-          {calculateTotalPrice().toLocaleString()}원 구매하기
+        <button className="buy-button" onClick={handleBuyBtn}>
+          {!addressData.address ?
+            <div>배송지를 추가해주세요.</div> :
+            <div>{calculateTotalPrice().toLocaleString()}원 구매하기</div>}
         </button>
       </div>
     </div>
