@@ -26,12 +26,12 @@ const Header = () => {
     <div className='to-app-banner' onClick={handleModalClose}>
       <div className={isToApp ? "to-app-modal-bg active" : "to-app-modal-bg"}></div>
       <div className={isToApp ? "to-app-modal active" : "to-app-modal"}>
-        <div className="txt1">해당 기능은 앱에서 사용 가능해요!</div>
-        <div className="txt2">앱 설치하고 더 편하게 쇼핑해보세요</div>
+        <div className="txt1">해당 기능은 구현중입니다!</div>
+        <div className="txt2">QR 코드를 통해서 포트폴리오 웹사이트로 갈 수 있어요.</div>
         <div className="qr">
           <img src="../assets/qr.png" alt="" />
         </div>
-        <div className="txt3">휴대폰으로 QR 코드를 스캔해서 설치해보세요</div>
+        <div className="txt3">휴대폰으로 QR 코드를 스캔해서 확인해보세요</div>
         <button className="confirm" onClick={() => setIsToApp(false)}>확인</button>
       </div>
       <div className="banner">
