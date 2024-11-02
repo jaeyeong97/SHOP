@@ -44,15 +44,21 @@ const CartPage = () => {
     }
   };
 
-  // 체크박스 클릭 시 선택된 상품 관리
-  const handleCheckbox = (item) => {
-    if (selectedCartItems.some(selected => selected.id === item.id)) {
-      setSelectedCartItems(selectedCartItems.filter(selected => selected.id !== item.id)); // 선택 해제
-    } else {
-      setSelectedCartItems([...selectedCartItems, item]); // 선택
-    }
+  const selectedKey = (item) => {
+    return `${item.id}-${item.selectedSize || null}-${item.selectedColor || null}`
   };
 
+  // 체크박스 클릭 시 선택된 상품 관리
+  const handleCheckbox = (item) => {
+    if (selectedCartItems.some(selected => selectedKey(selected) === selectedKey(item))) {
+      setSelectedCartItems(
+        selectedCartItems.filter(selected => selectedKey(selected) !== selectedKey(item))
+      );
+    } else {
+      // 선택: 새 항목 추가
+      setSelectedCartItems([...selectedCartItems, item]);
+    }
+  };
 
   // 선택된 상품 삭제
   const handleDeleteSelectedItem = (item) => {
@@ -99,15 +105,16 @@ const CartPage = () => {
             <div key={`${item.id}-${item.selectedSize}-${item.selectedColor}`} className="item">
               <div className="bt-img-txt-flex">
                 <button
-                  className={`check ${selectedCartItems.some(selected => selected.id === item.id) ? "selected" : ""}`}
+                  className={`check ${selectedCartItems.some(selected => selectedKey(selected) === selectedKey(item)) ? "selected" : ""}`}
                   onClick={() => handleCheckbox(item)}
                 >
-                  {selectedCartItems.some(selected => selected.id === item.id) ?
+                  {selectedCartItems.some(selected => selectedKey(selected) === selectedKey(item)) ? (
                     <span className="material-symbols-outlined icon">
                       check
-                    </span> :
-                    ""}
+                    </span>
+                  ) : ""}
                 </button>
+
                 <img className="item-img" src={item.img} alt={item.name} />
                 <div className="text-wrap">
                   <div className="name">{item.name}</div>
