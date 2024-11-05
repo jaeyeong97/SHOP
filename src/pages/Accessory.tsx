@@ -1,10 +1,9 @@
 import { useRecoilValue } from "recoil";
-import { accessoryState } from "../recoil/atom";
+import { accessoryState, Item } from "../recoil/atom";
 import IconsNavigation from "../components/IconsNavigation";
 import ItemMapping from "../components/ItemMapping";
-const Accessory = () => {
-
-  const accessoryItems = useRecoilValue(accessoryState);
+const Accessory: React.FC = () => {
+  const accessoryItems = useRecoilValue<Item[]>(accessoryState);
 
   return (
     <section id="accessory-page">

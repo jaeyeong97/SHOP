@@ -1,18 +1,17 @@
 import { useRecoilValue } from "recoil";
-import { bagState } from "../recoil/atom";
+import { Item, topState } from "../recoil/atom";
 import ItemMapping from "../components/ItemMapping";
 import IconsNavigation from "../components/IconsNavigation";
 
-const Bag = () => {
-
-  const bagItems = useRecoilValue(bagState);
+const Top: React.FC = () => {
+  const topItems = useRecoilValue<Item[]>(topState);
 
   return (
-    <section id="bag-page">
+    <section id="top-page">
       <IconsNavigation className="inner-category-wrap" />
-      <ItemMapping items={bagItems} />
+      <ItemMapping items={topItems} />
     </section>
   );
 };
 
-export default Bag;
+export default Top;

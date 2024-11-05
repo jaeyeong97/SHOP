@@ -1,11 +1,10 @@
 import { useRecoilValue } from "recoil";
-import { pantsState } from "../recoil/atom";
+import { Item, pantsState } from "../recoil/atom";
 import ItemMapping from "../components/ItemMapping";
 import IconsNavigation from "../components/IconsNavigation";
 
-const Top = () => {
-
-  const pantsItems = useRecoilValue(pantsState);
+const Top: React.FC = () => {
+  const pantsItems = useRecoilValue<Item[]>(pantsState);
 
   return (
     <section id="pants-page">

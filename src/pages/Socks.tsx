@@ -1,18 +1,17 @@
 import { useRecoilValue } from "recoil";
-import { outerState } from "../recoil/atom";
+import { Item, socksState } from "../recoil/atom";
 import ItemMapping from "../components/ItemMapping";
 import IconsNavigation from "../components/IconsNavigation";
 
-const Outer = () => {
-
-  const outerItems = useRecoilValue(outerState);
+const Socks: React.FC = () => {
+  const socksItems = useRecoilValue<Item[]>(socksState);
 
   return (
-    <section id="outer-page">
+    <section id="socks-page">
       <IconsNavigation className="inner-category-wrap" />
-      <ItemMapping items={outerItems} />
+      <ItemMapping items={socksItems} />
     </section>
   );
 };
 
-export default Outer;
+export default Socks;

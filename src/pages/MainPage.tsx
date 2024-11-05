@@ -1,15 +1,15 @@
 import { useRecoilValue } from "recoil";
-import { allItemsState } from "../recoil/atom";
-import Slider from "../components/Slider";
+import { allItemsState, Item } from "../recoil/atom";
+import SliderComponent from "../components/SliderComponent";
 import ItemMapping from "../components/ItemMapping";
 import IconsNavigation from "../components/IconsNavigation";
 
-const MainPage = () => {
-  const allItems = useRecoilValue(allItemsState);
+const MainPage: React.FC = () => {
+  const allItems = useRecoilValue<Item[]>(allItemsState);
 
   return (
     <section id="main-page">
-      <Slider />
+      <SliderComponent />
       <IconsNavigation className="main-category-wrap" />
       <div className="title">회원님을 위한 추천 상품</div>
       <ItemMapping items={allItems} />

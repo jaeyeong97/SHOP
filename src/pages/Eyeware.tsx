@@ -1,18 +1,17 @@
 import { useRecoilValue } from "recoil";
-import { capState } from "../recoil/atom";
+import { eyewareState, Item } from "../recoil/atom";
 import ItemMapping from "../components/ItemMapping";
 import IconsNavigation from "../components/IconsNavigation";
 
-const Cap = () => {
-
-  const capItems = useRecoilValue(capState);
+const Eyeware: React.FC = () => {
+  const eyewareItems = useRecoilValue<Item[]>(eyewareState);
 
   return (
-    <section id="cap-page">
+    <section id="eyeware-page">
       <IconsNavigation className="inner-category-wrap" />
-      <ItemMapping items={capItems} />
+      <ItemMapping items={eyewareItems} />
     </section>
   );
 };
 
-export default Cap;
+export default Eyeware;

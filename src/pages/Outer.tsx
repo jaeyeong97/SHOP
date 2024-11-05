@@ -1,18 +1,17 @@
 import { useRecoilValue } from "recoil";
-import { topState } from "../recoil/atom";
+import { Item, outerState } from "../recoil/atom";
 import ItemMapping from "../components/ItemMapping";
 import IconsNavigation from "../components/IconsNavigation";
 
-const Top = () => {
-
-  const topItems = useRecoilValue(topState);
+const Outer: React.FC = () => {
+  const outerItems = useRecoilValue<Item[]>(outerState);
 
   return (
-    <section id="top-page">
+    <section id="outer-page">
       <IconsNavigation className="inner-category-wrap" />
-      <ItemMapping items={topItems} />
+      <ItemMapping items={outerItems} />
     </section>
   );
 };
 
-export default Top;
+export default Outer;

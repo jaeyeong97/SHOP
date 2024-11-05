@@ -1,17 +1,24 @@
 import { NavLink } from "react-router-dom";
 import { useRecoilValue } from "recoil";
-import { iconsState } from "../recoil/atom";
-const IconsNavigation = ({ className }) => {
-  const icons = useRecoilValue(iconsState);
+import { iconsState, Icon } from "../recoil/atom";
+
+type IconsNavigationProps = {
+  className: string;
+};
+
+const IconsNavigation: React.FC<IconsNavigationProps> = ({ className }) => {
+  const icons = useRecoilValue<Icon[]>(iconsState);
 
   return (
     <section id="inner-category">
       <div className={className}>
-        {icons.map((icon) => (
+        {icons.map((icon: Icon) => (
           <NavLink
             key={icon.path}
             to={icon.path}
-            className={({ isActive }) => (isActive ? 'icon active' : 'icon')}
+            className={({ isActive }: { isActive: boolean }) =>
+              isActive ? "icon active" : "icon"
+            }
           >
             <img src={icon.src} alt={icon.alt} />
             <span className="txt">{icon.label}</span>

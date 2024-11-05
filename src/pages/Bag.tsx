@@ -1,18 +1,17 @@
 import { useRecoilValue } from "recoil";
-import { socksState } from "../recoil/atom";
+import { bagState, Item } from "../recoil/atom";
 import ItemMapping from "../components/ItemMapping";
 import IconsNavigation from "../components/IconsNavigation";
 
-const Socks = () => {
-
-  const socksItems = useRecoilValue(socksState);
+const Bag: React.FC = () => {
+  const bagItems = useRecoilValue<Item[]>(bagState);
 
   return (
-    <section id="socks-page">
+    <section id="bag-page">
       <IconsNavigation className="inner-category-wrap" />
-      <ItemMapping items={socksItems} />
+      <ItemMapping items={bagItems} />
     </section>
   );
 };
 
-export default Socks;
+export default Bag;

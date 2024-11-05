@@ -1,49 +1,52 @@
 import { useRecoilState, useRecoilValue } from "recoil";
-import { cartState, appModalState, allItemsState } from "../recoil/atom";
+import { cartState, appModalState, allItemsState, Item } from "../recoil/atom";
 import { useNavigate } from "react-router-dom";
 import ItemMapping from "../components/ItemMapping";
 import { useEffect, useState } from "react";
 
 const SearchPage = () => {
-  const [searchValue, setSearchValue] = useState('');
-  const [searchResult, setSearchResult] = useState([]); // 검색 결과
-  const [recentSearches, setRecentSearches] = useState([]); // 최근 검색어 저장
-  const [isAppModal, setIsAppModal] = useRecoilState(appModalState); // toApp 모달 on/off 상태
+  const [searchValue, setSearchValue] = useState<string>("");
+  const [searchResult, setSearchResult] = useState<Item[]>([]); // 검색 결과
+  const [recentSearches, setRecentSearches] = useState<string[]>([]); // 최근 검색어 저장
+  const [isAppModal, setIsAppModal] = useRecoilState<boolean>(appModalState); // toApp 모달 on/off 상태
   const cartArr = useRecoilValue(cartState);
-  const allItems = useRecoilValue(allItemsState);
+  const allItems = useRecoilValue<Item[]>(allItemsState);
   const navigate = useNavigate();
 
   useEffect(() => {
-    const storedSearches = JSON.parse(localStorage.getItem('recentSearches')) || [];
+    const storedSearches =
+      JSON.parse(localStorage.getItem("recentSearches") || "[]") || [];
     setRecentSearches(storedSearches);
   }, []);
 
   const searchFuction = () => {
-    const filteredItems = allItems.filter((item) => item.name.toLowerCase().includes(searchValue.toLowerCase()));
+    const filteredItems = allItems.filter((item) =>
+      item.name.toLowerCase().includes(searchValue.toLowerCase())
+    );
     setSearchResult(filteredItems);
 
     // 최근 검색어 업데이트
-    setRecentSearches(prev => {
-      const newRecentSearches = prev.filter(item => item !== searchValue);
+    setRecentSearches((prev) => {
+      const newRecentSearches = prev.filter((item) => item !== searchValue);
       const updatedSearches = [searchValue, ...newRecentSearches].slice(0, 5);
 
-      localStorage.setItem('recentSearches', JSON.stringify(updatedSearches));
+      localStorage.setItem("recentSearches", JSON.stringify(updatedSearches));
 
       return updatedSearches;
     });
   };
 
-  const handleSearchEnter = (e) => {
+  const handleSearchEnter = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (!searchValue) return;
 
-    if (e.key === 'Enter') {
+    if (e.key === "Enter") {
       searchFuction();
     }
   };
 
   return (
     <section id="search-page">
-      <div className={`search-cart-wrap ${isAppModal ? 'active' : ''}`}>
+      <div className={`search-cart-wrap ${isAppModal ? "active" : ""}`}>
         <div className="search">
           <span className="material-symbols-outlined search-icon">search</span>
           <input
@@ -54,22 +57,38 @@ const SearchPage = () => {
             onKeyDown={handleSearchEnter}
           />
         </div>
-        <div className="cart" onClick={() => { navigate('/cart') }}>
+        <div
+          className="cart"
+          onClick={() => {
+            navigate("/cart");
+          }}
+        >
           <span className="material-symbols-outlined cart-icon">
             shopping_cart
           </span>
-          {cartArr.length > 0 ? <div className='dot'><span>{cartArr.length}</span></div> : ""}
+          {cartArr.length > 0 ? (
+            <div className="dot">
+              <span>{cartArr.length}</span>
+            </div>
+          ) : (
+            ""
+          )}
         </div>
       </div>
-      {searchValue === '' ? (
+      {searchValue === "" ? (
         <div className="before-search-wrap">
           <div className="recent-searched">
             <div className="flex">
               <span className="t1">최근 검색어</span>
-              <span className="t2" onClick={() => {
-                setRecentSearches([]);
-                localStorage.removeItem('recentSearches');
-              }}>지우기</span>
+              <span
+                className="t2"
+                onClick={() => {
+                  setRecentSearches([]);
+                  localStorage.removeItem("recentSearches");
+                }}
+              >
+                지우기
+              </span>
             </div>
             <div className="searched">
               {recentSearches.map((searched, index) => (
@@ -77,10 +96,13 @@ const SearchPage = () => {
                   key={index}
                   className="searched-item"
                   onClick={() => {
-                    const filteredItems = allItems.filter((item) => item.name.toLowerCase().includes(searched.toLowerCase()));
+                    const filteredItems = allItems.filter((item) =>
+                      item.name.toLowerCase().includes(searched.toLowerCase())
+                    );
                     setSearchResult(filteredItems);
                     setSearchValue(searched);
-                  }}>
+                  }}
+                >
                   {searched}
                 </div>
               ))}
@@ -88,9 +110,7 @@ const SearchPage = () => {
           </div>
         </div>
       ) : searchResult.length > 0 ? (
-        <ItemMapping
-          items={searchResult}
-        />
+        <ItemMapping items={searchResult} />
       ) : null}
     </section>
   );

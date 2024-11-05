@@ -1,35 +1,36 @@
 import { RecoilRoot } from "recoil";
 import { GoogleOAuthProvider } from "@react-oauth/google";
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import ScrollToTop from "./util/ScrollToTop";
 import PrivateRoute from "./util/PrivateRoute";
 import Gnb from "./components/Gnb";
 import Header from "./components/Header";
 import ItemModal from "./components/ItemModal";
-import MainPage from './pages/MainPage';
-import CategoryPage from './pages/CategoryPage';
-import SearchPage from './pages/SearchPage';
-import FavoritePage from './pages/FavoritePage';
+import MainPage from "./pages/MainPage";
+import CategoryPage from "./pages/CategoryPage";
+import SearchPage from "./pages/SearchPage";
+import FavoritePage from "./pages/FavoritePage";
 import MyPage from "./pages/MyPage";
 import LoginPage from "./pages/LoginPage";
 import CartPage from "./pages/CartPage";
 import Top from "./pages/Top";
 import Pants from "./pages/Pants";
-import Outer from "./pages/Outer"
-import Shoes from "./pages/Shoes"
-import Skirt from "./pages/Skirt"
-import Eyeware from "./pages/Eyeware"
-import Socks from "./pages/Socks"
-import Bag from "./pages/Bag"
-import Cap from "./pages/Cap"
-import Accessory from "./pages/Accessory"
+import Outer from "./pages/Outer";
+import Shoes from "./pages/Shoes";
+import Skirt from "./pages/Skirt";
+import Eyeware from "./pages/Eyeware";
+import Socks from "./pages/Socks";
+import Bag from "./pages/Bag";
+import Cap from "./pages/Cap";
+import Accessory from "./pages/Accessory";
 import PurchasePage from "./pages/PurchasePage";
 import AddressPage from "./pages/AddressPage";
 import AddressSearch from "./util/AddressSearch";
 
-function App() {
+const App: React.FC = () => {
+  const clientId = process.env.REACT_APP_GOOGLE_CLIENT_ID as string;
   return (
-    <GoogleOAuthProvider clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}>
+    <GoogleOAuthProvider clientId={clientId}>
       <RecoilRoot>
         <Router>
           <ScrollToTop />
@@ -51,16 +52,22 @@ function App() {
             <Route path="/bag" element={<Bag />} />
             <Route path="/cap" element={<Cap />} />
             <Route path="/accessory" element={<Accessory />} />
-            <Route path="/favorite" element={
-              <PrivateRoute>
-                <FavoritePage />
-              </PrivateRoute>
-            } />
-            <Route path="/my-page" element={
-              <PrivateRoute>
-                <MyPage />
-              </PrivateRoute>
-            } />
+            <Route
+              path="/favorite"
+              element={
+                <PrivateRoute>
+                  <FavoritePage />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/my-page"
+              element={
+                <PrivateRoute>
+                  <MyPage />
+                </PrivateRoute>
+              }
+            />
             <Route path="/item/:id" element={<ItemModal />} />
             <Route path="/purchase" element={<PurchasePage />} />
             <Route path="/address" element={<AddressPage />} />
@@ -70,6 +77,6 @@ function App() {
       </RecoilRoot>
     </GoogleOAuthProvider>
   );
-}
+};
 
 export default App;

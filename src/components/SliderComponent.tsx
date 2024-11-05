@@ -1,21 +1,22 @@
 import { useRecoilState, useRecoilValue } from "recoil";
-import { sliderState } from "../recoil/atom";
+import { Slider, sliderState } from "../recoil/atom";
 import { useEffect, useState } from "react";
 import { rouletteState } from "../recoil/atom";
 import Roulette from "./Roulette";
 
-const Slider = () => {
-  const slider = useRecoilValue(sliderState); // 슬라이더 이미지
-  const [currentIndex, setCurrentIndex] = useState(0); // 슬라이더 인덱스
-  const [rouletteModal, setRouletteModal] = useRecoilState(rouletteState); // 룰렛 모달
+const SliderComponent: React.FC = () => {
+  const slider = useRecoilValue<Slider[]>(sliderState); // 슬라이더
+  const [currentIndex, setCurrentIndex] = useState<number>(0); // 슬라이더 인덱스
+  const [rouletteModal, setRouletteModal] =
+    useRecoilState<boolean>(rouletteState); // 룰렛 모달
 
-  const prevSlide = () => {
+  const prevSlide = (): void => {
     setCurrentIndex((prevIndex) =>
       prevIndex === 0 ? slider.length - 1 : prevIndex - 1
     );
   };
 
-  const nextSlide = () => {
+  const nextSlide = (): void => {
     setCurrentIndex((prevIndex) =>
       prevIndex === slider.length - 1 ? 0 : prevIndex + 1
     );
@@ -27,13 +28,13 @@ const Slider = () => {
     return () => clearInterval(intervalSlider);
   }, [currentIndex]);
 
-  const handleClickSlide = (slider) => {
+  const handleClickSlide = (slider: Slider): void => {
     if (
-      slider.id === '슬라이더1-1' ||
-      slider.id === '슬라이더1-2' ||
-      slider.id === '슬라이더1-3' ||
-      slider.id === '슬라이더1-4' ||
-      slider.id === '슬라이더1-5'
+      slider.id === "슬라이더1-1" ||
+      slider.id === "슬라이더1-2" ||
+      slider.id === "슬라이더1-3" ||
+      slider.id === "슬라이더1-4" ||
+      slider.id === "슬라이더1-5"
     ) {
       setRouletteModal(true);
     }
@@ -41,22 +42,30 @@ const Slider = () => {
 
   return (
     <div className="slider-wrap">
-      <span className="material-symbols-outlined arrow left" onClick={prevSlide}>
+      <span
+        className="material-symbols-outlined arrow left"
+        onClick={prevSlide}
+      >
         arrow_forward_ios
       </span>
-      <div className="slider" style={{ transform: `translateX(-${100 * currentIndex}%)` }}>
-        {slider.map((slider) => (
+      <div
+        className="slider"
+        style={{ transform: `translateX(-${100 * currentIndex}%)` }}
+      >
+        {slider.map((slider: Slider) => (
           <img
             key={slider.id}
             className="slide"
             src={slider.img}
             alt={slider.id}
             onClick={() => handleClickSlide(slider)}
-          >
-          </img>
+          ></img>
         ))}
       </div>
-      <span className="material-symbols-outlined arrow right" onClick={nextSlide}>
+      <span
+        className="material-symbols-outlined arrow right"
+        onClick={nextSlide}
+      >
         arrow_forward_ios
       </span>
       <div className="index-wrap">
@@ -68,4 +77,4 @@ const Slider = () => {
     </div>
   );
 };
-export default Slider;
+export default SliderComponent;

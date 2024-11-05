@@ -39,7 +39,7 @@ const ItemModal = () => {
     };
   }, [isBuyModalOpen]);
 
-  if (!selectedItem || !selectedItem.item) return null; // selectedItem.item이 null일 경우 에러 방지
+  if (!selectedItem || !selectedItem.item) return null;
 
   const handleBuyClick = () => {
     setIsBuyModalOpen(true); // 구매 버튼 클릭 시 모달 오픈

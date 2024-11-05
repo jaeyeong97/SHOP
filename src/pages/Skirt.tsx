@@ -1,11 +1,10 @@
 import { useRecoilValue } from "recoil";
-import { skirtState } from "../recoil/atom";
+import { Item, skirtState } from "../recoil/atom";
 import ItemMapping from "../components/ItemMapping";
 import IconsNavigation from "../components/IconsNavigation";
 
-const Skirt = () => {
-
-  const skirtItems = useRecoilValue(skirtState);
+const Skirt: React.FC = () => {
+  const skirtItems = useRecoilValue<Item[]>(skirtState);
 
   return (
     <section id="skirt-page">

@@ -1,11 +1,10 @@
 import { useRecoilValue } from "recoil";
-import { shoesState } from "../recoil/atom";
+import { Item, shoesState } from "../recoil/atom";
 import ItemMapping from "../components/ItemMapping";
 import IconsNavigation from "../components/IconsNavigation";
 
-const Top = () => {
-
-  const shoesItems = useRecoilValue(shoesState);
+const Top: React.FC = () => {
+  const shoesItems = useRecoilValue<Item[]>(shoesState);
 
   return (
     <section id="shoes-page">
