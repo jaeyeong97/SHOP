@@ -1,6 +1,7 @@
-import { useRecoilState } from "recoil";
-import { favoriteState, Item } from "../recoil/atom";
 import { useEffect, useState } from "react";
+import { useRecoilState } from "recoil";
+import { favoriteState } from "../recoil/atom";
+import { Item } from "../Types";
 
 type favoriteBtnProps = {
   item: Item;

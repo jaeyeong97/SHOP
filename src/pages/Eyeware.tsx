@@ -1,5 +1,6 @@
 import { useRecoilValue } from "recoil";
-import { eyewareState, Item } from "../recoil/atom";
+import { eyewareState } from "../recoil/atom";
+import { Item } from "../Types";
 import ItemMapping from "../components/ItemMapping";
 import IconsNavigation from "../components/IconsNavigation";
 

@@ -1,9 +1,10 @@
 import { useInView } from "react-intersection-observer";
 import { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
-import { Item, SelectedItem, selectedItemState } from "../recoil/atom";
+import { selectedItemState } from "../recoil/atom";
 import { useNavigate } from "react-router-dom";
 import FavoriteButton from "./FavoriteBtn";
+import { SelectedItem, Item } from "../Types";
 
 const ITEMS_PER_PAGE = 9; // 한 번에 로드할 아이템 수
 
@@ -51,7 +52,12 @@ const ItemMapping: React.FC<ItemMappingProps> = ({ items }) => {
   };
 
   const handleClickItem = (item: Item) => {
-    setSelectedItem({ item, selectedSize: null, selectedColor: null });
+    setSelectedItem({
+      ...item,
+      selectedSize: null,
+      selectedColor: null,
+      quantity: 1,
+    });
     navigate(`/item/${item.id}`);
   };
   const handleEnterImg = (itemId: string) => {
@@ -90,7 +96,8 @@ const ItemMapping: React.FC<ItemMappingProps> = ({ items }) => {
           </div>
           <div className="name">{item.name}</div>
           <div className="price">
-            <span className="sale">{item.sale}</span> {item.price}원
+            <span className="sale">{item.sale}</span>{" "}
+            {item.price.toLocaleString()}원
           </div>
         </div>
       ))}

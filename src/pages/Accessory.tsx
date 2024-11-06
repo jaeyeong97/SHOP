@@ -1,7 +1,9 @@
 import { useRecoilValue } from "recoil";
-import { accessoryState, Item } from "../recoil/atom";
+import { accessoryState } from "../recoil/atom";
 import IconsNavigation from "../components/IconsNavigation";
 import ItemMapping from "../components/ItemMapping";
+import { Item } from "../Types";
+
 const Accessory: React.FC = () => {
   const accessoryItems = useRecoilValue<Item[]>(accessoryState);
 

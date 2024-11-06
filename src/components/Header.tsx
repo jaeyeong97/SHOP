@@ -1,7 +1,8 @@
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useRecoilState } from "recoil";
-import { cartState, appModalState, SelectedItem } from "../recoil/atom";
-import { useEffect } from "react";
+import { cartState, appModalState } from "../recoil/atom";
+import { SelectedItem } from "../Types";
 
 const Header: React.FC = () => {
   const navigate = useNavigate();

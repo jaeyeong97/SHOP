@@ -1,5 +1,6 @@
 import { useRecoilValue } from "recoil";
-import { allItemsState, Item } from "../recoil/atom";
+import { allItemsState } from "../recoil/atom";
+import { Item } from "../Types";
 import SliderComponent from "../components/SliderComponent";
 import ItemMapping from "../components/ItemMapping";
 import IconsNavigation from "../components/IconsNavigation";

@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 const MyPage = () => {
-  const [user, setUser] = useState({}); // 로컬스토리지 로그인 정보 저장
+  const [user, setUser] = useState({});
   const navigate = useNavigate();
 
   useEffect(() => {

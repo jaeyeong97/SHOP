@@ -1,10 +1,11 @@
 import { useRecoilState, useRecoilValue } from "recoil";
-import { cartState, appModalState, allItemsState, Item } from "../recoil/atom";
+import { cartState, appModalState, allItemsState } from "../recoil/atom";
+import { Item } from "../Types";
 import { useNavigate } from "react-router-dom";
 import ItemMapping from "../components/ItemMapping";
 import { useEffect, useState } from "react";
 
-const SearchPage = () => {
+const SearchPage: React.FC = () => {
   const [searchValue, setSearchValue] = useState<string>("");
   const [searchResult, setSearchResult] = useState<Item[]>([]); // 검색 결과
   const [recentSearches, setRecentSearches] = useState<string[]>([]); // 최근 검색어 저장

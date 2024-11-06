@@ -1,5 +1,6 @@
 import { useRecoilValue } from "recoil";
-import { Item, skirtState } from "../recoil/atom";
+import { skirtState } from "../recoil/atom";
+import { Item } from "../Types";
 import ItemMapping from "../components/ItemMapping";
 import IconsNavigation from "../components/IconsNavigation";
 

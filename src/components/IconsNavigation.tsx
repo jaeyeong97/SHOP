@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { useRecoilValue } from "recoil";
-import { iconsState, Icon } from "../recoil/atom";
+import { iconsState } from "../recoil/atom";
+import { Icon } from "../Types";
 
 type IconsNavigationProps = {
   className: string;

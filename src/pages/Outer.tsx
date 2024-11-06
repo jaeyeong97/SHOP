@@ -1,5 +1,6 @@
 import { useRecoilValue } from "recoil";
-import { Item, outerState } from "../recoil/atom";
+import { outerState } from "../recoil/atom";
+import { Item } from "../Types";
 import ItemMapping from "../components/ItemMapping";
 import IconsNavigation from "../components/IconsNavigation";
 

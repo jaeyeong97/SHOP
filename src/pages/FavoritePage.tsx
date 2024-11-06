@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useRecoilState } from "recoil";
-import { favoriteState, Item } from "../recoil/atom";
+import { favoriteState } from "../recoil/atom";
+import { Item } from "../Types";
 import ItemMapping from "../components/ItemMapping";
 
 const FavoritePage: React.FC = () => {

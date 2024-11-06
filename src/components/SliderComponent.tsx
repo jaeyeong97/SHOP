@@ -1,7 +1,8 @@
-import { useRecoilState, useRecoilValue } from "recoil";
-import { Slider, sliderState } from "../recoil/atom";
 import { useEffect, useState } from "react";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { sliderState } from "../recoil/atom";
 import { rouletteState } from "../recoil/atom";
+import { Slider } from "../Types";
 import Roulette from "./Roulette";
 
 const SliderComponent: React.FC = () => {
