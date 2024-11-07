@@ -9,19 +9,22 @@ const items = [
   "30% 쿠폰",
   "10% 쿠폰",
   "500P 적립금",
-  "1000P 적립금"
+  "1000P 적립금",
 ];
 
-const Roulette = () => {
-  const [rouletteModal, setRouletteModal] = useRecoilState(rouletteState); // 룰렛 모달
-  const [rotating, setRotating] = useState(false); // 룰렛 회전 여부
-  const [rotation, setRotation] = useState(0); // 룰렛 회전 각도
-  const [selectedItem, setSelectedItem] = useState(null); // 선택된 상품
-  const confetti = useRef(Confetti()); // 꽃가루 참조
-  const timeoutRef = useRef(null); // timeout ID 저장을 위한 ref
+const Roulette: React.FC = () => {
+  const [rouletteModal, setRouletteModal] =
+    useRecoilState<boolean>(rouletteState); // 룰렛 모달 on/off
+  const [rotating, setRotating] = useState<boolean>(false); // 룰렛 회전 여부
+  const [rotation, setRotation] = useState<number>(0); // 룰렛 회전 각도
+  const [selectedItem, setSelectedItem] = useState<string | null | undefined>(
+    null
+  ); // 선택된 상품
+  const confetti = useRef(Confetti()); // 꽃가루
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   // 각도에 맞게 당첨된 아이템 체크
-  const getSelectedItem = (finalDegree) => {
+  const getSelectedItem = (finalDegree: number) => {
     if (finalDegree >= 330 || finalDegree < 30) return items[0];
     if (finalDegree >= 30 && finalDegree < 90) return items[1];
     if (finalDegree >= 90 && finalDegree < 150) return items[2];
@@ -38,19 +41,18 @@ const Roulette = () => {
     setRotating(true);
 
     // 선택된 상품 각도에 맞게 계산하기
-    timeoutRef.current = setTimeout(() => { // timeout ID 저장
+    timeoutRef.current = setTimeout(() => {
       const finalDegree = randomDegree % 360;
       const selected = getSelectedItem(finalDegree);
       setSelectedItem(selected);
-
       confetti.current.launchConfetti(); // confetti 실행
-    }, 5000)
+    }, 5000);
   };
 
   const handleModalClose = () => {
     setRouletteModal(false);
     if (rotating) {
-      clearTimeout(timeoutRef.current);
+      clearTimeout(timeoutRef.current as ReturnType<typeof setTimeout>);
       setRotating(false);
     }
   };
@@ -63,10 +65,7 @@ const Roulette = () => {
         <span className="material-symbols-outlined roulette__in--arrow">
           label
         </span>
-        <div
-          className="roulette__in--btn"
-          onClick={handleRotation}
-        >
+        <div className="roulette__in--btn" onClick={handleRotation}>
           시작!
         </div>
         <div
@@ -82,7 +81,8 @@ const Roulette = () => {
               className={`roulette__in__circle--item item${index + 1}`}
               style={{
                 transform: `rotate(${(360 / items.length) * index}deg)`,
-              }}>
+              }}
+            >
               {item}
             </div>
           ))}
@@ -90,9 +90,13 @@ const Roulette = () => {
           <div className="roulette__in__circle--line line2"></div>
           <div className="roulette__in__circle--line line3"></div>
         </div>
-        {selectedItem &&
-          <div className="roulette__in__result">{selectedItem} 당첨!</div>}
-        <span className="material-symbols-outlined roulette__in__closeBtn" onClick={handleModalClose}>
+        {selectedItem && (
+          <div className="roulette__in__result">{selectedItem} 당첨!</div>
+        )}
+        <span
+          className="material-symbols-outlined roulette__in__closeBtn"
+          onClick={handleModalClose}
+        >
           close
         </span>
       </div>
