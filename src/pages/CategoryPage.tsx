@@ -55,7 +55,7 @@ const CategoryPage: React.FC = () => {
             ref={(el) => (categoryRefs.current[0] = el)}
           >
             <Link to="/top" className="w">
-              <img src="../assets/top.jpg" alt="긴팔" />
+              <img src="../assets/top.webp" alt="긴팔" />
               <span>긴팔</span>
             </Link>
           </div>
@@ -72,7 +72,7 @@ const CategoryPage: React.FC = () => {
             ref={(el) => (categoryRefs.current[1] = el)}
           >
             <Link to="/pants" className="w">
-              <img src="../assets/pants.jpg" alt="청바지" />
+              <img src="../assets/pants.webp" alt="청바지" />
               <span>청바지</span>
             </Link>
           </div>
@@ -89,7 +89,7 @@ const CategoryPage: React.FC = () => {
             ref={(el) => (categoryRefs.current[2] = el)}
           >
             <Link to="/outer" className="w">
-              <img src="../assets/outer.jpg" alt="바람막이" />
+              <img src="../assets/outer.webp" alt="바람막이" />
               <span>바람막이</span>
             </Link>
           </div>
@@ -106,7 +106,7 @@ const CategoryPage: React.FC = () => {
             ref={(el) => (categoryRefs.current[3] = el)}
           >
             <Link to="/shoes" className="w">
-              <img src="../assets/shoes.jpg" alt="운동화" />
+              <img src="../assets/shoes.webp" alt="운동화" />
               <span>운동화</span>
             </Link>
           </div>
@@ -123,7 +123,7 @@ const CategoryPage: React.FC = () => {
             ref={(el) => (categoryRefs.current[4] = el)}
           >
             <Link to="/skirt" className="w">
-              <img src="../assets/skirt.jpg" alt="미니 스커트" />
+              <img src="../assets/skirt.webp" alt="미니 스커트" />
               <span>미니 스커트</span>
             </Link>
           </div>
@@ -140,7 +140,7 @@ const CategoryPage: React.FC = () => {
             ref={(el) => (categoryRefs.current[5] = el)}
           >
             <Link to="/socks" className="w">
-              <img src="../assets/socks.jpg" alt="긴 양말" />
+              <img src="../assets/socks.webp" alt="긴 양말" />
               <span>긴 양말</span>
             </Link>
           </div>
@@ -157,7 +157,7 @@ const CategoryPage: React.FC = () => {
             ref={(el) => (categoryRefs.current[6] = el)}
           >
             <Link to="/bag" className="w">
-              <img src="../assets/bag.jpg" alt="백팩" />
+              <img src="../assets/bag.webp" alt="백팩" />
               <span>백팩</span>
             </Link>
           </div>
@@ -174,7 +174,7 @@ const CategoryPage: React.FC = () => {
             ref={(el) => (categoryRefs.current[7] = el)}
           >
             <Link to="/cap" className="w">
-              <img src="../assets/cap.jpg" alt="볼캡" />
+              <img src="../assets/cap.webp" alt="볼캡" />
               <span>볼캡</span>
             </Link>
           </div>
@@ -191,7 +191,7 @@ const CategoryPage: React.FC = () => {
             ref={(el) => (categoryRefs.current[8] = el)}
           >
             <Link to="/eyeware" className="w">
-              <img src="../assets/eyeware.jpg" alt="안경" />
+              <img src="../assets/eyeware.webp" alt="안경" />
               <span>안경</span>
             </Link>
           </div>
@@ -208,7 +208,7 @@ const CategoryPage: React.FC = () => {
             ref={(el) => (categoryRefs.current[9] = el)}
           >
             <Link to="/accessory" className="w">
-              <img src="../assets/acc.jpg" alt="목걸이" />
+              <img src="../assets/acc.webp" alt="목걸이" />
               <span>목걸이</span>
             </Link>
           </div>
