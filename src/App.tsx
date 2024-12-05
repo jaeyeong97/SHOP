@@ -1,6 +1,6 @@
 import { RecoilRoot } from "recoil";
 import { GoogleOAuthProvider } from "@react-oauth/google";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { Route, Routes, BrowserRouter } from "react-router-dom";
 import ScrollToTop from "./util/ScrollToTop";
 import PrivateRoute from "./util/PrivateRoute";
 import Gnb from "./components/Gnb";
@@ -32,7 +32,7 @@ const App: React.FC = () => {
   return (
     <GoogleOAuthProvider clientId={clientId}>
       <RecoilRoot>
-        <Router>
+        <BrowserRouter>
           <ScrollToTop />
           <Header />
           <Gnb />
@@ -73,7 +73,7 @@ const App: React.FC = () => {
             <Route path="/address" element={<AddressPage />} />
             <Route path="/address-search" element={<AddressSearch />} />
           </Routes>
-        </Router>
+        </BrowserRouter>
       </RecoilRoot>
     </GoogleOAuthProvider>
   );
