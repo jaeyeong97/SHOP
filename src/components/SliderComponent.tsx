@@ -43,12 +43,12 @@ const SliderComponent: React.FC = () => {
 
   return (
     <div className="slider-wrap">
-      <span
-        className="material-symbols-outlined arrow left"
+      <img
+        src="/assets/arrow.svg"
+        alt="arrow"
+        className="arrow left"
         onClick={prevSlide}
-      >
-        arrow_forward_ios
-      </span>
+      />
       <div
         className="slider"
         style={{ transform: `translateX(-${100 * currentIndex}%)` }}
@@ -63,12 +63,12 @@ const SliderComponent: React.FC = () => {
           ></img>
         ))}
       </div>
-      <span
-        className="material-symbols-outlined arrow right"
+      <img
+        src="/assets/arrow.svg"
+        alt="arrow"
+        className="arrow right"
         onClick={nextSlide}
-      >
-        arrow_forward_ios
-      </span>
+      />
       <div className="index-wrap">
         <span className="current-index">{currentIndex + 1}</span>
         <span className="s">/</span>
