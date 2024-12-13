@@ -109,7 +109,7 @@ const ItemMapping: React.FC<ItemMappingProps> = ({ items }) => {
       ))}
       <div ref={ref} className="loading">
         {hasNextPage() ? (
-          <img src="../assets/spinner.gif" alt="spinner" className="spinner" />
+          <img src="../assets/spinner.webp" alt="spinner" className="spinner" />
         ) : (
           ""
         )}
