@@ -32,7 +32,7 @@ const CategoryPage: React.FC = () => {
     <section id="category-page">
       <SectionHeader title={"카테고리"} />
       <div className="category-wrap">
-        <div className="category1">
+        <nav className="category1">
           <ul>
             {categories.map((category, index) => (
               <li key={index} onClick={() => handleCategoryClick(index)}>
@@ -40,7 +40,7 @@ const CategoryPage: React.FC = () => {
               </li>
             ))}
           </ul>
-        </div>
+        </nav>
         <div className="category2">
           <Link to="/top">
             <div className="title">

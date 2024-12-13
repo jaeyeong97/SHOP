@@ -11,7 +11,7 @@ const IconsNavigation: React.FC<IconsNavigationProps> = ({ className }) => {
   const icons = useRecoilValue<Icon[]>(iconsState);
 
   return (
-    <section id="inner-category">
+    <nav id="inner-category">
       <div className={className}>
         {icons.map((icon: Icon) => (
           <NavLink
@@ -26,7 +26,7 @@ const IconsNavigation: React.FC<IconsNavigationProps> = ({ className }) => {
           </NavLink>
         ))}
       </div>
-    </section>
+    </nav>
   );
 };
 

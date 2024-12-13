@@ -42,7 +42,7 @@ const SliderComponent: React.FC = () => {
   };
 
   return (
-    <div className="slider-wrap">
+    <section className="slider-wrap">
       <img
         src="/assets/arrow.svg"
         alt="arrow"
@@ -75,7 +75,7 @@ const SliderComponent: React.FC = () => {
         <span className="end-index">{slider.length}</span>
       </div>
       {rouletteModal && <Roulette />}
-    </div>
+    </section>
   );
 };
 export default SliderComponent;

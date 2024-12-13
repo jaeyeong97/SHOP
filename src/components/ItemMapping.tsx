@@ -77,7 +77,7 @@ const ItemMapping: React.FC<ItemMappingProps> = ({ items }) => {
   };
 
   return (
-    <div className="item-map-section">
+    <section className="item-map-section">
       {displayedItems.map((item: Item) => (
         <div
           key={item.id}
@@ -114,7 +114,7 @@ const ItemMapping: React.FC<ItemMappingProps> = ({ items }) => {
           ""
         )}
       </div>
-    </div>
+    </section>
   );
 };
 

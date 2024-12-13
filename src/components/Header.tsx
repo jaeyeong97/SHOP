@@ -42,7 +42,7 @@ const Header: React.FC = () => {
           확인
         </button>
       </div>
-      <div className="banner">
+      <header className="banner">
         <div className="left">
           <div className="logo">
             <img src="../assets/logo.webp" alt="로고" />
@@ -52,7 +52,7 @@ const Header: React.FC = () => {
         <button className="to-app" onClick={() => setIsToApp(true)}>
           앱으로 이동
         </button>
-      </div>
+      </header>
       <div className="search-cart-wrap">
         <div className="search">
           <NavLink to="/search" className="link">

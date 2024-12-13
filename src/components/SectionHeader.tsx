@@ -10,7 +10,7 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({ title }) => {
   const [isAppModal, setIsAppModal] = useRecoilState<boolean>(appModalState);
 
   return (
-    <div className={`common-header ${isAppModal ? "active" : ""}`}>
+    <header className={`common-header ${isAppModal ? "active" : ""}`}>
       <div className="back">
         <NavLink to="/" className="material-symbols-outlined icon">
           arrow_back_ios
@@ -25,7 +25,7 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({ title }) => {
           home
         </NavLink>
       </div>
-    </div>
+    </header>
   );
 };
 
