@@ -250,7 +250,16 @@ const ItemModal: React.FC = () => {
           )}
           {!open && (
             <div className="open-btn-wrap">
-              <div className="open-btn" onClick={() => setOpen(true)}>
+              <div
+                className="open-btn"
+                onClick={() => setOpen(true)}
+                onKeyDown={(event) => {
+                  if (event.key === "Enter") {
+                    setOpen(true);
+                  }
+                }}
+                tabIndex={0}
+              >
                 상품정보 더 보기
               </div>
               <div className="bg"></div>
@@ -316,7 +325,16 @@ const ItemModal: React.FC = () => {
       </div>
       <div className="btn-wrap">
         <FavoriteButton item={selectedItem} />
-        <div className="buy-btn" onClick={handleBuyClick}>
+        <div
+          className="buy-btn"
+          onClick={handleBuyClick}
+          onKeyDown={(event) => {
+            if (event.key === "Enter") {
+              handleBuyClick();
+            }
+          }}
+          tabIndex={0}
+        >
           구매하기
         </div>
       </div>
@@ -356,11 +374,23 @@ const ItemModal: React.FC = () => {
                     <div
                       className="minus icon"
                       onClick={handleQuantityDecrease}
+                      onKeyDown={(event) => {
+                        if (event.key === "Enter") {
+                          handleQuantityDecrease();
+                        }
+                      }}
+                      tabIndex={0}
                     ></div>
                     <div className="quantity">{selectedItem.quantity}</div>
                     <div
                       className="plus icon"
                       onClick={handleQuantityIncrease}
+                      onKeyDown={(event) => {
+                        if (event.key === "Enter") {
+                          handleQuantityIncrease();
+                        }
+                      }}
+                      tabIndex={0}
                     ></div>
                   </div>
                   <div className="price">
@@ -400,7 +430,13 @@ const ItemModal: React.FC = () => {
                   <div
                     className="size-title"
                     onClick={handleClickSize}
+                    onKeyDown={(event) => {
+                      if (event.key === "Enter") {
+                        handleClickSize();
+                      }
+                    }}
                     style={{ borderRadius: clickSize ? "5px 5px 0 0" : "5px" }}
+                    tabIndex={0}
                   >
                     {selectedItem.selectedSize
                       ? selectedItem.selectedSize
@@ -430,6 +466,12 @@ const ItemModal: React.FC = () => {
                         key={index}
                         className="size"
                         onClick={() => handleSelecetedSize(size)}
+                        onKeyDown={(event) => {
+                          if (event.key === "Enter") {
+                            handleSelecetedSize(size);
+                          }
+                        }}
+                        tabIndex={0}
                       >
                         {size}
                       </div>
@@ -442,7 +484,13 @@ const ItemModal: React.FC = () => {
                   <div
                     className="color-title"
                     onClick={handleClickColor}
+                    onKeyDown={(event) => {
+                      if (event.key === "Enter") {
+                        handleClickColor();
+                      }
+                    }}
                     style={{ borderRadius: clickColor ? "5px 5px 0 0" : "5px" }}
+                    tabIndex={0}
                   >
                     {selectedItem.selectedColor
                       ? selectedItem.selectedColor
@@ -472,6 +520,12 @@ const ItemModal: React.FC = () => {
                         key={index}
                         className="color"
                         onClick={() => handleSelecetedColor(color)}
+                        onKeyDown={(event) => {
+                          if (event.key === "Enter") {
+                            handleSelecetedColor(color);
+                          }
+                        }}
+                        tabIndex={0}
                       >
                         {color}
                       </div>

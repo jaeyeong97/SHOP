@@ -82,7 +82,13 @@ const ItemMapping: React.FC<ItemMappingProps> = ({ items }) => {
         <div
           key={item.id}
           className="item"
+          tabIndex={0}
           onClick={() => handleClickItem(item)}
+          onKeyDown={(event) => {
+            if (event.key === "Enter") {
+              handleClickItem(item);
+            }
+          }}
         >
           <div className="item-img-wrap">
             <img

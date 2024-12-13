@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import { cartState, appModalState } from "../recoil/atom";
 import { SelectedItem } from "../Types";
@@ -54,24 +54,20 @@ const Header: React.FC = () => {
         </button>
       </div>
       <div className="search-cart-wrap">
-        <div
-          className="search"
-          onClick={() => {
-            navigate("/search");
-          }}
-        >
-          <span className="material-symbols-outlined search-icon">search</span>
-          <div className="txt">하나만 사도 무료배송</div>
+        <div className="search">
+          <NavLink to="/search" className="link">
+            <span className="material-symbols-outlined search-icon">
+              search
+            </span>
+            <div className="txt">하나만 사도 무료배송</div>
+          </NavLink>
         </div>
-        <div
-          className="cart"
-          onClick={() => {
-            navigate("/cart");
-          }}
-        >
-          <span className="material-symbols-outlined cart-icon">
-            shopping_cart
-          </span>
+        <div className="cart">
+          <NavLink to="/cart">
+            <span className="material-symbols-outlined cart-icon">
+              shopping_cart
+            </span>
+          </NavLink>
           {cartArr.length > 0 ? (
             <div className="dot">
               <span>{cartArr.length}</span>

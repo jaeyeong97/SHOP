@@ -116,6 +116,12 @@
     border-radius: 5px;
     background-color: $back-gray-color;
     cursor: pointer;
+    .link {
+      display: flex;
+      align-items: center;
+      width: 550px;
+      height: 36px;
+    }
     .search-icon {
       font-size: 22px;
       margin: 0 5px 0 10px;

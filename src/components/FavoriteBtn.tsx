@@ -22,7 +22,7 @@ const FavoriteButton: React.FC<favoriteBtnProps> = ({ item }) => {
     }
   }, [setFavorites]);
 
-  const toggleFavorite = (e: React.MouseEvent) => {
+  const toggleFavorite = (e: React.MouseEvent | React.KeyboardEvent) => {
     e.stopPropagation();
 
     const isFavorite = favorites.some((favorite) => favorite.id === item.id);
@@ -62,6 +62,12 @@ const FavoriteButton: React.FC<favoriteBtnProps> = ({ item }) => {
             : ""
         } `}
         onClick={toggleFavorite}
+        onKeyDown={(event) => {
+          if (event.key === "Enter") {
+            toggleFavorite(event);
+          }
+        }}
+        tabIndex={0}
       >
         favorite
       </span>

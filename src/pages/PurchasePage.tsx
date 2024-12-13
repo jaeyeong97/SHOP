@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 import { useRecoilState, useRecoilValue } from "recoil";
 import {
   addressFormState,
@@ -54,9 +54,9 @@ const PurchasePage: React.FC = () => {
         <div className="section1">
           <div className="flex">
             <div className="title">배송지</div>
-            <div className="add" onClick={() => navigate("/address")}>
+            <NavLink to="/address" className="add">
               배송지 변경
-            </div>
+            </NavLink>
           </div>
           <div className="address-wrap">
             <div className="t1">
@@ -79,9 +79,9 @@ const PurchasePage: React.FC = () => {
         <div className="section1">
           <div className="flex">
             <div className="title">배송지를 추가해주세요.</div>
-            <div className="add" onClick={() => navigate("/address")}>
+            <NavLink to="/address" className="add">
               배송지 추가
-            </div>
+            </NavLink>
           </div>
           <div className="before-address">
             배송지를 등록하면 편하게 주문할 수 있어요.
