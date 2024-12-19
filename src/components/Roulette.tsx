@@ -5,11 +5,11 @@ import { useRecoilState } from "recoil";
 
 const items = [
   "무료 배송 쿠폰",
-  "50% 쿠폰",
   "30% 쿠폰",
-  "10% 쿠폰",
-  "500P 적립금",
-  "1000P 적립금",
+  "5,000P 적립금",
+  "꽝",
+  "10,000P 적립금",
+  "50% 쿠폰",
 ];
 
 const Roulette: React.FC = () => {
@@ -46,6 +46,7 @@ const Roulette: React.FC = () => {
       const selected = getSelectedItem(finalDegree);
       setSelectedItem(selected);
       confetti.current.launchConfetti(); // confetti 실행
+      setRotating(false);
     }, 5000);
   };
 
@@ -66,29 +67,18 @@ const Roulette: React.FC = () => {
           label
         </span>
         <div className="roulette__in--btn" onClick={handleRotation}>
-          시작!
+          돌리기!
         </div>
-        <div
-          className="roulette__in__circle"
-          style={{
-            transform: `translate(-50%, -50%) rotate(-${rotation}deg)`,
-            transition: rotating ? "5s ease-out" : "none",
-          }}
-        >
-          {items.map((item, index) => (
-            <div
-              key={index}
-              className={`roulette__in__circle--item item${index + 1}`}
-              style={{
-                transform: `rotate(${(360 / items.length) * index}deg)`,
-              }}
-            >
-              {item}
-            </div>
-          ))}
-          <div className="roulette__in__circle--line line1"></div>
-          <div className="roulette__in__circle--line line2"></div>
-          <div className="roulette__in__circle--line line3"></div>
+        <div className="roulette__in__circle">
+          <img
+            src="/assets/roulette.png"
+            alt="룰렛"
+            className="roulette__in__circle--image"
+            style={{
+              transform: `translate(-50%, -50%) rotate(-${rotation}deg)`,
+              transition: rotating ? "5s ease-out" : "none",
+            }}
+          />
         </div>
         {selectedItem && (
           <div className="roulette__in__result">{selectedItem} 당첨!</div>

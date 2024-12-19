@@ -20,38 +20,40 @@
     background-color: $white;
     &--title {
       text-align: center;
-      font-size: 28px;
+      font-size: 20px;
       font-weight: 600;
-      margin-top: 40px;
+      margin-top: 60px;
     }
     &--btn {
       position: absolute;
-      top: 50%;
+      bottom: 50px;
       left: 50%;
       transform: translate(-50%, -50%);
       text-align: center;
-      line-height: 80px;
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
+      line-height: 28px;
+      width: 65px;
+      height: 28px;
       background-color: $main-color;
-      font-size: 18px;
-      font-weight: 600;
+      border-radius: 5px;
+      font-size: 16px;
+      z-index: 3;
       color: $white;
-      z-index: 1;
       cursor: pointer;
       &:active {
+        background-color: $main-color-active;
+      }
+      &:hover {
         background-color: $main-color-active;
       }
     }
     &--arrow {
       position: fixed;
-      top: 90px;
+      top: 110px;
       left: 50%;
       transform: translateX(-50%) rotate(90deg);
       font-variation-settings: "FILL" 1;
-      color: $main-color;
-      font-size: 28px;
+      color: $main-color-active;
+      font-size: 40px;
       z-index: 2;
     }
     &__circle {
@@ -59,62 +61,22 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
+      border-radius: 50%;
+      overflow: hidden;
       width: 350px;
       height: 350px;
-      border-radius: 50%;
-      border: 1px solid $first-gray-color;
-      box-sizing: content-box;
-      &--item {
-        position: absolute;
-        text-align: center;
-        display: flex;
-        justify-content: center;
-        padding-top: 30px;
-        width: 100%;
-        height: 100%;
-        border-radius: 50%;
-        font-size: 16px;
-        &.item1 {
-          transform: rotate(0deg);
-        }
-        &.item2 {
-          transform: rotate(60deg);
-        }
-        &.item3 {
-          transform: rotate(120deg);
-        }
-        &.item4 {
-          transform: rotate(180deg);
-        }
-        &.item5 {
-          transform: rotate(240deg);
-        }
-        &.item6 {
-          transform: rotate(300deg);
-        }
-      }
-      &--line {
+      &--image {
         position: absolute;
         top: 50%;
         left: 50%;
-        transform: translate(-50%, -50%);
-        width: 1px;
+        border-radius: 50%;
+        width: 100%;
         height: 100%;
-        background-color: $first-gray-color;
-        &.line1 {
-          transform: translate(-50%, -50%) rotate(30deg);
-        }
-        &.line2 {
-          transform: translate(-50%, -50%) rotate(90deg);
-        }
-        &.line3 {
-          transform: translate(-50%, -50%) rotate(150deg);
-        }
       }
     }
     &__result {
       position: absolute;
-      bottom: 50px;
+      bottom: 20px;
       left: 0;
       width: 100%;
       text-align: center;
@@ -133,9 +95,6 @@
   .roulette {
     &__in {
       width: 95vw;
-      &--arrow {
-        top: 115px;
-      }
       &__circle {
         width: 300px;
         height: 300px;
