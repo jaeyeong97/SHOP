@@ -67,6 +67,17 @@ const MyPage = () => {
           <li>
             <div className="w">
               <span className="material-symbols-outlined icon">
+                sell
+              </span>
+              <span className="txt">쿠폰</span>
+            </div>
+            <span className="material-symbols-outlined arrow">
+              chevron_right
+            </span>
+          </li>
+          <li>
+            <div className="w">
+              <span className="material-symbols-outlined icon">
                 chat
               </span>
               <span className="txt">리뷰</span>
