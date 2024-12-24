@@ -1,19 +1,21 @@
 .slider-wrap {
   position: relative;
   overflow: hidden;
+  aspect-ratio: 750 / 374;
   .slider {
     display: flex;
     transition: 0.3s;
     .slide {
       width: 100%;
       height: auto;
-      aspect-ratio: 750 / 374;
       cursor: pointer;
     }
   }
   .arrow {
     position: absolute;
     top: 50%;
+    width: 32px;
+    height: 32px;
     transform: translateY(-50%);
     padding: 5px;
     border-radius: 2px;
