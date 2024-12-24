@@ -136,9 +136,13 @@
   }
   .cart {
     position: relative;
+    width: 26px;
+    height: 26px;
     margin-left: 5px;
     cursor: pointer;
     .cart-icon {
+      width: 26px;
+      height: 26px;
       font-size: 26px;
       color: $text-second-color;
     }
