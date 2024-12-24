@@ -61,7 +61,7 @@ const Header: React.FC = () => {
               alt="검색 아이콘"
               className="search-icon"
             />
-            <div className="txt">하나만 사도 무료배송</div>
+            <span className="txt">하나만 사도 무료배송</span>
           </NavLink>
         </div>
         <div className="cart">
