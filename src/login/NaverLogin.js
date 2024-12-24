@@ -13,6 +13,11 @@ const NaverLogin = ({ onSuccess }) => {
       },
     });
 
+    const isLoginPage = window.location.pathname === "/login-page";
+    if (!isLoginPage) {
+      return null;
+    }
+
     naverLogin.init();
 
     const naverLogo = document.querySelector(".naver-login-logo");

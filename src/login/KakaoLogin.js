@@ -1,6 +1,15 @@
 import { useEffect } from 'react';
 
 const KakaoLogin = ({ onSuccess }) => {
+  useEffect(() => {
+    initKakao();
+  }, []);
+
+  const isLoginPage = window.location.pathname === "/login-page";
+  if (!isLoginPage) {
+    return null;
+  }
+
   const Kakao = window.Kakao;
 
   const initKakao = () => {
@@ -10,9 +19,7 @@ const KakaoLogin = ({ onSuccess }) => {
     }
   };
 
-  useEffect(() => {
-    initKakao();
-  }, []);
+
 
   const handleKakaoLogin = () => {
     Kakao.Auth.login({
