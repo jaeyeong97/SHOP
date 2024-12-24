@@ -35,7 +35,7 @@ const Header: React.FC = () => {
           QR 코드를 통해서 포트폴리오 웹사이트로 갈 수 있어요.
         </div>
         <div className="qr">
-          <img src="../assets/qr.webp" alt="" />
+          <img src="../assets/qr.webp" alt="" width={100} height={100} />
         </div>
         <div className="txt3">휴대폰으로 QR 코드를 스캔해서 확인해보세요</div>
         <button className="confirm" onClick={() => setIsToApp(false)}>
@@ -45,7 +45,7 @@ const Header: React.FC = () => {
       <header className="banner">
         <div className="left">
           <div className="logo">
-            <img src="../assets/logo.webp" alt="로고" />
+            <img src="../assets/logo.webp" alt="로고" width={36} height={36} />
           </div>
           <div className="txt">앱에서 더 많은 상품을 확인해보세요!</div>
         </div>
