@@ -23,15 +23,7 @@ const AddressSearch = () => {
 
     return <div className='address-modal'>
         <div className='address-header'>
-            <div
-                className="back"
-                onClick={() => navigate(-1)}
-                tabIndex={0}
-                onKeyDown={(event) => {
-                    if (event.key === "Enter") {
-                        navigate(-1);
-                    }
-                }}>
+            <div className="back" onClick={() => navigate(-1)}>
                 <span className="material-symbols-outlined icon">
                     arrow_back_ios
                 </span>

@@ -36,7 +36,7 @@ const KakaoLogin = ({ onSuccess }) => {
 
   return (
     <img
-      src="../assets/kakao-login.webp"
+      src="../assets/kakao-login.png"
       alt="카카오 로그인 버튼"
       onClick={handleKakaoLogin}
       className='kakao-login-logo'

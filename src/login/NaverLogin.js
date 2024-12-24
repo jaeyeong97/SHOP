@@ -45,7 +45,7 @@ const NaverLogin = ({ onSuccess }) => {
   return (
     <>
       <div id="naverIdLogin" style={{ display: "none" }} />
-      <img className="naver-login-logo" src="../assets/naver-login.webp" alt="네이버 로그인 버튼" />
+      <img className="naver-login-logo" src="../assets/naver-login.png" alt="네이버 로그인 버튼" />
     </>
   );
 };
