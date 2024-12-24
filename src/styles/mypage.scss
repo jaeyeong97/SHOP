@@ -31,6 +31,9 @@
   .menu {
     margin-top: 30px;
     ul {
+      :active {
+        background-color: $back-gray-color;
+      }
       li {
         display: flex;
         align-items: center;

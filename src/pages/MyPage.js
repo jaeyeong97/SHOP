@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 const MyPage = () => {
-  const [user, setUser] = useState({}); // 로컬스토리지 로그인 정보 저장
+  const [user, setUser] = useState({});
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -59,6 +59,17 @@ const MyPage = () => {
                 local_shipping
               </span>
               <span className="txt">주문 배송</span>
+            </div>
+            <span className="material-symbols-outlined arrow">
+              chevron_right
+            </span>
+          </li>
+          <li>
+            <div className="w">
+              <span className="material-symbols-outlined icon">
+                sell
+              </span>
+              <span className="txt">쿠폰</span>
             </div>
             <span className="material-symbols-outlined arrow">
               chevron_right

@@ -31,7 +31,7 @@ const LoginPage = () => {
       <div className="logo-wrap">
         <div className="logo-txt">SHOP</div>
         <div className="logo">
-          <img src="../assets/logo.png" alt="로고 이미지" />
+          <img src="../assets/logo.webp" alt="로고 이미지" />
         </div>
       </div>
       <div className="login-btns">
