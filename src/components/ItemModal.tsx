@@ -221,9 +221,11 @@ const ItemModal: React.FC = () => {
           </div>
           <div className="login-box" onClick={() => setIsToApp(true)}>
             <div className="txt">회원가입 시 최대 65,000원 혜택</div>
-            <span className="material-symbols-outlined arrow">
-              chevron_right
-            </span>
+            <img
+              src="/assets/arrow-pink.svg"
+              alt="오른쪽 화살표 핑크"
+              className="arrow"
+            />
           </div>
         </div>
         <div className="item-more">
@@ -342,7 +344,11 @@ const ItemModal: React.FC = () => {
             <div className="to-cart-or-to-buy">
               <div className="box">
                 <div className="delete" onClick={handleDeleteItem}>
-                  <span className="material-symbols-outlined icon">close</span>
+                  <img
+                    src="/assets/close.svg"
+                    alt="닫기 아이콘"
+                    className="icon"
+                  />
                 </div>
                 <div className="info">
                   {selectedItem.selectedSize && (
@@ -428,13 +434,9 @@ const ItemModal: React.FC = () => {
                       ? selectedItem.selectedSize
                       : "사이즈 선택하기"}
                     {clickSize ? (
-                      <span className="material-symbols-outlined">
-                        keyboard_arrow_up
-                      </span>
+                      <img src="/assets/arrow-up.svg" alt="위 화살표" />
                     ) : (
-                      <span className="material-symbols-outlined">
-                        keyboard_arrow_down
-                      </span>
+                      <img src="/assets/arrow-down.svg" alt="아래 화살표" />
                     )}
                   </div>
                   <div
@@ -482,13 +484,9 @@ const ItemModal: React.FC = () => {
                       ? selectedItem.selectedColor
                       : "색상 선택하기"}
                     {clickColor ? (
-                      <span className="material-symbols-outlined">
-                        keyboard_arrow_up
-                      </span>
+                      <img src="/assets/arrow-up.svg" alt="위 화살표" />
                     ) : (
-                      <span className="material-symbols-outlined">
-                        keyboard_arrow_down
-                      </span>
+                      <img src="/assets/arrow-down.svg" alt="아래 화살표" />
                     )}
                   </div>
                   <div

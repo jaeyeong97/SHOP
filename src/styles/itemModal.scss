@@ -60,8 +60,8 @@
           color: $main-color;
         }
         .arrow {
-          font-size: 24px;
-          color: $main-color;
+          width: 24px;
+          height: 24px;
         }
       }
     }
@@ -198,8 +198,8 @@
           right: 15px;
           cursor: pointer;
           .icon {
-            font-size: 18px;
-            color: $first-gray-color;
+            width: 24px;
+            height: 24px;
           }
         }
         .info {
@@ -318,12 +318,12 @@
           &:active {
             background-color: $back-gray-color;
           }
-          span {
+          img {
             position: absolute;
             right: 10px;
             top: 10px;
-            font-size: 28px;
-            color: $first-gray-color;
+            width: 24px;
+            height: 24px;
           }
         }
 

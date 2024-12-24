@@ -110,7 +110,11 @@ const CartPage: React.FC = () => {
                 onClick={handleCheckAllBox}
               >
                 {selectedCartItems.length === cartArr.length ? (
-                  <span className="material-symbols-outlined icon">check</span>
+                  <img
+                    src="/assets/check.svg"
+                    alt="체크 아이콘"
+                    className="icon"
+                  />
                 ) : (
                   ""
                 )}
@@ -142,9 +146,11 @@ const CartPage: React.FC = () => {
                   {selectedCartItems.some(
                     (selected) => selectedKey(selected) === selectedKey(item)
                   ) ? (
-                    <span className="material-symbols-outlined icon">
-                      check
-                    </span>
+                    <img
+                      src="/assets/check.svg"
+                      alt="체크 아이콘"
+                      className="icon"
+                    />
                   ) : (
                     ""
                   )}
@@ -167,7 +173,11 @@ const CartPage: React.FC = () => {
                 className="delete-btn"
                 onClick={() => handleDeleteSelectedItem(item)}
               >
-                <span className="material-symbols-outlined icon">close</span>
+                <img
+                  src="/assets/close.svg"
+                  alt="닫기 아이콘"
+                  className="icon"
+                />
               </button>
             </div>
           ))}
@@ -187,7 +197,7 @@ const CartPage: React.FC = () => {
       ) : (
         // 장바구니 비었을때
         <div className="no-cart-wrap">
-          <span className="material-symbols-outlined icon">shopping_cart</span>
+          <img src="/assets/cart.svg" alt="카트 아이콘" className="icon" />
           <span className="t1">장바구니가 비어있어요</span>
           <span className="t2">상품을 추가해보세요. </span>
           <Link to="/">

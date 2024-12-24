@@ -55,58 +55,38 @@ const MyPage = () => {
         <ul>
           <li>
             <div className="w">
-              <span className="material-symbols-outlined icon">
-                local_shipping
-              </span>
+              <img src="assets/ship.svg" alt="배송 아이콘" className="icon" />
               <span className="txt">주문 배송</span>
             </div>
-            <span className="material-symbols-outlined arrow">
-              chevron_right
-            </span>
+            <img src="assets/arrow-right.svg" alt="화살표 아이콘" className="arrow" />
           </li>
           <li>
             <div className="w">
-              <span className="material-symbols-outlined icon">
-                sell
-              </span>
+              <img src="assets/sell.svg" alt="쿠폰 아이콘" className="icon" />
               <span className="txt">쿠폰</span>
             </div>
-            <span className="material-symbols-outlined arrow">
-              chevron_right
-            </span>
+            <img src="assets/arrow-right.svg" alt="화살표 아이콘" className="arrow" />
           </li>
           <li>
             <div className="w">
-              <span className="material-symbols-outlined icon">
-                chat
-              </span>
+              <img src="assets/chat.svg" alt="리뷰 아이콘" className="icon" />
               <span className="txt">리뷰</span>
             </div>
-            <span className="material-symbols-outlined arrow">
-              chevron_right
-            </span>
+            <img src="assets/arrow-right.svg" alt="화살표 아이콘" className="arrow" />
           </li>
           <li>
             <div className="w">
-              <span className="material-symbols-outlined icon">
-                manage_accounts
-              </span>
+              <img src="assets/manage.svg" alt="내 정보 아이콘" className="icon" />
               <span className="txt">내 정보</span>
             </div>
-            <span className="material-symbols-outlined arrow">
-              chevron_right
-            </span>
+            <img src="assets/arrow-right.svg" alt="화살표 아이콘" className="arrow" />
           </li>
           <li>
             <div className="w">
-              <span className="material-symbols-outlined icon">
-                settings
-              </span>
+              <img src="assets/setting.svg" alt="설정 아이콘" className="icon" />
               <span className="txt">설정</span>
             </div>
-            <span className="material-symbols-outlined arrow">
-              chevron_right
-            </span>
+            <img src="assets/arrow-right.svg" alt="화살표 아이콘" className="arrow" />
           </li>
         </ul>
       </div>

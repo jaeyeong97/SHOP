@@ -8,9 +8,8 @@
     justify-content: center;
     height: 75vh;
     .icon {
-      font-size: 50px;
-      color: $second-gray-color;
-      font-variation-settings: "wght" 200;
+      width: 50px;
+      height: 50px;
       margin-bottom: 5px;
     }
     .t1 {
@@ -56,8 +55,8 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            font-size: 18px;
-            color: $white;
+            width: 18px;
+            height: 18px;
           }
         }
         .check-all.selected {
@@ -137,8 +136,8 @@
           top: 50%;
           left: 50%;
           transform: translate(-50%, -50%);
-          font-size: 18px;
-          color: $white;
+          width: 18px;
+          height: 18px;
         }
       }
       .check.selected {
@@ -179,8 +178,8 @@
       top: 15px;
       right: 0;
       .icon {
-        font-size: 20px;
-        color: $text-third-color;
+        width: 20px;
+        height: 20px;
       }
     }
   }

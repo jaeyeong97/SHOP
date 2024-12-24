@@ -29,7 +29,8 @@
       .flex {
         display: flex;
         justify-content: space-between;
-        margin: 10px 0;
+        width: calc(100% - 20px);
+        margin: 10px auto;
         .t1 {
           font-size: 14px;
           color: $text-third-color;
@@ -41,6 +42,7 @@
       }
       .searched {
         display: flex;
+        margin-left: 10px;
         .searched-item {
           margin-right: 5px;
           font-size: 13px;

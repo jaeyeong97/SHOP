@@ -49,7 +49,11 @@ const SearchPage: React.FC = () => {
     <section id="search-page">
       <div className={`search-cart-wrap ${isAppModal ? "active" : ""}`}>
         <div className="search">
-          <span className="material-symbols-outlined search-icon">search</span>
+          <img
+            src="/assets/search.svg"
+            alt="검색 아이콘"
+            className="search-icon"
+          />
           <input
             type="text"
             placeholder="하나만 사도 무료배송"
@@ -64,9 +68,11 @@ const SearchPage: React.FC = () => {
             navigate("/cart");
           }}
         >
-          <span className="material-symbols-outlined cart-icon">
-            shopping_cart
-          </span>
+          <img
+            src="/assets/cart.svg"
+            alt="장바구니 아이콘"
+            className="cart-icon"
+          />
           {cartArr.length > 0 ? (
             <div className="dot">
               <span>{cartArr.length}</span>

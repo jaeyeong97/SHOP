@@ -56,17 +56,21 @@ const Header: React.FC = () => {
       <div className="search-cart-wrap">
         <div className="search">
           <NavLink to="/search" className="link">
-            <span className="material-symbols-outlined search-icon">
-              search
-            </span>
+            <img
+              src="/assets/search.svg"
+              alt="검색 아이콘"
+              className="search-icon"
+            />
             <div className="txt">하나만 사도 무료배송</div>
           </NavLink>
         </div>
         <div className="cart">
           <NavLink to="/cart">
-            <span className="material-symbols-outlined cart-icon">
-              shopping_cart
-            </span>
+            <img
+              src="/assets/cart.svg"
+              alt="장바구니 아이콘"
+              className="cart-icon"
+            />
           </NavLink>
           {cartArr.length > 0 ? (
             <div className="dot">

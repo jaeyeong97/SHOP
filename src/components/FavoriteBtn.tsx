@@ -54,23 +54,30 @@ const FavoriteButton: React.FC<favoriteBtnProps> = ({ item }) => {
   };
 
   return (
-    <div>
-      <span
-        className={`material-symbols-outlined icon favorite ${
-          favorites.some((favoriteItem) => favoriteItem.id === item.id)
-            ? "active"
-            : ""
-        } `}
-        onClick={toggleFavorite}
-        onKeyDown={(event) => {
-          if (event.key === "Enter") {
-            toggleFavorite(event);
-          }
-        }}
-        tabIndex={0}
-      >
-        favorite
-      </span>
+    <div
+      className="fav-wrap"
+      onClick={toggleFavorite}
+      onKeyDown={(event) => {
+        if (event.key === "Enter") {
+          toggleFavorite(event);
+        }
+      }}
+      tabIndex={0}
+    >
+      {favorites.some((favoriteItem) => favoriteItem.id === item.id) ? (
+        <img
+          src="/assets/fav-icon-active.svg"
+          alt="좋아요 아이콘 액티브"
+          className="icon favorite"
+        />
+      ) : (
+        <img
+          src="/assets/fav-icon.svg"
+          alt="좋아요 아이콘"
+          className="icon favorite"
+        />
+      )}
+
       {favAlert && <div className="fav-alert">{favAlert}</div>}
     </div>
   );

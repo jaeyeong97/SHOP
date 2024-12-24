@@ -32,9 +32,7 @@ const AddressSearch = () => {
                         navigate(-1);
                     }
                 }}>
-                <span className="material-symbols-outlined icon">
-                    arrow_back_ios
-                </span>
+                <img src='/assets/arrow-black.svg' alt='이전 화살표' className='icon' />
             </div>
             <div className='title'>우편번호 검색</div>
         </div>

@@ -45,9 +45,7 @@ const CategoryPage: React.FC = () => {
           <Link to="/top">
             <div className="title">
               <span className="txt">상의</span>
-              <span className="material-symbols-outlined arrow">
-                chevron_right
-              </span>
+              <img src="assets/arrow-right.svg" alt="오른쪽 화살표" />
             </div>
           </Link>
           <div
@@ -62,9 +60,7 @@ const CategoryPage: React.FC = () => {
           <Link to="/pants">
             <div className="title">
               <span className="txt">하의</span>
-              <span className="material-symbols-outlined arrow">
-                chevron_right
-              </span>
+              <img src="assets/arrow-right.svg" alt="오른쪽 화살표" />
             </div>
           </Link>
           <div
@@ -79,9 +75,7 @@ const CategoryPage: React.FC = () => {
           <Link to="/outer">
             <div className="title">
               <span className="txt">아우터</span>
-              <span className="material-symbols-outlined arrow">
-                chevron_right
-              </span>
+              <img src="assets/arrow-right.svg" alt="오른쪽 화살표" />
             </div>
           </Link>
           <div
@@ -96,9 +90,7 @@ const CategoryPage: React.FC = () => {
           <Link to="/shoes">
             <div className="title">
               <span className="txt">신발</span>
-              <span className="material-symbols-outlined arrow">
-                chevron_right
-              </span>
+              <img src="assets/arrow-right.svg" alt="오른쪽 화살표" />
             </div>
           </Link>
           <div
@@ -113,9 +105,7 @@ const CategoryPage: React.FC = () => {
           <Link to="/skirt">
             <div className="title">
               <span className="txt">스커트</span>
-              <span className="material-symbols-outlined arrow">
-                chevron_right
-              </span>
+              <img src="assets/arrow-right.svg" alt="오른쪽 화살표" />
             </div>
           </Link>
           <div
@@ -130,9 +120,7 @@ const CategoryPage: React.FC = () => {
           <Link to="/socks">
             <div className="title">
               <span className="txt">양말</span>
-              <span className="material-symbols-outlined arrow">
-                chevron_right
-              </span>
+              <img src="assets/arrow-right.svg" alt="오른쪽 화살표" />
             </div>
           </Link>
           <div
@@ -147,9 +135,7 @@ const CategoryPage: React.FC = () => {
           <Link to="/bag">
             <div className="title">
               <span className="txt">가방</span>
-              <span className="material-symbols-outlined arrow">
-                chevron_right
-              </span>
+              <img src="assets/arrow-right.svg" alt="오른쪽 화살표" />
             </div>
           </Link>
           <div
@@ -164,9 +150,7 @@ const CategoryPage: React.FC = () => {
           <Link to="/cap">
             <div className="title">
               <span className="txt">모자</span>
-              <span className="material-symbols-outlined arrow">
-                chevron_right
-              </span>
+              <img src="assets/arrow-right.svg" alt="오른쪽 화살표" />
             </div>
           </Link>
           <div
@@ -181,9 +165,7 @@ const CategoryPage: React.FC = () => {
           <Link to="/eyeware">
             <div className="title">
               <span className="txt">아이웨어</span>
-              <span className="material-symbols-outlined arrow">
-                chevron_right
-              </span>
+              <img src="assets/arrow-right.svg" alt="오른쪽 화살표" />
             </div>
           </Link>
           <div
@@ -198,9 +180,7 @@ const CategoryPage: React.FC = () => {
           <Link to="/accessory">
             <div className="title">
               <span className="txt">주얼리</span>
-              <span className="material-symbols-outlined arrow">
-                chevron_right
-              </span>
+              <img src="assets/arrow-right.svg" alt="오른쪽 화살표" />
             </div>
           </Link>
           <div

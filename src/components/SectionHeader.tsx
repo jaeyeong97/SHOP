@@ -12,17 +12,21 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({ title }) => {
   return (
     <header className={`common-header ${isAppModal ? "active" : ""}`}>
       <div className="back">
-        <NavLink to="/" className="material-symbols-outlined icon">
-          arrow_back_ios
+        <NavLink to="/">
+          <img
+            src="/assets/arrow666.svg"
+            alt="화살표 아이콘"
+            className="icon"
+          />
         </NavLink>
       </div>
       <h3 className="title">{title}</h3>
       <div className="wrap">
-        <NavLink to="/search" className="material-symbols-outlined icon">
-          search
+        <NavLink to="/search">
+          <img src="/assets/search.svg" alt="검색 아이콘" className="icon" />
         </NavLink>
-        <NavLink to="/" className="material-symbols-outlined icon">
-          home
+        <NavLink to="/">
+          <img src="/assets/home666.svg" alt="검색 아이콘" className="icon" />
         </NavLink>
       </div>
     </header>

@@ -12,7 +12,7 @@ const Gnb: React.FC = () => {
             }
           >
             <div className="wrap">
-              <span className="material-symbols-outlined icon home">home</span>
+              <img src="/assets/home.svg" alt="홈 아이콘" className="icon" />
               <span className="txt">홈</span>
             </div>
           </NavLink>
@@ -25,7 +25,11 @@ const Gnb: React.FC = () => {
             }
           >
             <div className="wrap">
-              <span className="material-symbols-outlined icon menu">menu</span>
+              <img
+                src="/assets/menu.svg"
+                alt="카테고리 아이콘"
+                className="icon"
+              />
               <span className="txt">카테고리</span>
             </div>
           </NavLink>
@@ -38,9 +42,7 @@ const Gnb: React.FC = () => {
             }
           >
             <div className="wrap">
-              <span className="material-symbols-outlined icon favorite">
-                favorite
-              </span>
+              <img src="/assets/fav.svg" alt="좋아요 아이콘" className="icon" />
               <span className="txt">좋아요</span>
             </div>
           </NavLink>
@@ -53,9 +55,11 @@ const Gnb: React.FC = () => {
             }
           >
             <div className="wrap">
-              <span className="material-symbols-outlined icon mypage">
-                person
-              </span>
+              <img
+                src="/assets/user.svg"
+                alt="마이페이지 아이콘"
+                className="icon"
+              />
               <span className="txt">마이페이지</span>
             </div>
           </NavLink>

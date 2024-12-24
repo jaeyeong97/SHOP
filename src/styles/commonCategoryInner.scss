@@ -34,16 +34,18 @@
         height: 100%;
         object-fit: cover;
       }
-      .icon {
+      .fav-wrap {
         position: absolute;
         bottom: 5px;
         right: 5px;
-        color: $first-dark-back;
-        font-size: 20px;
-        font-variation-settings: "FILL" 1;
+        width: 24px;
+        height: 24px;
+      }
+      .icon {
+        width: 24px;
+        height: 24px;
       }
       .icon.active {
-        color: $fav-active;
         animation: favClick 0.3s;
       }
     }

@@ -63,9 +63,11 @@ const Roulette: React.FC = () => {
       <div className="roulette__bg"></div>
       <div className="roulette__in">
         <div className="roulette__in--title">🎉룰렛돌리면 상품 당첨!🎉</div>
-        <span className="material-symbols-outlined roulette__in--arrow">
-          label
-        </span>
+        <img
+          src="/assets/roulette-arrow.svg"
+          alt="룰렛 화살표"
+          className="roulette__in--arrow"
+        />
         <div className="roulette__in--btn" onClick={handleRotation}>
           돌리기!
         </div>
@@ -83,12 +85,12 @@ const Roulette: React.FC = () => {
         {selectedItem && (
           <div className="roulette__in__result">{selectedItem} 당첨!</div>
         )}
-        <span
-          className="material-symbols-outlined roulette__in__closeBtn"
+        <img
+          className="roulette__in__closeBtn"
+          src="/assets/close.svg"
+          alt="닫기 아이콘"
           onClick={handleModalClose}
-        >
-          close
-        </span>
+        />
       </div>
     </div>
   );
