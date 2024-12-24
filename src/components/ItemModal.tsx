@@ -17,7 +17,6 @@ const ItemModal: React.FC = () => {
   const [warningMessage, setWarningMessage] = useState<string>(""); // 경고 메시지 상태
   const [cartAlert, setCartAlert] = useState<boolean>(false); // 장바구니 알림
   const [alertTimeout, setAlertTimeout] = useState<number | null>(null);
-  const [imgLoading, setImgLoading] = useState<boolean>(true); // index[0] 이미지 로딩 상태
   const sizeListRef = useRef<HTMLDivElement | null>(null);
   const colorListRef = useRef<HTMLDivElement | null>(null);
 
@@ -199,10 +198,6 @@ const ItemModal: React.FC = () => {
     navigate("/cart");
   };
 
-  const handleLoad = (): void => {
-    setImgLoading(false);
-  };
-
   return (
     <div className="item-modal" onClick={closeBuyModal}>
       <div
@@ -219,7 +214,9 @@ const ItemModal: React.FC = () => {
           </div>
           <div className="name">{selectedItem.name}</div>
           <div className="price">
-            <span className="sale">{selectedItem.sale}</span>
+            {selectedItem.sale && (
+              <span className="sale">{selectedItem.sale}</span>
+            )}
             {selectedItem.price.toLocaleString()}원
           </div>
           <div className="login-box" onClick={() => setIsToApp(true)}>
@@ -230,22 +227,11 @@ const ItemModal: React.FC = () => {
           </div>
         </div>
         <div className="item-more">
-          {imgLoading && (
-            <div className="loading">
-              <img
-                src="../assets/spinner.gif"
-                alt="spinner"
-                className="spinner"
-              />
-            </div>
-          )}
           {selectedItem.sImgs[0] && (
             <img
               className="item-img"
               src={selectedItem.sImgs[0]}
               alt={selectedItem.name}
-              onLoad={handleLoad}
-              style={{ display: imgLoading ? "none" : "block" }}
             />
           )}
           {!open && (
