@@ -1,15 +1,11 @@
 import { useEffect, useState } from "react";
-import { useRecoilState, useRecoilValue } from "recoil";
+import { useRecoilValue } from "recoil";
 import { sliderState } from "../recoil/atom";
-import { rouletteState } from "../recoil/atom";
 import { Slider } from "../Types";
-import Roulette from "./Roulette";
 
 const SliderComponent: React.FC = () => {
   const slider = useRecoilValue<Slider[]>(sliderState); // 슬라이더
   const [currentIndex, setCurrentIndex] = useState<number>(0); // 슬라이더 인덱스
-  const [rouletteModal, setRouletteModal] =
-    useRecoilState<boolean>(rouletteState); // 룰렛 모달
 
   const prevSlide = (): void => {
     setCurrentIndex((prevIndex) =>
@@ -29,18 +25,6 @@ const SliderComponent: React.FC = () => {
     return () => clearInterval(intervalSlider);
   }, [currentIndex]);
 
-  const handleClickSlide = (slider: Slider): void => {
-    if (
-      slider.id === "슬라이더1-1" ||
-      slider.id === "슬라이더1-2" ||
-      slider.id === "슬라이더1-3" ||
-      slider.id === "슬라이더1-4" ||
-      slider.id === "슬라이더1-5"
-    ) {
-      setRouletteModal(true);
-    }
-  };
-
   return (
     <section className="slider-wrap">
       <img
@@ -59,7 +43,6 @@ const SliderComponent: React.FC = () => {
             className="slide"
             src={slider.img}
             alt={slider.id}
-            onClick={() => handleClickSlide(slider)}
             loading={index === 0 ? "eager" : "lazy"}
           ></img>
         ))}
@@ -75,7 +58,6 @@ const SliderComponent: React.FC = () => {
         <span className="s">/</span>
         <span className="end-index">{slider.length}</span>
       </div>
-      {rouletteModal && <Roulette />}
     </section>
   );
 };

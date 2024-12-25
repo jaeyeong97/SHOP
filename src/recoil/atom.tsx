@@ -988,12 +988,6 @@ export const sliderState = atom<Slider[]>({
   ],
 });
 
-// 룰렛 모달 온오프 상태
-export const rouletteState = atom<boolean>({
-  key: "rouletteState",
-  default: false,
-});
-
 // 모든 카테고리 아이템을 합치는 selector
 export const allItemsState = selector<Item[]>({
   key: "allItemsState",
