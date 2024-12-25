@@ -53,13 +53,14 @@ const SliderComponent: React.FC = () => {
         className="slider"
         style={{ transform: `translateX(-${100 * currentIndex}%)` }}
       >
-        {slider.map((slider: Slider) => (
+        {slider.map((slider: Slider, index: number) => (
           <img
             key={slider.id}
             className="slide"
             src={slider.img}
             alt={slider.id}
             onClick={() => handleClickSlide(slider)}
+            loading={index === 0 ? "eager" : "lazy"}
           ></img>
         ))}
       </div>
