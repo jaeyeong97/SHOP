@@ -60,7 +60,6 @@ const SliderComponent: React.FC = () => {
             src={slider.img}
             alt={slider.id}
             onClick={() => handleClickSlide(slider)}
-            loading="lazy"
           ></img>
         ))}
       </div>
