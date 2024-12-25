@@ -971,19 +971,15 @@ export const selectedCartItemState = atom<SelectedItem[]>({
 export const sliderState = atom<Slider[]>({
   key: "sliderState",
   default: [
-    { id: "슬라이더1-1", img: "../assets/banner1.webp" },
+    { id: "슬라이더1", img: "../assets/banner1.webp" },
     { id: "슬라이더2", img: "../assets/banner2.webp" },
     { id: "슬라이더3", img: "../assets/banner3.webp" },
-    { id: "슬라이더1-2", img: "../assets/banner1.webp" },
     { id: "슬라이더4", img: "../assets/banner4.webp" },
     { id: "슬라이더5", img: "../assets/banner5.webp" },
-    { id: "슬라이더1-3", img: "../assets/banner1.webp" },
     { id: "슬라이더6", img: "../assets/banner6.webp" },
     { id: "슬라이더7", img: "../assets/banner7.webp" },
-    { id: "슬라이더1-4", img: "../assets/banner1.webp" },
     { id: "슬라이더8", img: "../assets/banner8.webp" },
     { id: "슬라이더9", img: "../assets/banner9.webp" },
-    { id: "슬라이더1-5", img: "../assets/banner1.webp" },
     { id: "슬라이더10", img: "../assets/banner10.webp" },
   ],
 });
