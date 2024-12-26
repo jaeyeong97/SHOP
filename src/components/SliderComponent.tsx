@@ -43,6 +43,8 @@ const SliderComponent: React.FC = () => {
             className="slide"
             src={slider.img}
             alt={slider.id}
+            width={600}
+            height={299}
             loading={index === 0 ? "eager" : "lazy"}
           ></img>
         ))}
