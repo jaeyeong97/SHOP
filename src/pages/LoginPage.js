@@ -1,8 +1,10 @@
 import { useNavigate } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
-import KakaoLogin from "../login/KakaoLogin";
-import GoogleLoginComponent from "../login/GoogleLoginComponent";
-import NaverLogin from "../login/NaverLogin";
+import { lazy } from "react";
+
+const KakaoLogin = lazy(() => import("../login/KakaoLogin"));
+const GoogleLoginComponent = lazy(() => import("../login/GoogleLoginComponent"));
+const NaverLogin = lazy(() => import("../login/NaverLogin"));
 
 const LoginPage = () => {
   const navigate = useNavigate();
