@@ -1,10 +1,11 @@
 .slider-wrap {
   position: relative;
   overflow: hidden;
-  aspect-ratio: 750 / 374;
+  aspect-ratio: 600 / 299;
   .slider {
     display: flex;
-    transition: 0.3s;
+    will-change: transform;
+    transition: transform 0.2s;
     .slide {
       width: 100%;
       height: auto;
