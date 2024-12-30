@@ -5,25 +5,25 @@ import { Slider } from "../Types";
 
 const SliderComponent: React.FC = () => {
   const slider = useRecoilValue<Slider[]>(sliderState); // 슬라이더
-  // const [currentIndex, setCurrentIndex] = useState<number>(0); // 슬라이더 인덱스
+  const [currentIndex, setCurrentIndex] = useState<number>(0); // 슬라이더 인덱스
 
-  // const prevSlide = (): void => {
-  //   setCurrentIndex((prevIndex) =>
-  //     prevIndex === 0 ? slider.length - 1 : prevIndex - 1
-  //   );
-  // };
+  const prevSlide = (): void => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? slider.length - 1 : prevIndex - 1
+    );
+  };
 
-  // const nextSlide = (): void => {
-  //   setCurrentIndex((prevIndex) =>
-  //     prevIndex === slider.length - 1 ? 0 : prevIndex + 1
-  //   );
-  // };
+  const nextSlide = (): void => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === slider.length - 1 ? 0 : prevIndex + 1
+    );
+  };
 
-  // // 5초 인터벌 슬라이드
-  // useEffect(() => {
-  //   const intervalSlider = setInterval(nextSlide, 5000);
-  //   return () => clearInterval(intervalSlider);
-  // }, []);
+  // 5초 인터벌 슬라이드
+  useEffect(() => {
+    const intervalSlider = setInterval(nextSlide, 5000);
+    return () => clearInterval(intervalSlider);
+  }, []);
 
   return (
     <section className="slider-wrap">
@@ -31,13 +31,13 @@ const SliderComponent: React.FC = () => {
         src="/assets/arrow.svg"
         alt="arrow"
         className="arrow left"
-        // onClick={prevSlide}
+        onClick={prevSlide}
       />
       <div
         className="slider"
-        // style={{ transform: `translateX(-${100 * currentIndex}%)` }}
+        style={{ transform: `translateX(-${100 * currentIndex}%)` }}
       >
-        {slider.map((slider: Slider, index: number) => (
+        {slider.map((slider: Slider) => (
           <img
             key={slider.id}
             className="slide"
@@ -45,7 +45,6 @@ const SliderComponent: React.FC = () => {
             alt={slider.id}
             width={600}
             height={299}
-            loading={index === 0 ? "eager" : "lazy"}
           ></img>
         ))}
       </div>
@@ -53,10 +52,10 @@ const SliderComponent: React.FC = () => {
         src="/assets/arrow.svg"
         alt="arrow"
         className="arrow right"
-        // onClick={nextSlide}
+        onClick={nextSlide}
       />
       <div className="index-wrap">
-        {/* <span className="current-index">{currentIndex + 1}</span> */}
+        <span className="current-index">{currentIndex + 1}</span>
         <span className="s">/</span>
         <span className="end-index">{slider.length}</span>
       </div>
