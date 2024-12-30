@@ -8,26 +8,22 @@ const SliderComponent: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState<number>(0); // 슬라이더 인덱스
 
   const prevSlide = (): void => {
-    requestAnimationFrame(() => {
-      setCurrentIndex((prevIndex) =>
-        prevIndex === 0 ? slider.length - 1 : prevIndex - 1
-      );
-    });
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? slider.length - 1 : prevIndex - 1
+    );
   };
 
   const nextSlide = (): void => {
-    requestAnimationFrame(() => {
-      setCurrentIndex((prevIndex) =>
-        prevIndex === slider.length - 1 ? 0 : prevIndex + 1
-      );
-    });
+    setCurrentIndex((prevIndex) =>
+      prevIndex === slider.length - 1 ? 0 : prevIndex + 1
+    );
   };
 
   // 5초 인터벌 슬라이드
   useEffect(() => {
     const intervalSlider = setInterval(nextSlide, 5000);
     return () => clearInterval(intervalSlider);
-  }, [currentIndex]);
+  }, []);
 
   return (
     <section className="slider-wrap">
