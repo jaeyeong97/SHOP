@@ -130,6 +130,71 @@ export const topState = atom<Item[]>({
         "../assets/top10-3.webp",
       ],
     },
+    {
+      id: "상의11",
+      name: "상의 11",
+      price: 32500,
+      sale: "15%",
+      img: "../assets/top11.webp",
+      size: ["S", "M", "L", "XL"],
+      sImgs: [
+        "../assets/top11-1.webp",
+        "../assets/top11-2.webp",
+        "../assets/top11-3.webp",
+      ],
+    },
+    {
+      id: "상의12",
+      name: "상의 12",
+      price: 36400,
+      sale: "12%",
+      img: "../assets/top12.webp",
+      size: ["S", "M", "L", "XL"],
+      sImgs: [
+        "../assets/top12-1.webp",
+        "../assets/top12-2.webp",
+        "../assets/top12-3.webp",
+      ],
+    },
+    {
+      id: "상의13",
+      name: "상의 13",
+      price: 64000,
+      sale: "10%",
+      img: "../assets/top13.webp",
+      size: ["S", "M", "L", "XL"],
+      sImgs: [
+        "../assets/top13-1.webp",
+        "../assets/top13-2.webp",
+        "../assets/top13-3.webp",
+      ],
+    },
+    {
+      id: "상의14",
+      name: "상의 14",
+      price: 37500,
+      sale: "11%",
+      img: "../assets/top14.webp",
+      size: ["S", "M", "L", "XL"],
+      sImgs: [
+        "../assets/top14-1.webp",
+        "../assets/top14-2.webp",
+        "../assets/top14-3.webp",
+      ],
+    },
+    {
+      id: "상의15",
+      name: "상의 15",
+      price: 55000,
+      sale: "15%",
+      img: "../assets/top15.webp",
+      size: ["S", "M", "L", "XL"],
+      sImgs: [
+        "../assets/top15-1.webp",
+        "../assets/top15-2.webp",
+        "../assets/top15-3.webp",
+      ],
+    },
   ],
 });
 
@@ -493,6 +558,84 @@ export const outerState = atom<Item[]>({
         "../assets/outer12-1.webp",
         "../assets/outer12-2.webp",
         "../assets/outer12-3.webp",
+      ],
+    },
+    {
+      id: "아우터13",
+      name: "아우터 13",
+      price: 402800,
+      sale: "20%",
+      img: "../assets/outer13.webp",
+      size: ["S", "M", "L", "XL"],
+      sImgs: [
+        "../assets/outer13-1.webp",
+        "../assets/outer13-2.webp",
+        "../assets/outer13-3.webp",
+      ],
+    },
+    {
+      id: "아우터14",
+      name: "아우터 14",
+      price: 322500,
+      sale: "15%",
+      img: "../assets/outer14.webp",
+      size: ["S", "M", "L", "XL"],
+      sImgs: [
+        "../assets/outer14-1.webp",
+        "../assets/outer14-2.webp",
+        "../assets/outer14-3.webp",
+      ],
+    },
+    {
+      id: "아우터15",
+      name: "아우터 15",
+      price: 522800,
+      sale: "18%",
+      img: "../assets/outer15.webp",
+      size: ["S", "M", "L", "XL"],
+      sImgs: [
+        "../assets/outer15-1.webp",
+        "../assets/outer15-2.webp",
+        "../assets/outer15-3.webp",
+      ],
+    },
+    {
+      id: "아우터16",
+      name: "아우터 16",
+      price: 625800,
+      sale: "25%",
+      img: "../assets/outer16.webp",
+      size: ["S", "M", "L", "XL"],
+      sImgs: [
+        "../assets/outer16-1.webp",
+        "../assets/outer16-2.webp",
+        "../assets/outer16-3.webp",
+      ],
+    },
+    {
+      id: "아우터17",
+      name: "아우터 17",
+      price: 542000,
+      sale: "10%",
+      img: "../assets/outer17.webp",
+      size: ["S", "M", "L", "XL"],
+      sImgs: [
+        "../assets/outer17-1.webp",
+        "../assets/outer17-2.webp",
+        "../assets/outer17-3.webp",
+      ],
+    },
+    {
+      id: "아우터18",
+      name: "아우터 18",
+      price: 665200,
+      sale: "22%",
+      img: "../assets/outer18.webp",
+      size: ["S", "M", "L", "XL"],
+      sImgs: [
+        "../assets/outer18-1.webp",
+        "../assets/outer18-2.webp",
+        "../assets/outer18-3.webp",
       ],
     },
   ],
@@ -1021,6 +1164,7 @@ export const appModalState = atom<boolean>({
   default: false,
 });
 
+// 주소 상태
 export const addressFormState = atom<AddressForm>({
   key: "addressFormState",
   default: {
@@ -1031,4 +1175,9 @@ export const addressFormState = atom<AddressForm>({
     personName: "",
     phone: "",
   },
+});
+
+export const scrollState = atom({
+  key: "scrollState",
+  default: 0,
 });

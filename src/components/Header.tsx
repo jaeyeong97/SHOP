@@ -37,7 +37,9 @@ const Header: React.FC = () => {
         <div className="qr">
           <img src="../assets/qr.webp" alt="" width={100} height={100} />
         </div>
-        <div className="txt3">휴대폰으로 QR 코드를 스캔해서 확인해보세요</div>
+        <div className="txt3">
+          휴대폰으로 QR 코드를 스캔해서 확인할 수 있어요!
+        </div>
         <button className="confirm" onClick={() => setIsToApp(false)}>
           확인
         </button>

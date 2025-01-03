@@ -53,8 +53,8 @@ const CategoryPage: React.FC = () => {
             ref={(el) => (categoryRefs.current[0] = el)}
           >
             <Link to="/top" className="w">
-              <img src="../assets/top.webp" alt="긴팔" />
-              <span>긴팔</span>
+              <img src="../assets/top.webp" alt="상의" />
+              <span>상의</span>
             </Link>
           </div>
           <Link to="/pants">
@@ -68,8 +68,8 @@ const CategoryPage: React.FC = () => {
             ref={(el) => (categoryRefs.current[1] = el)}
           >
             <Link to="/pants" className="w">
-              <img src="../assets/pants.webp" alt="청바지" />
-              <span>청바지</span>
+              <img src="../assets/pants.webp" alt="하의" />
+              <span>하의</span>
             </Link>
           </div>
           <Link to="/outer">
@@ -83,8 +83,8 @@ const CategoryPage: React.FC = () => {
             ref={(el) => (categoryRefs.current[2] = el)}
           >
             <Link to="/outer" className="w">
-              <img src="../assets/outer.webp" alt="바람막이" />
-              <span>바람막이</span>
+              <img src="../assets/outer.webp" alt="아우터" />
+              <span>아우터</span>
             </Link>
           </div>
           <Link to="/shoes">
@@ -98,8 +98,8 @@ const CategoryPage: React.FC = () => {
             ref={(el) => (categoryRefs.current[3] = el)}
           >
             <Link to="/shoes" className="w">
-              <img src="../assets/shoes.webp" alt="운동화" />
-              <span>운동화</span>
+              <img src="../assets/shoes.webp" alt="신발" />
+              <span>신발</span>
             </Link>
           </div>
           <Link to="/skirt">
@@ -113,8 +113,8 @@ const CategoryPage: React.FC = () => {
             ref={(el) => (categoryRefs.current[4] = el)}
           >
             <Link to="/skirt" className="w">
-              <img src="../assets/skirt.webp" alt="미니 스커트" />
-              <span>미니 스커트</span>
+              <img src="../assets/skirt.webp" alt="스커트" />
+              <span>스커트</span>
             </Link>
           </div>
           <Link to="/socks">
@@ -128,8 +128,8 @@ const CategoryPage: React.FC = () => {
             ref={(el) => (categoryRefs.current[5] = el)}
           >
             <Link to="/socks" className="w">
-              <img src="../assets/socks.webp" alt="긴 양말" />
-              <span>긴 양말</span>
+              <img src="../assets/socks.webp" alt="양말" />
+              <span>양말</span>
             </Link>
           </div>
           <Link to="/bag">
@@ -143,8 +143,8 @@ const CategoryPage: React.FC = () => {
             ref={(el) => (categoryRefs.current[6] = el)}
           >
             <Link to="/bag" className="w">
-              <img src="../assets/bag.webp" alt="백팩" />
-              <span>백팩</span>
+              <img src="../assets/bag.webp" alt="가방" />
+              <span>가방</span>
             </Link>
           </div>
           <Link to="/cap">
@@ -158,8 +158,8 @@ const CategoryPage: React.FC = () => {
             ref={(el) => (categoryRefs.current[7] = el)}
           >
             <Link to="/cap" className="w">
-              <img src="../assets/cap.webp" alt="볼캡" />
-              <span>볼캡</span>
+              <img src="../assets/cap.webp" alt="모자" />
+              <span>모자</span>
             </Link>
           </div>
           <Link to="/eyeware">
@@ -173,8 +173,8 @@ const CategoryPage: React.FC = () => {
             ref={(el) => (categoryRefs.current[8] = el)}
           >
             <Link to="/eyeware" className="w">
-              <img src="../assets/eyeware.webp" alt="안경" />
-              <span>안경</span>
+              <img src="../assets/eyeware.webp" alt="아이웨어" />
+              <span>아이웨어</span>
             </Link>
           </div>
           <Link to="/accessory">
@@ -188,8 +188,8 @@ const CategoryPage: React.FC = () => {
             ref={(el) => (categoryRefs.current[9] = el)}
           >
             <Link to="/accessory" className="w">
-              <img src="../assets/acc.webp" alt="목걸이" />
-              <span>목걸이</span>
+              <img src="../assets/acc.webp" alt="주얼리" />
+              <span>주얼리</span>
             </Link>
           </div>
         </div>
