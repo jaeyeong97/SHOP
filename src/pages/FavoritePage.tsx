@@ -30,7 +30,7 @@ const FavoritePage: React.FC = () => {
       ) : (
         // 좋아요한 상품 없을때
         <div className="no-fav-item-wrap">
-          <span className="material-symbols-outlined icon">favorite</span>
+          <img src="/assets/fav.svg" alt="하트 아이콘" className="icon" />
           <span className="t1">좋아요한 상품이 없습니다</span>
           <span className="t2">하트를 눌러 마음에 드는 상품을 찜해보세요.</span>
         </div>

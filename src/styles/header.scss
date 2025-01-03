@@ -1,6 +1,10 @@
+.header-placeholder {
+  height: 113px;
+}
 .to-app-banner {
-  position: sticky;
+  position: fixed;
   top: 0;
+  width: 100%;
   z-index: 1000;
   .to-app-modal-bg {
     display: none;
@@ -72,6 +76,7 @@
   .banner {
     width: 100%;
     height: 58px;
+    max-width: 600px;
     padding: 0 10px;
     display: flex;
     align-items: center;
