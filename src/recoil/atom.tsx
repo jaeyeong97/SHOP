@@ -1144,16 +1144,16 @@ export const allItemsState = selector<Item[]>({
 
     // 모든 카테고리 아이템을 하나의 배열로 합침
     return [
-      ...socks,
-      ...caps,
+      ...outer,
+      ...accessory,
       ...bags,
+      ...caps,
       ...tops,
       ...pants,
       ...skirt,
-      ...outer,
       ...shoes,
-      ...accessory,
       ...eyeware,
+      ...socks,
     ];
   },
 });

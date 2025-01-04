@@ -64,8 +64,8 @@ const ItemMapping: React.FC<ItemMappingProps> = ({ items }) => {
     if (timeId) clearTimeout(timeId);
 
     const time = window.setTimeout(() => {
-      setChangeImg(itemId); // hover시 0.3초뒤에 이미지 변경
-    }, 300);
+      setChangeImg(itemId); // hover시 0.2초뒤에 이미지 변경
+    }, 200);
 
     setTimeId(time);
   };
