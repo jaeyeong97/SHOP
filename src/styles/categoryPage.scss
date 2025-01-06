@@ -8,6 +8,9 @@
       overflow-y: scroll;
       background-color: $back-gray-color;
       ul {
+        :active {
+          background-color: $second-gray-color;
+        }
         li {
           font-size: 14px;
           padding: 18px 10px;

@@ -1,9 +1,12 @@
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { appModalState } from "../recoil/atom";
+import { useRecoilState } from "recoil";
 
 const MyPage = () => {
   const [user, setUser] = useState({});
   const navigate = useNavigate();
+  const [isAppModal, setIsAppModal] = useRecoilState(appModalState); // toApp 모달 on/off 상태
 
   useEffect(() => {
     const profileImg = sessionStorage.getItem("profileImg");
@@ -35,7 +38,6 @@ const MyPage = () => {
     navigate("/");
   };
 
-
   return (
     <section id="my-page">
       <div className="my-section">
@@ -53,35 +55,35 @@ const MyPage = () => {
       </div>
       <div className="menu">
         <ul>
-          <li>
+          <li onClick={() => setIsAppModal(true)}>
             <div className="w">
               <img src="assets/ship.svg" alt="배송 아이콘" className="icon" />
               <span className="txt">주문 배송</span>
             </div>
             <img src="assets/arrow-right.svg" alt="화살표 아이콘" className="arrow" />
           </li>
-          <li>
+          <li onClick={() => setIsAppModal(true)}>
             <div className="w">
               <img src="assets/sell.svg" alt="쿠폰 아이콘" className="icon" />
               <span className="txt">쿠폰</span>
             </div>
             <img src="assets/arrow-right.svg" alt="화살표 아이콘" className="arrow" />
           </li>
-          <li>
+          <li onClick={() => setIsAppModal(true)}>
             <div className="w">
               <img src="assets/chat.svg" alt="리뷰 아이콘" className="icon" />
               <span className="txt">리뷰</span>
             </div>
             <img src="assets/arrow-right.svg" alt="화살표 아이콘" className="arrow" />
           </li>
-          <li>
+          <li onClick={() => setIsAppModal(true)}>
             <div className="w">
               <img src="assets/manage.svg" alt="내 정보 아이콘" className="icon" />
               <span className="txt">내 정보</span>
             </div>
             <img src="assets/arrow-right.svg" alt="화살표 아이콘" className="arrow" />
           </li>
-          <li>
+          <li onClick={() => setIsAppModal(true)}>
             <div className="w">
               <img src="assets/setting.svg" alt="설정 아이콘" className="icon" />
               <span className="txt">설정</span>
