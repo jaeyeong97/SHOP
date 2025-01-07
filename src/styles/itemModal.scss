@@ -108,7 +108,7 @@
       .open-btn-wrap {
         position: relative;
         width: 100%;
-        height: 35px;
+        height: 45px;
         .open-btn {
           position: absolute;
           top: -20px;
@@ -118,7 +118,7 @@
           height: 100%;
           font-size: 14px;
           font-weight: 600;
-          line-height: 35px;
+          line-height: 45px;
           text-align: center;
           border-radius: 20px;
           border: 1px solid $text-first-color;
@@ -129,8 +129,8 @@
         .bg {
           position: absolute;
           top: -150px;
-          left: 0;
-          width: 100%;
+          left: 10px;
+          width: calc(100% - 20px);
           height: 150px;
           background: linear-gradient(to bottom, transparent, $white);
         }

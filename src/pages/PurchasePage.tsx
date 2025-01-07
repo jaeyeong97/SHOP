@@ -1,5 +1,5 @@
-import { useEffect } from "react";
-import { useNavigate, NavLink } from "react-router-dom";
+import { useEffect, useRef } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useRecoilState, useRecoilValue } from "recoil";
 import {
   addressFormState,
@@ -15,8 +15,14 @@ const PurchasePage: React.FC = () => {
     selectedCartItemState
   );
   const addressData = useRecoilValue<AddressForm>(addressFormState);
-
+  const addressRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
+
+  const handleAddressFocus = () => {
+    if (addressRef.current) {
+      addressRef.current.focus();
+    }
+  };
 
   // 로컬 스토리지에서 선택된 장바구니 상품 불러오기
   useEffect(() => {
@@ -79,9 +85,14 @@ const PurchasePage: React.FC = () => {
         <div className="section1">
           <div className="flex">
             <div className="title">배송지를 추가해주세요.</div>
-            <NavLink to="/address" className="add">
+            <div
+              className="add"
+              ref={addressRef}
+              tabIndex={0}
+              onClick={() => navigate("/address")}
+            >
               배송지 추가
-            </NavLink>
+            </div>
           </div>
           <div className="before-address">
             배송지를 등록하면 편하게 주문할 수 있어요.
@@ -137,7 +148,7 @@ const PurchasePage: React.FC = () => {
       <div className="buy-button-wrap">
         <button className="buy-button" onClick={handleBuyBtn}>
           {!addressData.address ? (
-            <div>배송지를 추가해주세요.</div>
+            <div onClick={handleAddressFocus}>배송지를 추가해주세요.</div>
           ) : (
             <div>{calculateTotalPrice().toLocaleString()}원 구매하기</div>
           )}

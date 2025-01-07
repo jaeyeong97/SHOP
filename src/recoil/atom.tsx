@@ -1340,7 +1340,7 @@ export const recommendedItemsState = atom({
       sale: "10%",
       img: "../assets/accessory4.webp",
       color: ["실버", "골드"],
-      sImgs: ["../assets/accessory4-1.webp", "../assets/accessory4-2.webp"],
+      sImgs: ["../assets/accessory4-2.webp", "../assets/accessory4-1.webp"],
     },
     {
       id: "모자2",

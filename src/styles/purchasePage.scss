@@ -17,6 +17,10 @@
         border-radius: 2px;
         border: 1px solid $second-gray-color;
         cursor: pointer;
+        &:focus {
+          border: 1px solid $fav-active;
+          color: $fav-active;
+        }
       }
     }
     // 배송지 추가 후
