@@ -26,14 +26,19 @@
   }
   .title {
     margin-top: 20px;
+    margin-left: 10px;
     font-size: 16px;
     font-weight: 600;
   }
-}
-@media screen and (max-width: 600px) {
-  #main-page {
-    .title {
-      padding-left: 10px;
-    }
+  .first-buy-btn {
+    width: calc(100% - 20px);
+    margin-left: 10px;
+    height: 45px;
+    line-height: 45px;
+    border: 1px solid $first-gray-color;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 20px;
   }
 }

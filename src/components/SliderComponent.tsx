@@ -23,7 +23,7 @@ const SliderComponent: React.FC = () => {
   useEffect(() => {
     const intervalSlider = setInterval(nextSlide, 5000);
     return () => clearInterval(intervalSlider);
-  }, []);
+  }, [currentIndex]);
 
   return (
     <section className="slider-wrap">

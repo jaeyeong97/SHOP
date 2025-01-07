@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
 import { favoriteState } from "../recoil/atom";
 import { Item } from "../Types";
+import ReactDOM from "react-dom";
 
 type favoriteBtnProps = {
   item: Item;
@@ -11,6 +12,8 @@ const FavoriteButton: React.FC<favoriteBtnProps> = ({ item }) => {
   const [favorites, setFavorites] = useRecoilState<Item[]>(favoriteState);
   const [favAlert, setFavAlert] = useState<string>("");
   const [alertTimeout, setAlertTimeout] = useState<number | null>(null);
+
+  const portalRoot = document.getElementById("portal-root");
 
   // 초기 로컬 스토리지에서 찜 목록 불러오기
   useEffect(() => {
@@ -78,7 +81,12 @@ const FavoriteButton: React.FC<favoriteBtnProps> = ({ item }) => {
         />
       )}
 
-      {favAlert && <div className="fav-alert">{favAlert}</div>}
+      {favAlert &&
+        portalRoot &&
+        ReactDOM.createPortal(
+          <div className="fav-alert">{favAlert}</div>,
+          portalRoot
+        )}
     </div>
   );
 };

@@ -1314,6 +1314,95 @@ export const sliderState = atom<Slider[]>({
     { id: "슬라이더8", img: "../assets/banner8.webp" },
     { id: "슬라이더9", img: "../assets/banner9.webp" },
     { id: "슬라이더10", img: "../assets/banner10.webp" },
+    { id: "슬라이더11", img: "../assets/banner11.webp" },
+    { id: "슬라이더12", img: "../assets/banner12.webp" },
+    { id: "슬라이더13", img: "../assets/banner13.webp" },
+  ],
+});
+
+// 추천상품 슬라이더
+export const recommendedItemsState = atom({
+  key: "recommendedItems",
+  default: [
+    {
+      id: "양말4",
+      name: "양말 4",
+      price: 6200,
+      img: "../assets/socks4.webp",
+      color: ["블랙", "브라운", "화이트"],
+      size: ["1", "2", "3"],
+      sImgs: ["../assets/socks4-1.webp", "../assets/socks4-2.webp"],
+    },
+    {
+      id: "주얼리4",
+      name: "주얼리 4",
+      price: 22000,
+      sale: "10%",
+      img: "../assets/accessory4.webp",
+      color: ["실버", "골드"],
+      sImgs: ["../assets/accessory4-1.webp", "../assets/accessory4-2.webp"],
+    },
+    {
+      id: "모자2",
+      name: "모자 2",
+      price: 55300,
+      sale: "20%",
+      img: "../assets/cap2.webp",
+      color: ["블랙", "브라운", "그레이", "화이트"],
+      size: ["1", "2", "3"],
+      sImgs: [
+        "../assets/cap2-1.webp",
+        "../assets/cap2-2.webp",
+        "../assets/cap2-3.webp",
+      ],
+    },
+    {
+      id: "아우터17",
+      name: "아우터 17",
+      price: 542000,
+      sale: "10%",
+      img: "../assets/outer17.webp",
+      size: ["S", "M", "L", "XL"],
+      sImgs: [
+        "../assets/outer17-1.webp",
+        "../assets/outer17-2.webp",
+        "../assets/outer17-3.webp",
+      ],
+    },
+    {
+      id: "하의12",
+      name: "하의 12",
+      price: 85500,
+      sale: "15%",
+      img: "../assets/pants12.webp",
+      size: ["S", "M", "L", "XL"],
+      sImgs: [
+        "../assets/pants12-1.webp",
+        "../assets/pants12-2.webp",
+        "../assets/pants12-3.webp",
+      ],
+    },
+    {
+      id: "주얼리3",
+      name: "주얼리 3",
+      price: 28300,
+      img: "../assets/accessory3.webp",
+      color: ["실버", "골드"],
+      sImgs: ["../assets/accessory3-1.webp", "../assets/accessory3-2.webp"],
+    },
+    {
+      id: "가방10",
+      name: "가방 10",
+      price: 565000,
+      sale: "12%",
+      img: "../assets/bag10.webp",
+      color: ["블랙", "브라운", "화이트"],
+      sImgs: [
+        "../assets/bag10-1.webp",
+        "../assets/bag10-2.webp",
+        "../assets/bag10-3.webp",
+      ],
+    },
   ],
 });
 

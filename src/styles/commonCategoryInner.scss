@@ -26,6 +26,7 @@
       border: 1px solid $first-gray-color;
       padding-top: 100%;
       background-color: #f1f1f1;
+      aspect-ratio: 1;
       .item-img {
         position: absolute;
         top: 0;
@@ -45,9 +46,6 @@
         width: 24px;
         height: 24px;
       }
-      .icon.active {
-        animation: favClick 0.3s;
-      }
     }
     .name {
       font-size: 13px;
@@ -61,7 +59,37 @@
       margin-top: 8px;
       .sale {
         color: $sale-color;
+        margin-right: 3px;
       }
+    }
+  }
+}
+.recommended-item-slider {
+  position: relative;
+  overflow: hidden;
+  .arrow {
+    position: absolute;
+    top: calc(50% - 35px);
+    width: 30px;
+    height: 30px;
+    padding: 3px 3px 3px 5px;
+    border-radius: 50%;
+    z-index: 2;
+    background-color: $first-dark-back;
+    cursor: pointer;
+  }
+  .arrow.left {
+    left: 8px;
+    transform: rotate(180deg);
+  }
+  .arrow.right {
+    right: 8px;
+  }
+  .item-map-section {
+    position: relative;
+    flex-wrap: nowrap;
+    .item {
+      flex: 0 0 32.5%;
     }
   }
 }
@@ -81,15 +109,4 @@
   transform: translateX(-50%);
   background-color: #333;
   z-index: 1000;
-}
-@keyframes favClick {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.1);
-  }
-  100% {
-    transform: scale(1);
-  }
 }

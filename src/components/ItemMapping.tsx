@@ -23,10 +23,12 @@ const ItemMapping: React.FC<ItemMappingProps> = ({ items }) => {
   const navigate = useNavigate();
 
   // 스크롤 감지
-  const { ref, inView } = useInView();
+  const { ref, inView } = useInView({
+    rootMargin: "0px 0px -90px 0px",
+  });
 
   useEffect(() => {
-    if (inView && hasNextPage() && !loading && window.scrollY > 0) {
+    if (inView && hasNextPage() && !loading) {
       loadMoreItems();
     }
   }, [inView]);
@@ -102,7 +104,7 @@ const ItemMapping: React.FC<ItemMappingProps> = ({ items }) => {
           </div>
           <div className="name">{item.name}</div>
           <div className="price">
-            <span className="sale">{item.sale}</span>{" "}
+            <span className="sale">{item.sale}</span>
             {item.price.toLocaleString()}원
           </div>
         </div>
